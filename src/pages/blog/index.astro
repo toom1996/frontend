@@ -9,6 +9,7 @@ import FormattedDate from '../../components/FormattedDate.astro';
 const posts = (await getCollection('blog')).sort(
 	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
 );
+const posts1 = await Astro.glob('../../content/blog/*.md'); // 返回位于 ./src/pages/post/*.md 的数组并存储在常量 posts 中
 ---
 
 <!DOCTYPE html>
@@ -87,6 +88,9 @@ const posts = (await getCollection('blog')).sort(
 	</head>
 	<body>
 		<Header />
+		<h1>当前链接是：{Astro.url}</h1>
+<h1>当前链接路径名是：{Astro.url.pathname}</h1>
+<h1>当前链接源是：{Astro.url.origin}</h1>
 		<main>
 			<section>
 				<ul>
@@ -99,6 +103,17 @@ const posts = (await getCollection('blog')).sort(
 									<p class="date">
 										<FormattedDate date={post.data.pubDate} />
 									</p>
+								</a>
+							</li>
+						))
+					}
+				</ul>
+				<ul>
+					{
+						posts1.map((post) => (
+							<li>
+								<a href={`/blog/${post.file}/`}>
+									{`/blog/${post.frontmatter.title}/`}
 								</a>
 							</li>
 						))

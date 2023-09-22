@@ -1,50 +1,600 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import BaseHead from "../components/BaseHead.astro";
+// import Header from '../components/Header.astro';
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+export const prerender = false;
+import Header from "../components/common/Header.vue";
+import "../styles/main.css";
+// const post = await fetch("https://jsonplaceholder.typicode.com/posts?_limit=5")
+// const postData = await post.json()
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+	<script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
 	<body>
-		<Header title={SITE_TITLE} />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/pages/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
+		<Header client:load />
+		<div class="nav-dropdown hidden md:block invisible" data-nav-target="dropdown" data-dropdown="help" data-placement="bottom" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(1029px, 60px);" data-popper-placement="bottom">
+			<div data-popper-arrow="" style="position: absolute; left: 0px; transform: translate(78px, 0px);"></div>
+			<div class="flex flex-col items-center justify-center space-y-sm leading-dense text-xs py-xs">
+				<a target="_blank" href="https://hbx.com/cn/faq" data-agl-cvt="1">常见问题</a>
+				<a href="https://hbx.com/cn/delivery">送货细则</a>
+				<a href="https://hbx.com/cn/returns">退货细则</a>
+				<a href="https://hbx.com/cn/payment">在线支付</a>
+				<a href="https://hbx.com/cn/faq#contact" data-agl-cvt="1">联系我们</a>
+				<a href="https://hbx.com/cn/order-status">订单状态</a>
+			</div>
+		</div>
+		<div
+			id="journal-container"
+			data-controller="journal-article"
+			data-action="load@window->journal-article#handleImageBlock"
+			data-v-app=""
+		>
+			<div class="container md:px-8 px-0 md:mt-8 max-w-screen-2xl">
+				<div class="flex flex-wrap md:flex-nowrap flex-row-reverse">
+					<div class="w-full" id="article-list">
+						<div id="feature-banner">
+							<a
+								class="hover:opacity-100"
+								href="https://hbx.com/cn/journal/2023/05/2023-y2k-berghain-goth"
+								><div class="relative">
+									<img
+										src="https://aliyun-img.hypebeast.cn/https%3A%2F%2Fhbx.hypebeast.com%2Ffiles%2F2023%2F04%2FTR2-MEN-3x21800x1200.jpg?fit=max&w=1080&q=90"
+										class="w-full aspect-ratio-3x2 hidden md:inline-block"
+									/><img
+										src="https://aliyun-img.hypebeast.cn/https%3A%2F%2Fhbx.hypebeast.com%2Ffiles%2F2023%2F04%2FTR2-MEN-3x21800x1200.jpg?fit=max&w=720&q=90"
+										class="w-full aspect-ratio-3x2 md:hidden"
+									/>
+								</div><div class="post-summary">
+									<div
+										class="hidden md:block md:mt-lg mt-0 lg:mt-0 mb-xs text-base leading-dense"
+									>
+										服裝
+									</div><h2
+										class="font-bold leading-none text-2xl md:text-3xl hover:opacity-70"
+										cursorshover="true"
+									>
+										2023 春夏男装潮流趋势：Y2K, BERGHAIN
+										GOTH 和更多风格
+									</h2><div class="post-excerpt mt-sm">
+									</div><div
+										class="underline font-bold mt-6 uppercase leading-dense hover:opacity-70"
+									>
+										阅读更多
+									</div>
+								</div></a
+							>
+						</div><hr /><div
+							class="flex font-bold my-6 leading-none px-md md:px-0 text-2xl md:text-3xl  md:mb-xl justify-between"
+						>
+							<h3 class="md:mt-xs">最新文章</h3><div
+								class="flex items-end justify-between w-2xl md:hidden"
+							>
+							</div>
+						</div><div
+							id="journal-search"
+							class="hidden mx-md"
+							data-controller="journal-filter"
+							data-journal-filter-url-value="https://hbx.com/cn/journal"
+							data-journal-filter-query-value="{}"
+						>
+							<div
+								class="relative block md:inline-block mt-lg md:mt-0"
+							>
+								<input
+									data-action="keyup->journal-filter#searchJournal"
+									data-journal-filter-target="nameInput"
+									class="w-full hover:border-input hover:border focus:border focus:border-input"
+									type="text"
+									placeholder="搜寻文章"
+									style="padding-left: 43px;"
+								/><svg
+									data-action="click->journal-filter#searchJournal"
+									class="absolute left-md top-md cursor-pointer icon icon-xl"
+									><use
+										xlink:href="/icomoon/hbx/symbol-defs.svg#icon-search-dark"
+									></use></svg
+								>
+							</div>
+						</div><div id="journal-list" class="px-md md:px-0">
+							<a
+								class="hover:opacity-100"
+								href="https://hbx.com/cn/journal/2023/06/shixinwenyue"
+								><div
+									class="grid grid-cols-1 lg:grid-cols-2 my-6 md:my-xl"
+								>
+									<div class="col mb-sm lg:mb-0">
+										<img
+											src="https://aliyun-img.hypebeast.cn/https%3A%2F%2Fhbx.hypebeast.com%2Ffiles%2F2023%2F06%2Fpick100.jpg?fit=max&w=720&q=90"
+											class="aspect-ratio-3x2"
+										/>
+									</div><div class="col">
+										<div class="flex flex-col">
+											<div
+												class="text-xs lg:text-base leading-dense"
+											>
+												服裝
+											</div><h2
+												class="font-bold leading-none my-2 mt-xs text-2xl md:text-3xl hover:opacity-70"
+											>
+												施鑫文月专访：我想要做有温度的音乐
+											</h2><div
+												class="leading-dense lg:text-lg"
+											>
+											</div><div
+												class="font-bold mt-4 underline leading-none md:leading-normal hover:opacity-70"
+											>
+												阅读更多
+											</div>
+										</div>
+									</div>
+								</div></a
+							><hr /><a
+								class="hover:opacity-100"
+								href="https://hbx.com/cn/journal/2023/05/a24"
+								><div
+									class="grid grid-cols-1 lg:grid-cols-2 my-6 md:my-xl"
+								>
+									<div class="col mb-sm lg:mb-0">
+										<img
+											src="https://aliyun-img.hypebeast.cn/https%3A%2F%2Fhbx.hypebeast.com%2Ffiles%2F2023%2F06%2Fbeef-characters-sneakers-a24-netflix-01.jpeg?fit=max&w=720&q=90"
+											class="aspect-ratio-3x2"
+										/>
+									</div><div class="col">
+										<div class="flex flex-col">
+											<div
+												class="text-xs lg:text-base leading-dense"
+											>
+												鞋类
+											</div><h2
+												class="font-bold leading-none mb-sm mt-xs text-2xl md:text-3xl hover:opacity-70"
+											>
+												A24《怒呛人生》里的角色会穿着怎样的运动鞋？
+											</h2><div
+												class="leading-dense lg:text-lg"
+											>
+											</div><div
+												class="font-bold mt-lg underline leading-none md:leading-normal hover:opacity-70"
+											>
+												阅读更多
+											</div>
+										</div>
+									</div>
+								</div></a
+							><hr /><a
+								class="hover:opacity-100"
+								href="https://hbx.com/cn/journal/2023/05/2023-bikercore-sheer"
+								><div
+									class="grid grid-cols-1 lg:grid-cols-2 my-6 md:my-xl"
+								>
+									<div class="col mb-sm lg:mb-0">
+										<img
+											src="https://aliyun-img.hypebeast.cn/https%3A%2F%2Fhbx.hypebeast.com%2Ffiles%2F2023%2F04%2FTR2-WM-3x21800x1200.jpg?fit=max&w=720&q=90"
+											class="aspect-ratio-3x2"
+										/>
+									</div><div class="col">
+										<div class="flex flex-col">
+											<div
+												class="text-xs lg:text-base leading-dense"
+											>
+												服裝
+											</div><h2
+												class="font-bold leading-none mb-sm mt-xs text-2xl md:text-3xl hover:opacity-70"
+											>
+												2023
+												春夏女装潮流趋势：BIKERCORE、SHEER
+												和更多风格
+											</h2><div
+												class="leading-dense lg:text-lg"
+											>
+											</div><div
+												class="font-bold mt-lg underline leading-none md:leading-normal hover:opacity-70"
+											>
+												阅读更多
+											</div>
+										</div>
+									</div>
+								</div></a
+							><hr /><a
+								class="hover:opacity-100"
+								href="https://hbx.com/cn/journal/2023/05/collina-strada"
+								><div
+									class="grid grid-cols-1 lg:grid-cols-2 my-6 md:my-xl"
+								>
+									<div class="col mb-sm lg:mb-0">
+										<img
+											src="https://aliyun-img.hypebeast.cn/https%3A%2F%2Fhbx.hypebeast.com%2Ffiles%2F2023%2F05%2Fcollina-strada-0-1.jpeg?fit=max&w=720&q=90"
+											class="aspect-ratio-3x2"
+										/>
+									</div><div class="col">
+										<div class="flex flex-col">
+											<div
+												class="text-xs lg:text-base leading-dense"
+											>
+												服裝
+											</div><h2
+												class="font-bold leading-none mb-sm mt-xs text-2xl md:text-3xl hover:opacity-70"
+											>
+												COLLINA STRADA:
+												以慢时尚理念守护永续未来
+											</h2><div
+												class="leading-dense lg:text-lg"
+											>
+											</div><div
+												class="font-bold mt-lg underline leading-none md:leading-normal hover:opacity-70"
+											>
+												阅读更多
+											</div>
+										</div>
+									</div>
+								</div></a
+							><hr /><a
+								class="hover:opacity-100"
+								href="https://hbx.com/cn/journal/2023/05/2023"
+								><div
+									class="grid grid-cols-1 lg:grid-cols-2 my-6 md:my-xl"
+								>
+									<div class="col mb-sm lg:mb-0">
+										<img
+											src="https://aliyun-img.hypebeast.cn/https%3A%2F%2Fhbx.hypebeast.com%2Ffiles%2F2023%2F05%2Fspring-handbags-trends-editorial-2023-0.jpeg?fit=max&w=720&q=90"
+											class="aspect-ratio-3x2"
+										/>
+									</div><div class="col">
+										<div class="flex flex-col">
+											<div
+												class="text-xs lg:text-base leading-dense"
+											>
+												服裝
+											</div><h2
+												class="font-bold leading-none mb-sm mt-xs text-2xl md:text-3xl hover:opacity-70"
+											>
+												2023
+												不容错过的大热包款！潮流解析及搭配指南
+											</h2><div
+												class="leading-dense lg:text-lg"
+											>
+											</div><div
+												class="font-bold mt-lg underline leading-none md:leading-normal hover:opacity-70"
+											>
+												阅读更多
+											</div>
+										</div>
+									</div>
+								</div></a
+							><hr /><a
+								class="hover:opacity-100"
+								href="https://hbx.com/cn/journal/2023/05/raw-emotions-kurtis-archives-jeans-neighborhood-undercover-louis-vuitton-jeans-collection-2"
+								><div
+									class="grid grid-cols-1 lg:grid-cols-2 my-6 md:my-xl"
+								>
+									<div class="col mb-sm lg:mb-0">
+										<img
+											src="https://aliyun-img.hypebeast.cn/https%3A%2F%2Fhbx.hypebeast.com%2Ffiles%2F2023%2F05%2FBanner_003.jpg?fit=max&w=720&q=90"
+											class="aspect-ratio-3x2"
+										/>
+									</div><div class="col">
+										<div class="flex flex-col">
+											<h2
+												class="font-bold leading-none mb-sm mt-xs text-2xl md:text-3xl hover:opacity-70"
+											>
+												专访 RAW EMOTIONS
+												主理人的牛仔裤收藏
+											</h2><div
+												class="leading-dense lg:text-lg"
+											>
+												一览主理人 Kurtis 的惊人收藏
+											</div><div
+												class="font-bold mt-lg underline leading-none md:leading-normal hover:opacity-70"
+											>
+												阅读更多
+											</div>
+										</div>
+									</div>
+								</div></a
+							><hr /><a
+								class="hover:opacity-100"
+								href="https://hbx.com/cn/journal/2023/05/how-to-style-heeled-boots-jerry-haha-editorial-interview-guide-margiela-tabi-our-legacy-3"
+								><div
+									class="grid grid-cols-1 lg:grid-cols-2 my-6 md:my-xl"
+								>
+									<div class="col mb-sm lg:mb-0">
+										<img
+											src="https://aliyun-img.hypebeast.cn/https%3A%2F%2Fhbx.hypebeast.com%2Ffiles%2F2023%2F05%2Fjerry-haha-boots-000.jpg?fit=max&w=720&q=90"
+											class="aspect-ratio-3x2"
+										/>
+									</div><div class="col">
+										<div class="flex flex-col">
+											<div
+												class="text-xs lg:text-base leading-dense"
+											>
+												服裝
+											</div><h2
+												class="font-bold leading-none mb-sm mt-xs text-2xl md:text-3xl hover:opacity-70"
+											>
+												如何以 JERRY HAHA
+												風格塑造高跟靴造型
+											</h2><div
+												class="leading-dense lg:text-lg"
+											>
+											</div><div
+												class="font-bold mt-lg underline leading-none md:leading-normal hover:opacity-70"
+											>
+												阅读更多
+											</div>
+										</div>
+									</div>
+								</div></a
+							><hr /><a
+								class="hover:opacity-100"
+								href="https://hbx.com/cn/journal/2023/04/hbx-new-york-community-feature-sierrarena-5"
+								><div
+									class="grid grid-cols-1 lg:grid-cols-2 my-6 md:my-xl"
+								>
+									<div class="col mb-sm lg:mb-0">
+										<img
+											src="https://aliyun-img.hypebeast.cn/https%3A%2F%2Fhbx.hypebeast.com%2Ffiles%2F2023%2F04%2Fhbx-new-york-community-feature-sierrarena-0.jpg?fit=max&w=720&q=90"
+											class="aspect-ratio-3x2"
+										/>
+									</div><div class="col">
+										<div class="flex flex-col">
+											<div
+												class="text-xs lg:text-base leading-dense"
+											>
+												服裝
+											</div><h2
+												class="font-bold leading-none mb-sm mt-xs text-2xl md:text-3xl hover:opacity-70"
+											>
+												HBX MEETS: 纽约时尚造型师 SIERRA
+												RENA
+											</h2><div
+												class="leading-dense lg:text-lg"
+											>
+											</div><div
+												class="font-bold mt-lg underline leading-none md:leading-normal hover:opacity-70"
+											>
+												阅读更多
+											</div>
+										</div>
+									</div>
+								</div></a
+							><hr /><a
+								class="hover:opacity-100"
+								href="https://hbx.com/cn/journal/2023/04/hbx-ss23cn-2"
+								><div
+									class="grid grid-cols-1 lg:grid-cols-2 my-6 md:my-xl"
+								>
+									<div class="col mb-sm lg:mb-0">
+										<img
+											src="https://aliyun-img.hypebeast.cn/https%3A%2F%2Fhbx.hypebeast.com%2Ffiles%2F2023%2F04%2FFeature-Banner_1200x800.jpg?fit=max&w=720&q=90"
+											class="aspect-ratio-3x2"
+										/>
+									</div><div class="col">
+										<div class="flex flex-col">
+											<div
+												class="text-xs lg:text-base leading-dense"
+											>
+												服裝
+											</div><h2
+												class="font-bold leading-none mb-sm mt-xs text-2xl md:text-3xl hover:opacity-70"
+											>
+												HBX SS23：重塑自我
+											</h2><div
+												class="leading-dense lg:text-lg"
+											>
+												探索我们为您精挑细选的春夏季时尚潮流单品。
+											</div><div
+												class="font-bold mt-lg underline leading-none md:leading-normal hover:opacity-70"
+											>
+												阅读更多
+											</div>
+										</div>
+									</div>
+								</div></a
+							><hr />
+						</div>
+					</div><div
+						class="journal-filter hidden w-full pr-lg box-content bg-white fixed top-0 left-0 h-full flex flex-col md:block md:sticky md:pr-4 z-50 md:z-10"
+					>
+						<div
+							data-controller="journal-filter"
+							data-journal-filter-url-value="https://hbx.com/cn/journal"
+							data-journal-filter-query-value="{}"
+						>
+							<div
+								class="bg-white md:border-b border-input fixed flex flex-row items-center filter-header justify-between md:hidden p-md md:hidden w-full z-10"
+							>
+								<div
+									class="text-muted"
+									data-action="click->journal-filter#clearFilter"
+								>
+									清除所有
+								</div><div
+									class="hbx:uppercase text-2xl font-bold capitalize"
+								>
+									筛选
+								</div><svg
+									class="icon icon-3xl cursor-pointer"
+									data-action="click->journal-filter#closeFilter"
+									><use
+										xlink:href="/icomoon/hbx/symbol-defs.svg#icon-pop-up-close15x"
+									></use></svg
+								>
+							</div><div
+								class="md:pt-0 flex-grow overscroll-y-auto overscroll-x-auto overscroll-contain"
+							>
+								<div
+									class="divide-y grid grid-cols-1 uppercase px-md md:px-0 filter-content"
+								>
+									<div
+										class="relative md:inline-block mb-xs hidden"
+									>
+										<input
+											data-action="keyup->journal-filter#searchJournal"
+											data-journal-filter-target="nameInput"
+											class="w-full hover:border-input hover:border focus:border focus:border-input py-3 border border-gray-950"
+											type="text"
+											placeholder="搜寻文章"
+											style="padding-left: 43px;"
+										/>
+										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+											<path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+										  </svg>										  
+									</div><details
+										open=""
+										class="block mt-0 md:mt-6"
+									>
+										<summary> 类别</summary><ul
+											class="flex flex-col space-y-sm md:space-y-xs pb-xs"
+										>
+											<li
+												class="leading-none md:text-2xl text-sm"
+											>
+												<a
+													href="https://hbx.com/cn/journal"
+													class="md:font-bold md:text-primary hover:text-primary"
+												>
+													全部
+												</a>
+											</li><li
+												class="leading-none md:text-2xl text-sm"
+											>
+												<a
+													href="https://hbx.com/cn/journal/fashion"
+													class="md:font-bold md:text-muted hover:text-primary"
+												>
+													服裝
+												</a>
+											</li><li
+												class="leading-none md:text-2xl text-sm"
+											>
+												<a
+													href="https://hbx.com/cn/journal/footwear"
+													class="md:font-bold md:text-muted hover:text-primary"
+												>
+													鞋类
+												</a>
+											</li><li
+												class="leading-none md:text-2xl text-sm"
+											>
+												<a
+													href="https://hbx.com/cn/journal/lifestyle"
+													class="md:font-bold md:text-muted hover:text-primary"
+												>
+													生活
+												</a>
+											</li><li
+												class="leading-none md:text-2xl text-sm"
+											>
+												<a
+													href="https://hbx.com/cn/journal/culture"
+													class="md:font-bold md:text-muted hover:text-primary"
+												>
+													文化
+												</a>
+											</li>
+										</ul>
+									</details>
+									<details open="" class="block">
+										<summary> 分类</summary><ul
+											class="flex flex-col space-y-sm"
+										>
+											<li class="text-sm leading-none">
+												<a
+													href="https://hbx.com/cn/journal"
+													class="md:font-bold hover:text-primary"
+												>
+													全部
+												</a>
+											</li><li
+												class="text-sm leading-none"
+											>
+												<a
+													href="https://hbx.com/cn/journal/all/men"
+													class="md:font-normal hover:text-primary"
+												>
+													男装
+												</a>
+											</li><li
+												class="text-sm leading-none"
+											>
+												<a
+													href="https://hbx.com/cn/journal/all/women"
+													class="md:font-normal hover:text-primary"
+												>
+													女装
+												</a>
+											</li><li
+												class="text-sm leading-none"
+											>
+												<a
+													href="https://hbx.com/cn/journal/all/life"
+													class="md:font-normal hover:text-primary"
+												>
+													生活类
+												</a>
+											</li><li
+												class="text-sm leading-none"
+											>
+												<a
+													href="https://hbx.com/cn/journal/all/archives"
+													class="md:font-normal hover:text-primary"
+												>
+													二手服裝
+												</a>
+											</li>
+										</ul>
+									</details>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container text-center my-8">
+				<div data-v-df3ee8ac="">
+					<!--v-if--><!--v-if-->
+					<div class="pagination ml-auto mr-auto" data-v-df3ee8ac="">
+						<a
+							class="uppercase paginator-button font-bold berrics-style muted"
+							data-v-df3ee8ac=""
+							><span class="hidden md:inline" data-v-df3ee8ac=""
+								>←</span
+							> 上一页</a
+						><a
+							href="https://hbx.com/cn/journal?page=1"
+							class="paginator-button font-bold underline p-3"
+							data-v-df3ee8ac="">1</a
+						><a
+							href="https://hbx.com/cn/journal?page=2"
+							class="paginator-button p-3"
+							data-v-df3ee8ac="">2</a
+						><a
+							href="https://hbx.com/cn/journal?page=3"
+							class="paginator-button p-3"
+							data-v-df3ee8ac="">3</a
+						><a
+							href="https://hbx.com/cn/journal?page=2&limit=10"
+							class="uppercase paginator-button font-bold berrics-style"
+							data-v-df3ee8ac=""
+							>下一页 <span
+								class="hidden md:inline"
+								data-v-df3ee8ac="">→</span
+							></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer id="hbx-footer" class="uppercase pt-lg sm:pt-xl pb-xl text-xs border-t border-black" data-controller="footer" data-action="load@window->footer#loadComponents" data-v-app=""><div class="container px-md md:px-xl"><div class="main-section grid grid-cols-1 gap-0 sm:gap-xl lg:gap-xl sm:grid-cols-2 lg:grid-cols-4 pt-xs sm:pt-0"><div class="mb-md order-1"><div class="font-bold mb-md text-base">关注我们</div><div class="flex flex-row flex-nowrap space-x-sm mb-sm sm:mb-md" data-v-76d86fa2=""><a href="https://www.instagram.com/hbx/" target="_blank" aria-label="instagram label" data-v-76d86fa2=""><svg class="icon icon-xl" data-v-76d86fa2=""><use xlink:href="/icomoon/hbx/symbol-defs.svg#icon-ic_social-ig" data-v-76d86fa2=""></use></svg><!-- WeChat QR Code on Desktop--><!--v-if--></a><a href="#" target="_blank" aria-label="wechat label" data-v-76d86fa2=""><svg class="icon icon-xl" data-v-76d86fa2=""><use xlink:href="/icomoon/hbx/symbol-defs.svg#icon-ic_social-wechat" data-v-76d86fa2=""></use></svg><!-- WeChat QR Code on Desktop--><div class="wechat-anchor relative hidden md:block" data-v-76d86fa2=""><div class="wechat-tooltip hidden" data-v-76d86fa2=""><div class="mb-md" data-v-76d86fa2="">关注微信公众号</div><img src="https://hbx.com/build/shop/images/hbx/wechat-QR-code.630b3e1d.jpg" width="120" height="120" alt="Loading QR-Code" data-v-76d86fa2=""></div></div></a><a href="https://weibo.com/5628581119?refer_flag=1001030103_" target="_blank" aria-label="weibo label" data-v-76d86fa2=""><svg class="icon icon-xl" data-v-76d86fa2=""><use xlink:href="/icomoon/hbx/symbol-defs.svg#icon-ic_social-weibo" data-v-76d86fa2=""></use></svg><!-- WeChat QR Code on Desktop--><!--v-if--></a><a href="https://www.xiaohongshu.com/user/profile/61b842a8000000001000a8ab?xhsshare=CopyLink&amp;appuid=61b842a8000000001000a8ab&amp;apptime=1646384997" target="_blank" aria-label="redbook label" data-v-76d86fa2=""><svg class="icon icon-xl" data-v-76d86fa2=""><use xlink:href="/icomoon/hbx/symbol-defs.svg#icon-ic_social-redbook" data-v-76d86fa2=""></use></svg><!-- WeChat QR Code on Desktop--><!--v-if--></a><!-- WeChat QR Code on popup dialog for Mobile --><!----></div></div><div class="mb-md order-2"><div class="font-bold mb-md text-base leading-dense">下载 HBX APP</div><div class="mb-sm sm:mb-md"><a href="https://hbx.com/cn/app" class="flex items-center" data-agl-cvt="6"><svg style="width: 46px; height: 46px;"><use xlink:href="/icomoon/hbx/symbol-defs.svg#icon-ic_app-icon"></use></svg><span class="font-bold ml-sm no-underline leading-dense"> 专为IOS及ANDROID系统的手机及平板电脑度身订造 </span></a></div></div><div class="mb-md order-3"><div class="font-bold mb-md text-base leading-dense uppercase">现在订阅可以获得首单九折优惠</div><div id="footer-newsletter" class="footer-body mb-sm sm:mb-md text-xs"><form method="post" action="https://hbx.com/cn/newsletter" class="side-button-input-group w-full flex flex-row flex-nowrap"><input type="email" name="email" placeholder="电子邮箱" class="border-none flex-grow w-2/5" required=""><input type="checkbox" name="lists[]" class="hidden" value="men"><input type="checkbox" name="lists[]" class="hidden" value="women"><input type="checkbox" name="lists[]" class="hidden" value="life"><input type="checkbox" name="lists[]" class="hidden" value="archives"><button class="form-button secondary border-none" onclick="this.parentNode.submit(); return false;" data-controller="ga-custom-event" data-ga-custom-event-category-value="footer_newsletter_subscribe" data-ga-custom-event-action-value="click" data-ga-custom-event-label-value="subscribe"> 订阅 </button></form><p class="text-muted normal-case mt-sm leading-dense" style="font-size: 10px;">一旦订阅，代表您同意本公司的<a class="underline" href="https://hbx.com/cn/terms">使用条款</a>和<a class="underline" href="https://hbx.com/cn/privacy">隐私政策</a>。</p></div></div><div class="mb-md order-first sm:order-last"><div class="font-bold mb-md text-base leading-dense">语言与地区</div><div class="mb-md flex flex-row flex-wrap content-ev
+				enly normal-case"><a href="https://h
+bx.
+co
+m/cn/settings" class="flex items-center
+ mt-xs mr-sm"><div alt="CNY" class="mr-xs border fflag fflag-CN" style="width: 21px; height: 13px;"></div><span class="text-xs leading-none whitespace-nowrap" style="margin-bottom: 1px;"> 中国大陆 (CN), CNY </span></a><a href="https://hbx.com/cn/settings" class="flex items-center mt-xs mr-sm"><svg class="icon icon-lg mr-xs"><use xlink:href="/icomoon/symbol-defs.svg#icon-language"></use></svg><span class="text-xs leading-none whitespace-nowrap" style="margin-bottom: 1px;">中文</span></a></div></div></div><div class="flex justify-between flex-wrap sm:mt-lg leading-tight"><ul class="font-bold mb-md hidden md:flex flex-row space-x-lg" itemscope="" itemtype="http://schema.org/SiteNavigationElement"><li itemprop="name"><a itemprop="url" href="https://hbx.com/cn/about" data-controller="ga-custom-event" data-ga-custom-event-category-value="footer_navigation" data-ga-custom-event-action-value="click" data-ga-custom-event-label-value="hbx-footer-page-about"> 关于 </a></li><li itemprop="name"><a itemprop="url" href="https://hbx.com/cn/stores" data-controller="ga-custom-event" data-ga-custom-event-category-value="footer_navigation" data-ga-custom-event-action-value="click" data-ga-custom-event-label-value="hbx-footer-page-retail-stores"> 零售店 </a></li><li itemprop="name"><a itemprop="url" href="https://hbx.com/cn/faq" data-controller="ga-custom-event" data-ga-custom-event-category-value="footer_navigation" data-ga-custom-event-action-value="click" data-ga-custom-event-label-value="hbx-footer-page-help"> 帮助 </a></li><li itemprop="name"><a itemprop="url" href="https://hbx.com/cn/pro" data-controller="ga-custom-event" data-ga-custom-event-category-value="footer_navigation" data-ga-custom-event-action-value="click" data-ga-custom-event-label-value="hbx-footer-page-pro"> HBX Pro </a></li><li itemprop="name"><a itemprop="url" href="https://hbx.com/cn/referral" data-controller="ga-custom-event" data-ga-custom-event-category-value="footer_navigation" data-ga-custom-event-action-value="click" data-ga-custom-event-label-value="hbx-footer-page-referral"> 客户推荐计划 </a></li><li itemprop="name"><a itemprop="url" href="https://hbx.com/cn/affiliates" data-controller="ga-custom-event" data-ga-custom-event-category-value="footer_navigation" data-ga-custom-event-action-value="click" data-ga-custom-event-label-value="hbx-footer-page-affiliates"> 联属营销计划 </a></li></ul><div class="copyright text-left lg:text-right"><div class="flex flex-row flex-wrap md:justify-end"><span class="pr-xs">2023 <a href="https://hypebeast.ltd/">Hypebeast Limited</a> 版权所有</span><a href="https://hbx.com/cn/terms" class="pr-xs">网站声明</a><a href="https://hbx.com/cn/privacy" class="pr-xs">隐私政策</a><a href="https://hbx.com/cn/gdpr">gdpr</a></div><span>HBX® is a registered trademark of Hypebeast Hong Kong Ltd.</span></div></div></div></footer>
 	</body>
 </html>
