@@ -5,28 +5,49 @@ import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 export const prerender = false;
 import Header from "../components/common/Header.vue";
+import Header1 from "../components/common/Header.astro";
 import "../styles/main.css";
-// const post = await fetch("https://jsonplaceholder.typicode.com/posts?_limit=5")
-// const postData = await post.json()
+// const post = await fetch("http://127.0.0.1:8000/api/v1/header/menus")
+// const {data} = await post.json()
+// console.log(data)
 ---
 
 <!doctype html>
 <html lang="en">
-	<script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+	<script>console.log('v:0.0.1')</script>
 
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
+	<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+
 	<body>
-		<Header client:load />
-		<div class="nav-dropdown hidden md:block invisible" data-nav-target="dropdown" data-dropdown="help" data-placement="bottom" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(1029px, 60px);" data-popper-placement="bottom">
-			<div data-popper-arrow="" style="position: absolute; left: 0px; transform: translate(78px, 0px);"></div>
-			<div class="flex flex-col items-center justify-center space-y-sm leading-dense text-xs py-xs">
-				<a target="_blank" href="https://hbx.com/cn/faq" data-agl-cvt="1">常见问题</a>
+		<!-- <Header client:load /> -->
+		<Header1 />
+		<div
+			class="nav-dropdown hidden md:block invisible"
+			data-nav-target="dropdown"
+			data-dropdown="help"
+			data-placement="bottom"
+			style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(1029px, 60px);"
+			data-popper-placement="bottom"
+		>
+			<div
+				data-popper-arrow=""
+				style="position: absolute; left: 0px; transform: translate(78px, 0px);"
+			>
+			</div>
+			<div
+				class="flex flex-col items-center justify-center space-y-sm leading-dense text-xs py-xs"
+			>
+				<a
+					target="_blank"
+					href="https://hbx.com/cn/faq"
+					data-agl-cvt="1">常见问题</a
+				>
 				<a href="https://hbx.com/cn/delivery">送货细则</a>
 				<a href="https://hbx.com/cn/returns">退货细则</a>
 				<a href="https://hbx.com/cn/payment">在线支付</a>
-				<a href="https://hbx.com/cn/faq#contact" data-agl-cvt="1">联系我们</a>
+				<a href="https://hbx.com/cn/faq#contact" data-agl-cvt="1"
+					>联系我们</a
+				>
 				<a href="https://hbx.com/cn/order-status">订单状态</a>
 			</div>
 		</div>
@@ -71,7 +92,7 @@ import "../styles/main.css";
 								</div></a
 							>
 						</div><hr /><div
-							class="flex font-bold my-6 leading-none px-md md:px-0 text-2xl md:text-3xl  md:mb-xl justify-between"
+							class="flex font-bold my-6 leading-none px-md md:px-0 text-2xl md:text-3xl md:mb-xl justify-between"
 						>
 							<h3 class="md:mt-xs">最新文章</h3><div
 								class="flex items-end justify-between w-2xl md:hidden"
@@ -411,7 +432,6 @@ import "../styles/main.css";
 							>
 								<div
 									class="text-muted"
-									data-action="click->journal-filter#clearFilter"
 								>
 									清除所有
 								</div><div
@@ -420,32 +440,18 @@ import "../styles/main.css";
 									筛选
 								</div><svg
 									class="icon icon-3xl cursor-pointer"
-									data-action="click->journal-filter#closeFilter"
 									><use
 										xlink:href="/icomoon/hbx/symbol-defs.svg#icon-pop-up-close15x"
 									></use></svg
 								>
-							</div><div
+							</div>
+							<div
 								class="md:pt-0 flex-grow overscroll-y-auto overscroll-x-auto overscroll-contain"
 							>
 								<div
 									class="divide-y grid grid-cols-1 uppercase px-md md:px-0 filter-content"
 								>
-									<div
-										class="relative md:inline-block mb-xs hidden"
-									>
-										<input
-											data-action="keyup->journal-filter#searchJournal"
-											data-journal-filter-target="nameInput"
-											class="w-full hover:border-input hover:border focus:border focus:border-input py-3 border border-gray-950"
-											type="text"
-											placeholder="搜寻文章"
-											style="padding-left: 43px;"
-										/>
-										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-											<path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-										  </svg>										  
-									</div><details
+									<details
 										open=""
 										class="block mt-0 md:mt-6"
 									>
@@ -585,16 +591,112 @@ import "../styles/main.css";
 							>下一页 <span
 								class="hidden md:inline"
 								data-v-df3ee8ac="">→</span
-							></a>
+							></a
+						>
 					</div>
 				</div>
 			</div>
 		</div>
-		<footer id="hbx-footer" class="uppercase pt-lg sm:pt-xl pb-xl text-xs border-t border-black" data-controller="footer" data-action="load@window->footer#loadComponents" data-v-app=""><div class="container px-md md:px-xl"><div class="main-section grid grid-cols-1 gap-0 sm:gap-xl lg:gap-xl sm:grid-cols-2 lg:grid-cols-4 pt-xs sm:pt-0"><div class="mb-md order-1"><div class="font-bold mb-md text-base">关注我们</div><div class="flex flex-row flex-nowrap space-x-sm mb-sm sm:mb-md" data-v-76d86fa2=""><a href="https://www.instagram.com/hbx/" target="_blank" aria-label="instagram label" data-v-76d86fa2=""><svg class="icon icon-xl" data-v-76d86fa2=""><use xlink:href="/icomoon/hbx/symbol-defs.svg#icon-ic_social-ig" data-v-76d86fa2=""></use></svg><!-- WeChat QR Code on Desktop--><!--v-if--></a><a href="#" target="_blank" aria-label="wechat label" data-v-76d86fa2=""><svg class="icon icon-xl" data-v-76d86fa2=""><use xlink:href="/icomoon/hbx/symbol-defs.svg#icon-ic_social-wechat" data-v-76d86fa2=""></use></svg><!-- WeChat QR Code on Desktop--><div class="wechat-anchor relative hidden md:block" data-v-76d86fa2=""><div class="wechat-tooltip hidden" data-v-76d86fa2=""><div class="mb-md" data-v-76d86fa2="">关注微信公众号</div><img src="https://hbx.com/build/shop/images/hbx/wechat-QR-code.630b3e1d.jpg" width="120" height="120" alt="Loading QR-Code" data-v-76d86fa2=""></div></div></a><a href="https://weibo.com/5628581119?refer_flag=1001030103_" target="_blank" aria-label="weibo label" data-v-76d86fa2=""><svg class="icon icon-xl" data-v-76d86fa2=""><use xlink:href="/icomoon/hbx/symbol-defs.svg#icon-ic_social-weibo" data-v-76d86fa2=""></use></svg><!-- WeChat QR Code on Desktop--><!--v-if--></a><a href="https://www.xiaohongshu.com/user/profile/61b842a8000000001000a8ab?xhsshare=CopyLink&amp;appuid=61b842a8000000001000a8ab&amp;apptime=1646384997" target="_blank" aria-label="redbook label" data-v-76d86fa2=""><svg class="icon icon-xl" data-v-76d86fa2=""><use xlink:href="/icomoon/hbx/symbol-defs.svg#icon-ic_social-redbook" data-v-76d86fa2=""></use></svg><!-- WeChat QR Code on Desktop--><!--v-if--></a><!-- WeChat QR Code on popup dialog for Mobile --><!----></div></div><div class="mb-md order-2"><div class="font-bold mb-md text-base leading-dense">下载 HBX APP</div><div class="mb-sm sm:mb-md"><a href="https://hbx.com/cn/app" class="flex items-center" data-agl-cvt="6"><svg style="width: 46px; height: 46px;"><use xlink:href="/icomoon/hbx/symbol-defs.svg#icon-ic_app-icon"></use></svg><span class="font-bold ml-sm no-underline leading-dense"> 专为IOS及ANDROID系统的手机及平板电脑度身订造 </span></a></div></div><div class="mb-md order-3"><div class="font-bold mb-md text-base leading-dense uppercase">现在订阅可以获得首单九折优惠</div><div id="footer-newsletter" class="footer-body mb-sm sm:mb-md text-xs"><form method="post" action="https://hbx.com/cn/newsletter" class="side-button-input-group w-full flex flex-row flex-nowrap"><input type="email" name="email" placeholder="电子邮箱" class="border-none flex-grow w-2/5" required=""><input type="checkbox" name="lists[]" class="hidden" value="men"><input type="checkbox" name="lists[]" class="hidden" value="women"><input type="checkbox" name="lists[]" class="hidden" value="life"><input type="checkbox" name="lists[]" class="hidden" value="archives"><button class="form-button secondary border-none" onclick="this.parentNode.submit(); return false;" data-controller="ga-custom-event" data-ga-custom-event-category-value="footer_newsletter_subscribe" data-ga-custom-event-action-value="click" data-ga-custom-event-label-value="subscribe"> 订阅 </button></form><p class="text-muted normal-case mt-sm leading-dense" style="font-size: 10px;">一旦订阅，代表您同意本公司的<a class="underline" href="https://hbx.com/cn/terms">使用条款</a>和<a class="underline" href="https://hbx.com/cn/privacy">隐私政策</a>。</p></div></div><div class="mb-md order-first sm:order-last"><div class="font-bold mb-md text-base leading-dense">语言与地区</div><div class="mb-md flex flex-row flex-wrap content-ev
-				enly normal-case"><a href="https://h
-bx.
-co
-m/cn/settings" class="flex items-center
- mt-xs mr-sm"><div alt="CNY" class="mr-xs border fflag fflag-CN" style="width: 21px; height: 13px;"></div><span class="text-xs leading-none whitespace-nowrap" style="margin-bottom: 1px;"> 中国大陆 (CN), CNY </span></a><a href="https://hbx.com/cn/settings" class="flex items-center mt-xs mr-sm"><svg class="icon icon-lg mr-xs"><use xlink:href="/icomoon/symbol-defs.svg#icon-language"></use></svg><span class="text-xs leading-none whitespace-nowrap" style="margin-bottom: 1px;">中文</span></a></div></div></div><div class="flex justify-between flex-wrap sm:mt-lg leading-tight"><ul class="font-bold mb-md hidden md:flex flex-row space-x-lg" itemscope="" itemtype="http://schema.org/SiteNavigationElement"><li itemprop="name"><a itemprop="url" href="https://hbx.com/cn/about" data-controller="ga-custom-event" data-ga-custom-event-category-value="footer_navigation" data-ga-custom-event-action-value="click" data-ga-custom-event-label-value="hbx-footer-page-about"> 关于 </a></li><li itemprop="name"><a itemprop="url" href="https://hbx.com/cn/stores" data-controller="ga-custom-event" data-ga-custom-event-category-value="footer_navigation" data-ga-custom-event-action-value="click" data-ga-custom-event-label-value="hbx-footer-page-retail-stores"> 零售店 </a></li><li itemprop="name"><a itemprop="url" href="https://hbx.com/cn/faq" data-controller="ga-custom-event" data-ga-custom-event-category-value="footer_navigation" data-ga-custom-event-action-value="click" data-ga-custom-event-label-value="hbx-footer-page-help"> 帮助 </a></li><li itemprop="name"><a itemprop="url" href="https://hbx.com/cn/pro" data-controller="ga-custom-event" data-ga-custom-event-category-value="footer_navigation" data-ga-custom-event-action-value="click" data-ga-custom-event-label-value="hbx-footer-page-pro"> HBX Pro </a></li><li itemprop="name"><a itemprop="url" href="https://hbx.com/cn/referral" data-controller="ga-custom-event" data-ga-custom-event-category-value="footer_navigation" data-ga-custom-event-action-value="click" data-ga-custom-event-label-value="hbx-footer-page-referral"> 客户推荐计划 </a></li><li itemprop="name"><a itemprop="url" href="https://hbx.com/cn/affiliates" data-controller="ga-custom-event" data-ga-custom-event-category-value="footer_navigation" data-ga-custom-event-action-value="click" data-ga-custom-event-label-value="hbx-footer-page-affiliates"> 联属营销计划 </a></li></ul><div class="copyright text-left lg:text-right"><div class="flex flex-row flex-wrap md:justify-end"><span class="pr-xs">2023 <a href="https://hypebeast.ltd/">Hypebeast Limited</a> 版权所有</span><a href="https://hbx.com/cn/terms" class="pr-xs">网站声明</a><a href="https://hbx.com/cn/privacy" class="pr-xs">隐私政策</a><a href="https://hbx.com/cn/gdpr">gdpr</a></div><span>HBX® is a registered trademark of Hypebeast Hong Kong Ltd.</span></div></div></div></footer>
+		<footer
+			id="hbx-footer"
+			class="uppercase pt-lg sm:pt-xl pb-xl text-xs border-t border-black"
+			data-controller="footer"
+			data-action="load@window->footer#loadComponents"
+			data-v-app=""
+		>
+			<div class="container px-md md:px-xl">
+				<div
+					class="flex justify-between flex-wrap sm:mt-lg leading-tight"
+				>
+					<ul
+						class="font-bold mb-md hidden md:flex flex-row space-x-lg"
+						itemscope=""
+						itemtype="http://schema.org/SiteNavigationElement"
+					>
+						<li itemprop="name">
+							<a
+								itemprop="url"
+								href="https://hbx.com/cn/about"
+								data-controller="ga-custom-event"
+								data-ga-custom-event-category-value="footer_navigation"
+								data-ga-custom-event-action-value="click"
+								data-ga-custom-event-label-value="hbx-footer-page-about"
+							>
+								关于
+							</a>
+						</li><li itemprop="name">
+							<a
+								itemprop="url"
+								href="https://hbx.com/cn/stores"
+								data-controller="ga-custom-event"
+								data-ga-custom-event-category-value="footer_navigation"
+								data-ga-custom-event-action-value="click"
+								data-ga-custom-event-label-value="hbx-footer-page-retail-stores"
+							>
+								零售店
+							</a>
+						</li><li itemprop="name">
+							<a
+								itemprop="url"
+								href="https://hbx.com/cn/faq"
+								data-controller="ga-custom-event"
+								data-ga-custom-event-category-value="footer_navigation"
+								data-ga-custom-event-action-value="click"
+								data-ga-custom-event-label-value="hbx-footer-page-help"
+							>
+								帮助
+							</a>
+						</li><li itemprop="name">
+							<a
+								itemprop="url"
+								href="https://hbx.com/cn/pro"
+								data-controller="ga-custom-event"
+								data-ga-custom-event-category-value="footer_navigation"
+								data-ga-custom-event-action-value="click"
+								data-ga-custom-event-label-value="hbx-footer-page-pro"
+							>
+								HBX Pro
+							</a>
+						</li><li itemprop="name">
+							<a
+								itemprop="url"
+								href="https://hbx.com/cn/referral"
+								data-controller="ga-custom-event"
+								data-ga-custom-event-category-value="footer_navigation"
+								data-ga-custom-event-action-value="click"
+								data-ga-custom-event-label-value="hbx-footer-page-referral"
+							>
+								客户推荐计划
+							</a>
+						</li><li itemprop="name">
+							<a
+								itemprop="url"
+								href="https://hbx.com/cn/affiliates"
+								data-controller="ga-custom-event"
+								data-ga-custom-event-category-value="footer_navigation"
+								data-ga-custom-event-action-value="click"
+								data-ga-custom-event-label-value="hbx-footer-page-affiliates"
+							>
+								联属营销计划
+							</a>
+						</li>
+					</ul><div class="copyright text-left lg:text-right">
+						<div class="flex flex-row flex-wrap md:justify-end">
+							<span class="pr-xs"
+								>2023 <a href="https://hypebeast.ltd/"
+									>Hypebeast Limited</a
+								> 版权所有</span
+							><a href="https://hbx.com/cn/terms" class="pr-xs"
+								>网站声明</a
+							><a href="https://hbx.com/cn/privacy" class="pr-xs"
+								>隐私政策</a
+							><a href="https://hbx.com/cn/gdpr">gdpr</a>
+						</div><span
+							>HBX® is a registered trademark of Hypebeast Hong
+							Kong Ltd.</span>
+					</div>
+				</div>
+			</div>
+		</footer>
 	</body>
 </html>

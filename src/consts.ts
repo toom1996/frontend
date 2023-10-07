@@ -3,3 +3,6 @@
 
 export const SITE_TITLE = 'toom website!';
 export const SITE_DESCRIPTION = 'Welcome to my website!';
+
+
+export const APP_VERSION = '0.0.1';

@@ -1,0 +1,71 @@
+---
+import SectionUser from "./Header.vue";
+const post = await fetch("http://127.0.0.1:8000/api/v1/header/menus");
+const { data } = await post.json();
+console.log(data);
+---
+
+<div data-controller="nav" class="sticky top-0 z-20">
+    <header id="hbx-header">
+        <div class="container px-md md:px-xl">
+            <div class="flex">
+                <nav
+                    class="hidden md:flex w-2/5 md:w-auto md:flex-grow-0 items-center text-base"
+                >
+                    <div
+                        id="hamburger-menu"
+                        class="cursor-pointer flex items-center w-lg h-lg"
+                    >
+                        <svg
+                            height="24"
+                            width="24"
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="icon icon-2xl hamburger"
+                        >
+                            <use
+                                xlink:href="/icomoon/hbx/symbol-defs.svg#icon-ic_navbar-hamburger"
+                                height="24"
+                                width="24"></use>
+                        </svg>
+                    </div>
+                </nav><a
+                    href="https://hbx.com/cn?no-direct=1"
+                    id="site-logo"
+                    class="flex flex-grow md:flex-grow-0 md:justify-center md:ml-lg md:mr-sm items-center"
+                    ><svg
+                        height="25"
+                        width="70"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="inline"
+                    >
+                        <image
+                            href="https://hbx.com/build/shop/images/hbx/logo.d9933030.svg"
+                            height="25"
+                            width="70"
+                        />
+                    </svg></a
+                >
+                <nav
+                    id="section-nav"
+                    class="hidden md:flex flex-grow flex-nowrap items-stretch text-base"
+                    itemscope="itemscope"
+                    itemtype="http://www.schema.org/SiteNavigationElement"
+                >
+                    {
+                        data.map((post: any) => (
+                            <a
+                                href="https://hbx.com/cn/men"
+                                id="nav-men"
+                                class="relative px-2 flex items-center "
+                                itemprop="url"
+                            >
+                                <span itemprop="name">{post}</span>
+                            </a>
+                        ))
+                    }
+                </nav>
+                <SectionUser client:load />
+            </div>
+        </div>
+    </header>
+</div>

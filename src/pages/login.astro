@@ -1,0 +1,246 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+---
+
+<!doctype html>
+<html lang="en">
+    <link rel="stylesheet" crossorigin="anonymous" href="https://assets.gumroad.com/packs/css/design-99355430.css" />
+    <body>
+        <div class="modals-container" style="display: contents">
+            <div class="modal gr-auth squished" style="display: contents">
+                <main class="login-form">
+                    <header class="header">
+                        <a class="wordmark logo-full" href="https://gumroad.com"
+                        ></a>
+                        <div class="actions">
+                            <a href="/signup?next=https%3A%2F%2Fgumroad.com%2F"
+                                >注册</a
+                            >
+                        </div>
+                        <h1>登录</h1>
+                    </header>
+                    <div class="input-group">
+                        <div class="avatar-row legacy-only">
+                            <img
+                                src="https://assets.gumroad.com/assets/auth/default-avatar-1-62b409288c8442d97a4767f2d1d31fda96dfa20fde02a718278054c5bdaf7e0f.png"
+                            />
+                            <img
+                                src="https://assets.gumroad.com/assets/auth/default-avatar-2-c27acf36e27acc1e2df7ba22df0189e1f48dc88d847f81d296b30555a172dc0c.png"
+                            />
+                            <img
+                                src="https://assets.gumroad.com/assets/auth/default-avatar-3-751af6da1549be7098cc0be22878a8431f952a54208c589cd40ac41b31b472b4.png"
+                            />
+                            <img
+                                src="https://assets.gumroad.com/assets/auth/default-avatar-4-236e42d3266945e7319864d3de10b5410792e1bb250c92beee0ccee69b0e99ad.png"
+                            />
+                            <img
+                                src="https://assets.gumroad.com/assets/auth/default-avatar-5-69e8f11fa2a79484303585ec9765a34170c24cfb9853ed59121aec2bb24553a7.png"
+                            />
+                        </div>
+                        <section
+                            style="display: grid; grid-gap: var(--spacer-6); padding-bottom: var(--spacer-7);"
+                        >
+                            <div
+                                class="error-indicator danger"
+                                role="alert"
+                                style="display:none"
+                            >
+                            </div>
+                            <div
+                                style="display: grid; gap: var(--spacer-3); grid-template-rows: 1fr"
+                            >
+                                <form
+                                    class="button_to"
+                                    method="post"
+                                    action="/users/auth/facebook?referer=https%3A%2F%2Fgumroad.com%2F"
+                                >
+                                    <button
+                                        class="button button-facebook"
+                                        style="width: 100%"
+                                        type="submit"
+                                        >Facebook
+                                    </button><input
+                                        type="hidden"
+                                        name="authenticity_token"
+                                        value="Hd6tyjotVnCnd-NiIC6wUbBkkZTU-PR2yhxqcKxZ0DRzjQVQnQsT9JOGsqw5sEx7ze_JYTm9CfX-9m1CEO_KpQ"
+                                        autocomplete="off"
+                                    />
+                                </form><form
+                                    class="button_to"
+                                    method="post"
+                                    action="/users/auth/google_oauth2?referer=https%3A%2F%2Fgumroad.com%2F&x_auth_access_type=read"
+                                >
+                                    <button
+                                        class="button button-google"
+                                        style="width: 100%"
+                                        type="submit"
+                                        >谷歌
+                                    </button><input
+                                        type="hidden"
+                                        name="authenticity_token"
+                                        value="lTU26olT2u1wOHZJCwolCCzZ_gb-2bDvXCtZUljRQvaPiVjklNplx3TZuay5KLtU7QU5LQnzZNOwZURBBHmRfA"
+                                        autocomplete="off"
+                                    />
+                                </form><form
+                                    class="button_to"
+                                    method="post"
+                                    action="/users/auth/twitter?referer=https%3A%2F%2Fgumroad.com%2F&x_auth_access_type=read"
+                                >
+                                    <button
+                                        class="button button-twitter"
+                                        style="width: 100%"
+                                        type="submit"
+                                        ><span
+                                            class="translation_missing"
+                                            title="translation missing: zh-CN.twitter"
+                                            >Twitter</span
+                                        >
+                                    </button><input
+                                        type="hidden"
+                                        name="authenticity_token"
+                                        value="G-GXSQ-qXlbzk8tgnqvevzqn5dkhwMUfPqlG7W9s8uD5KbloEcXdmqqoMYRYiacrD6F7Gdb5zucB3qqwF2XpfQ"
+                                        autocomplete="off"
+                                    />
+                                </form><form
+                                    class="button_to"
+                                    method="post"
+                                    action="/users/auth/stripe_connect?referer=%2Flogin"
+                                >
+                                    <button
+                                        class="button button-stripe"
+                                        style="width: 100%"
+                                        type="submit"
+                                        >条纹
+                                    </button><input
+                                        type="hidden"
+                                        name="authenticity_token"
+                                        value="6vANktPb-WVSUfWQLrkkFnYb32W6fOOkIXoQxtk42OJrMfOtEgJh8rApFv1pg4LnVpjA-5DG_r3MXHH0Nof0QA"
+                                        autocomplete="off"
+                                    />
+                                </form>
+                            </div>
+                        </section>
+                        <form
+                            class="row stacked formtastic user"
+                            id="login-form"
+                            autocomplete="off"
+                            novalidate="novalidate"
+                            action="https://app.gumroad.com/login"
+                            accept-charset="UTF-8"
+                            method="post"
+                        >
+                            <input
+                                type="hidden"
+                                name="authenticity_token"
+                                value="_B4F4mhDEHCaEtd2bhmwnp-IwwILCKd45SK1sW8yqVBV9bl6Ae8Rq6ksry_MNdsTkLPartaA8BEnAy4zyBBLEQ"
+                                autocomplete="off"
+                            /><section class="row classic-auth js-classic-auth">
+                                <input
+                                    type="hidden"
+                                    name="next"
+                                    id="next"
+                                    value="https://gumroad.com/"
+                                    autocomplete="off"
+                                />
+                                <div class="divider" role="separator">
+                                    <span>或者</span>
+                                </div>
+                                <fieldset>
+                                    <legend>
+                                        <label class="top-level-label"
+                                            >电子邮件</label
+                                        >
+                                        <a
+                                            class="legacy-only pull-right"
+                                            href="/signup?next=https%3A%2F%2Fgumroad.com%2F"
+                                            >想要创建一个帐户？</a
+                                        >
+                                    </legend>
+                                    <input
+                                        class="required top-level-input"
+                                        tabindex="1"
+                                        type="email"
+                                        name="user[login_identifier]"
+                                    />
+                                </fieldset>
+                                <fieldset>
+                                    <legend>
+                                        <label class="top-level-label"
+                                            >密码</label
+                                        >
+                                        <a
+                                            class="pull-right js-show-forgot-password-form-trigger"
+                                            href="#">忘记密码了吗？</a
+                                        >
+                                    </legend>
+                                    <input
+                                        class="password required top-level-input"
+                                        tabindex="2"
+                                        type="password"
+                                        name="user[password]"
+                                    />
+                                </fieldset>
+                                <button
+                                    class="button-primary button-block button-full-width primary js-login-button"
+                                    >登录</button
+                                >
+                                <div
+                                    class="js-recaptcha"
+                                    data-sitekey="6LfD8OcaAAAAAPeGM03M5l8k1UXcAblGS0vS9uVU"
+                                    id="loginRecaptcha"
+                                >
+                                </div>
+                            </section>
+                        </form><form
+                            id="forgot-password-form"
+                            class="soft-hidden formtastic user"
+                            novalidate="novalidate"
+                            action="https://app.gumroad.com/forgot_password"
+                            accept-charset="UTF-8"
+                            method="post"
+                        >
+                            <input
+                                type="hidden"
+                                name="authenticity_token"
+                                value="ShSd9jp2ZIcQ4Heo4qWNW8Ru9ndPaOmwiIzNS6LLScgFNTc2wE20Q3NkecD0SCBi2un9K14cKxIXS4WotpKMIA"
+                                autocomplete="off"
+                            /><section>
+                                <div
+                                    class="error-indicator danger"
+                                    role="alert"
+                                    style="display:none"
+                                >
+                                </div>
+                                <fieldset>
+                                    <legend>
+                                        <label class="top-level-label"
+                                            >通过电子邮件将重置说明发送至</label
+                                        >
+                                    </legend>
+                                    <input
+                                        class="email top-level-input required"
+                                        type="email"
+                                        name="user[email]"
+                                    />
+                                </fieldset>
+                                <button
+                                    class="primary button-primary button-block button-full-width js-forgot-password-button"
+                                    >发送</button
+                                >
+                                <a
+                                    class="button button-default button-block button-full-width js-hide-forgot-password-form-trigger"
+                                    href="#">取消</a
+                                >
+                            </section>
+                        </form>
+                    </div>
+                </main>
+            </div>
+            <aside class="avatars-container">
+                <img
+                    src="https://assets.gumroad.com/assets/auth/background-29d487bd6d844e8a6b763d36a7bff15523c665c4e44f8fd67840815f2edbea24.png"
+                />
+            </aside>
+        </div>
+    </body>
+</html>
