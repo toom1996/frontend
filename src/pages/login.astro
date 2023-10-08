@@ -6,11 +6,194 @@ import BaseHead from "../components/BaseHead.astro";
 <html lang="en">
     <meta charset="utf-8" />
     <!-- <link rel="stylesheet" crossorigin="anonymous" href="https://assets.gumroad.com/packs/css/design-99355430.css" /> -->
-    <body>
+    <style>
+        .header {
+            grid-template-columns: 1fr auto;
+        }
+
+        .logo-full {
+            width: calc(1em / 0.14);
+            -webkit-mask-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTU3IiBoZWlnaHQ9IjIyIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik05My4yOTMuNzc4Yy0zLjI0MyAwLTYuNDEzIDIuODA1LTYuNzc3IDYuODU4VjEuMTEyaC00LjY1N3YxOS42NzFoNC43MTR2LTkuNTIxYzAtMi42NjcgMS45NzktNi40MyA2LjcyLTYuNDNWLjc3OFptNDkuNDg1IDE2Ljg1NlY0LjE1N2gyLjczMWMzLjY0MSAwIDYuNTk5IDIuMTc0IDYuNTk5IDYuNjMgMCA0LjQ1Ni0yLjk1OCA2Ljg0Ny02LjU5OSA2Ljg0N2gtMi43MzFabS00LjY2NSAzLjE1Mmg3Ljk2NWM0Ljg5MiAwIDEwLjkyMi0zLjA0MyAxMC45MjItOS45OTkgMC02Ljg0Ny02LjAzLTkuNjczLTEwLjkyMi05LjY3M2gtNy45NjV2MTkuNjcyWm0tMTcuODg5LTkuNzhjMC0zLjU4NyAxLjkzNC02LjUyMSA1LjEyLTYuNTIxIDMuMDcyIDAgNC43NzkgMi45MzQgNC43NzkgNi41MiAwIDMuNTg3LTEuNzA3IDYuNTIyLTQuNzc5IDYuNTIyLTMuMTg2IDAtNS4xMi0yLjkzNS01LjEyLTYuNTIxWm0tNC43NzkuMjE3YzAgNS44NjkgMy4xODYgOS45OTkgOC4xOTIgOS45OTkgMy42NDEgMCA1LjgwMy0yLjI4MiA2Ljk0MS01Ljk3OHY1LjU0M2g0LjY2NFYxLjExNmgtNC42NjR2NS4yMTZDMTI5LjU1NCAyLjg1NSAxMjcuMzkyLjc5IDEyMy45NzkuNzljLTUuMTIgMC04LjUzNCA0LjQ1Ni04LjUzNCAxMC40MzNaTTkuMjE2IDIxLjIyMkMzLjQxMyAyMS4yMjIgMCAxNi43NjYgMCAxMS4yMjMgMCA1LjQ2MyAzLjc1NS43OSAxMC45MjMuNzljNy4zOTUgMCA5Ljg5OCA0Ljc4MiAxMC4wMTIgNy40OTloLTUuMzQ3Yy0uMTE0LTEuNTIyLTEuNDgtMy44MDQtNC43OC0zLjgwNC0zLjUyNiAwLTUuODAyIDIuOTM0LTUuODAyIDYuNTIgMCAzLjU4NyAyLjI3NiA2LjUyMiA1LjgwMyA2LjUyMiAzLjE4NiAwIDQuNTUxLTIuMzkxIDUuMTItNC43ODJoLTUuMTJ2LTEuOTU3aDEwLjc0M3YxMEgxNi44NHYtNi4zMDRjLS4zNDEgMi4yODItMS44MiA2LjczOC03LjYyMyA2LjczOFptMjEuODkyLS4wMDJjLTQuNDM3IDAtNy4xNjgtMi44MjUtNy4xNjgtOC40NzdWMS4xMTRoNC43Nzl2MTEuNjNjMCAyLjkzNCAxLjQ3OSA0LjM0NyAzLjk4MiA0LjM0NyA0Ljg5MiAwIDYuNzEzLTUuNzYgNi43MTMtOS43ODJWMS4xMTRoNC43Nzh2MTkuNjcyaC00LjY2NHYtNy4yODJjLS45MSA0LjAyMS0zLjQxNCA3LjcxNy04LjQyIDcuNzE3Wk03Mi43NDEuNzc4Yy00LjA3NyAwLTYuNjQ5IDMuNzYyLTcuNDg4IDcuMjQtLjE0NC00LjY2LTIuNTQ0LTcuMjQtNi4zODMtNy4yNC0zLjMxOCAwLTYuMzk2IDIuODI2LTcuMTk1IDcuMjk3VjEuMTEzaC00LjY1OHYxOS42NzJoNC43MTh2LTcuMDUyYzAtMS43NDkuNzYzLTguOTI0IDUuNTEyLTguOTI0IDMuMDc3IDAgMy4zOTggMi42NTEgMy4zOTggNi4yNzV2OS43MDFoNC43MTZ2LTcuMDUyYzAtMS43NDkuNzk0LTguOTI0IDUuNTQ0LTguOTI0IDMuMDc0IDAgMy4zOTIgMi42NTEgMy4zOTIgNi4yNzV2OS43MDFoNC43MjJWOS4xNWMuMDIyLTUuNTgyLTIuMDQyLTguMzctNi4yNzgtOC4zN1ptMzAuNjc0IDBDOTcuMzA2Ljc3OCA5My4xNjggNS4zNTMgOTMuMTY4IDExYzAgNi4yMjEgMy45MzYgMTAuMjIgMTAuMjQ3IDEwLjIyIDYuMTA4IDAgMTAuMzItNC41NzQgMTAuMzItMTAuMjIgMC02LjIyMi00LjAxMy0xMC4yMjItMTAuMzItMTAuMjIyWm0wIDE2Ljk2Yy0zLjU1NiAwLTUuODYtMi44NzUtNS44Ni02LjczOCAwLTMuODY0IDIuMzEyLTYuNzQgNS44Ni02Ljc0IDMuNTQ3IDAgNS43NjYgMi44NzYgNS43NjYgNi43NCAwIDMuODYzLTIuMjIxIDYuNzM5LTUuNzY2IDYuNzM5WiIgZmlsbD0iIzAwMCIvPjwvc3ZnPg==);
+            mask-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTU3IiBoZWlnaHQ9IjIyIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik05My4yOTMuNzc4Yy0zLjI0MyAwLTYuNDEzIDIuODA1LTYuNzc3IDYuODU4VjEuMTEyaC00LjY1N3YxOS42NzFoNC43MTR2LTkuNTIxYzAtMi42NjcgMS45NzktNi40MyA2LjcyLTYuNDNWLjc3OFptNDkuNDg1IDE2Ljg1NlY0LjE1N2gyLjczMWMzLjY0MSAwIDYuNTk5IDIuMTc0IDYuNTk5IDYuNjMgMCA0LjQ1Ni0yLjk1OCA2Ljg0Ny02LjU5OSA2Ljg0N2gtMi43MzFabS00LjY2NSAzLjE1Mmg3Ljk2NWM0Ljg5MiAwIDEwLjkyMi0zLjA0MyAxMC45MjItOS45OTkgMC02Ljg0Ny02LjAzLTkuNjczLTEwLjkyMi05LjY3M2gtNy45NjV2MTkuNjcyWm0tMTcuODg5LTkuNzhjMC0zLjU4NyAxLjkzNC02LjUyMSA1LjEyLTYuNTIxIDMuMDcyIDAgNC43NzkgMi45MzQgNC43NzkgNi41MiAwIDMuNTg3LTEuNzA3IDYuNTIyLTQuNzc5IDYuNTIyLTMuMTg2IDAtNS4xMi0yLjkzNS01LjEyLTYuNTIxWm0tNC43NzkuMjE3YzAgNS44NjkgMy4xODYgOS45OTkgOC4xOTIgOS45OTkgMy42NDEgMCA1LjgwMy0yLjI4MiA2Ljk0MS01Ljk3OHY1LjU0M2g0LjY2NFYxLjExNmgtNC42NjR2NS4yMTZDMTI5LjU1NCAyLjg1NSAxMjcuMzkyLjc5IDEyMy45NzkuNzljLTUuMTIgMC04LjUzNCA0LjQ1Ni04LjUzNCAxMC40MzNaTTkuMjE2IDIxLjIyMkMzLjQxMyAyMS4yMjIgMCAxNi43NjYgMCAxMS4yMjMgMCA1LjQ2MyAzLjc1NS43OSAxMC45MjMuNzljNy4zOTUgMCA5Ljg5OCA0Ljc4MiAxMC4wMTIgNy40OTloLTUuMzQ3Yy0uMTE0LTEuNTIyLTEuNDgtMy44MDQtNC43OC0zLjgwNC0zLjUyNiAwLTUuODAyIDIuOTM0LTUuODAyIDYuNTIgMCAzLjU4NyAyLjI3NiA2LjUyMiA1LjgwMyA2LjUyMiAzLjE4NiAwIDQuNTUxLTIuMzkxIDUuMTItNC43ODJoLTUuMTJ2LTEuOTU3aDEwLjc0M3YxMEgxNi44NHYtNi4zMDRjLS4zNDEgMi4yODItMS44MiA2LjczOC03LjYyMyA2LjczOFptMjEuODkyLS4wMDJjLTQuNDM3IDAtNy4xNjgtMi44MjUtNy4xNjgtOC40NzdWMS4xMTRoNC43Nzl2MTEuNjNjMCAyLjkzNCAxLjQ3OSA0LjM0NyAzLjk4MiA0LjM0NyA0Ljg5MiAwIDYuNzEzLTUuNzYgNi43MTMtOS43ODJWMS4xMTRoNC43Nzh2MTkuNjcyaC00LjY2NHYtNy4yODJjLS45MSA0LjAyMS0zLjQxNCA3LjcxNy04LjQyIDcuNzE3Wk03Mi43NDEuNzc4Yy00LjA3NyAwLTYuNjQ5IDMuNzYyLTcuNDg4IDcuMjQtLjE0NC00LjY2LTIuNTQ0LTcuMjQtNi4zODMtNy4yNC0zLjMxOCAwLTYuMzk2IDIuODI2LTcuMTk1IDcuMjk3VjEuMTEzaC00LjY1OHYxOS42NzJoNC43MTh2LTcuMDUyYzAtMS43NDkuNzYzLTguOTI0IDUuNTEyLTguOTI0IDMuMDc3IDAgMy4zOTggMi42NTEgMy4zOTggNi4yNzV2OS43MDFoNC43MTZ2LTcuMDUyYzAtMS43NDkuNzk0LTguOTI0IDUuNTQ0LTguOTI0IDMuMDc0IDAgMy4zOTIgMi42NTEgMy4zOTIgNi4yNzV2OS43MDFoNC43MjJWOS4xNWMuMDIyLTUuNTgyLTIuMDQyLTguMzctNi4yNzgtOC4zN1ptMzAuNjc0IDBDOTcuMzA2Ljc3OCA5My4xNjggNS4zNTMgOTMuMTY4IDExYzAgNi4yMjEgMy45MzYgMTAuMjIgMTAuMjQ3IDEwLjIyIDYuMTA4IDAgMTAuMzItNC41NzQgMTAuMzItMTAuMjIgMC02LjIyMi00LjAxMy0xMC4yMjItMTAuMzItMTAuMjIyWm0wIDE2Ljk2Yy0zLjU1NiAwLTUuODYtMi44NzUtNS44Ni02LjczOCAwLTMuODY0IDIuMzEyLTYuNzQgNS44Ni02Ljc0IDMuNTQ3IDAgNS43NjYgMi44NzYgNS43NjYgNi43NCAwIDMuODYzLTIuMjIxIDYuNzM5LTUuNzY2IDYuNzM5WiIgZmlsbD0iIzAwMCIvPjwvc3ZnPg==);
+            -webkit-mask-size: contain;
+            mask-size: contain;
+            background: #ffffff;
+        }
+
+        @media (min-width: 1024px) {
+            body > header,
+            header.sticky,
+            main > * {
+                padding: 4rem max((100% - 71.25rem)/2, 4rem);
+            }
+
+            body > header:where(.sidebar-nav *),
+            header.sticky:where(.sidebar-nav *),
+            main > *:where(.sidebar-nav *) {
+                padding-left: 4rem;
+                padding-right: max(100% - 71.25rem - 4rem, 4rem);
+            }
+        }
+
+        .tab-buttons[role="tablist"] [role="tab"],
+        .widget .overlay .close-button,
+        .category-card,
+        button,
+        .button {
+            background: transparent;
+            font-size: 1rem;
+            line-height: 1.5;
+            --line-height: 1.5rem;
+            padding: 0.75rem 1rem;
+            border: solid 0.0625rem rgb(var(--color) / var(--border-alpha));
+            color: currentColor;
+            border-radius: 0.25rem;
+            font-family: inherit;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            -webkit-text-decoration: none;
+            text-decoration: none;
+            transition: var(--transition-duration) ease-out;
+            transition-property: all;
+        }
+
+        .button-facebook {
+            background-color: #4267b2;
+            color: #fff;
+        }
+
+        .button-twitter {
+            background-color: #4a99e9;
+            color: #fff;
+        }
+
+        .button-paypal {
+            background-color: #00457c;
+            color: #fff;
+        }
+
+        .button-stripe {
+            background-color: #625bf6;
+            color: #fff;
+        }
+
+        .button-apple {
+            background-color: #000;
+            color: #fff;
+        }
+
+        .button-android {
+            background-color: #142f40;
+            color: #fff;
+        }
+
+        .button-kindle {
+            background-color: #f3a642;
+            color: #000;
+        }
+
+        .button-discord {
+            background-color: #7289da;
+            color: #fff;
+        }
+
+        .button-zoom {
+            background-color: #4087fc;
+            color: #fff;
+        }
+
+        .button-google {
+            background-color: #5383ec;
+            color: #fff;
+        }
+
+        input:not([type]),
+        input[type="email"],
+        input[type="date"],
+        input[type="datetime-local"],
+        input[type="number"],
+        input[type="password"],
+        input[type="search"],
+        input[type="tel"],
+        input[type="text"],
+        input[type="url"],
+        textarea,
+        select,
+        .input,
+        .chosen-container .chosen-choices,
+        .textarea {
+            font-family: inherit;
+            padding: 0.75rem 1rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            --line-height: 1.5rem;
+            border: solid 0.0625rem rgb(var(--color) / var(--border-alpha));
+            border-radius: 0.25rem;
+            display: block;
+            width: 100%;
+            background-color: #000000;
+            color: rgb(var(--contrast-filled));
+            --active-bg: #242423;
+        }
+        [role=separator] {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: .75rem
+}
+
+[role=separator]::before,[role=separator]::after {
+    content: "";
+    border-bottom: solid .0625rem rgb(var(--color)/var(--border-alpha))
+}
+
+
+@media(min-width: 1024px) {
+    .modals-container aside {
+        display:grid;
+        position: relative
+    }
+
+    .modals-container aside>img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        object-fit: cover
+    }
+}
+
+@media(min-width: 1024px) {
+    aside {
+        border-left:solid .0625rem rgb(var(--color)/var(--border-alpha));
+        grid-column: 2;
+        width: 40vw;
+        overflow: auto;
+        background-color: rgb(var(--filled));
+        color: rgb(var(--contrast-filled));
+        --active-bg: var(--body-bg);
+        padding: 1.5rem;
+        gap: 1rem;
+        grid-auto-rows: max-content;
+        display: grid;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: var(--z-index-menubar);
+    }
+}
+
+    </style>
+    <body class="bg-slate-600">
         <div class="modals-container" style="display: contents">
             <div class="modal gr-auth squished" style="display: contents">
                 <main class="login-form">
-                    <header class="header grid-cols-1">
+                    <header class="header grid gap-4 grid-cols-2 pt-16">
                         <a class="wordmark logo-full" href="https://gumroad.com"
                         ></a>
                         <div class="text-base">
@@ -21,23 +204,6 @@ import BaseHead from "../components/BaseHead.astro";
                         <h1 class="text-4xl">登录</h1>
                     </header>
                     <div class="input-group">
-                        <div class="avatar-row legacy-only">
-                            <img
-                                src="https://assets.gumroad.com/assets/auth/default-avatar-1-62b409288c8442d97a4767f2d1d31fda96dfa20fde02a718278054c5bdaf7e0f.png"
-                            />
-                            <img
-                                src="https://assets.gumroad.com/assets/auth/default-avatar-2-c27acf36e27acc1e2df7ba22df0189e1f48dc88d847f81d296b30555a172dc0c.png"
-                            />
-                            <img
-                                src="https://assets.gumroad.com/assets/auth/default-avatar-3-751af6da1549be7098cc0be22878a8431f952a54208c589cd40ac41b31b472b4.png"
-                            />
-                            <img
-                                src="https://assets.gumroad.com/assets/auth/default-avatar-4-236e42d3266945e7319864d3de10b5410792e1bb250c92beee0ccee69b0e99ad.png"
-                            />
-                            <img
-                                src="https://assets.gumroad.com/assets/auth/default-avatar-5-69e8f11fa2a79484303585ec9765a34170c24cfb9853ed59121aec2bb24553a7.png"
-                            />
-                        </div>
                         <section
                             style="display: grid; grid-gap: var(--spacer-6); padding-bottom: var(--spacer-7);"
                         >
@@ -48,7 +214,8 @@ import BaseHead from "../components/BaseHead.astro";
                             >
                             </div>
                             <div
-                                style="display: grid; gap: var(--spacer-3); grid-template-rows: 1fr"
+                                style="grid-template-rows: 1fr"
+                                class="gap-y-3 grid"
                             >
                                 <form
                                     class="button_to"
@@ -178,7 +345,7 @@ import BaseHead from "../components/BaseHead.astro";
                                     />
                                 </fieldset>
                                 <button
-                                    class="button-primary button-block button-full-width primary p-4"
+                                    class="button-primary button-block button-full-width primary p-4 bg-black"
                                     >登录</button
                                 >
                                 <div

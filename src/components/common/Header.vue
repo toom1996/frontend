@@ -12,7 +12,7 @@
         <img src="https://himg.bdimg.com/sys/portraitn/item/public.1.a74a6ba3.4oIZIrLuTb2PPuIVIAfn6A">
       </span>
     </a>
-    <a v-if="state.isLogin === false" href="https://hbx.com/cn/settings" class="ml-lg hidden xl:flex items-center"
+    <a v-if="state.isLogin === false" :href="`${state.baseUrl}/login`" class="ml-lg hidden xl:flex items-center"
       data-action="mouseover->nav#showTooltip mouseleave->nav#hideTooltip" data-nav-target="hooks"
       data-dropdown="locale-settings">
       <span id="nav-locale-setting-text" class="flex items-center">
@@ -62,6 +62,7 @@ import axios from "axios";
 const count = ref(0)
 const state = reactive({
   isLogin: false,
+  baseUrl: 'http://localhost:4321',
   login: { // login state
     username: null
   },
@@ -70,6 +71,7 @@ const state = reactive({
 function increment() {
   count.value++
 }
+
 
 function setLoginState()
 {
