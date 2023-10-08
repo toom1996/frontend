@@ -4,20 +4,21 @@ import BaseHead from "../components/BaseHead.astro";
 
 <!doctype html>
 <html lang="en">
-    <link rel="stylesheet" crossorigin="anonymous" href="https://assets.gumroad.com/packs/css/design-99355430.css" />
+    <meta charset="utf-8" />
+    <!-- <link rel="stylesheet" crossorigin="anonymous" href="https://assets.gumroad.com/packs/css/design-99355430.css" /> -->
     <body>
         <div class="modals-container" style="display: contents">
             <div class="modal gr-auth squished" style="display: contents">
                 <main class="login-form">
-                    <header class="header">
+                    <header class="header grid-cols-1">
                         <a class="wordmark logo-full" href="https://gumroad.com"
                         ></a>
-                        <div class="actions">
+                        <div class="text-base">
                             <a href="/signup?next=https%3A%2F%2Fgumroad.com%2F"
                                 >注册</a
                             >
                         </div>
-                        <h1>登录</h1>
+                        <h1 class="text-4xl">登录</h1>
                     </header>
                     <div class="input-group">
                         <div class="avatar-row legacy-only">
@@ -57,7 +58,6 @@ import BaseHead from "../components/BaseHead.astro";
                                     <button
                                         class="button button-facebook"
                                         style="width: 100%"
-                                        type="submit"
                                         >Facebook
                                     </button><input
                                         type="hidden"
@@ -73,7 +73,6 @@ import BaseHead from "../components/BaseHead.astro";
                                     <button
                                         class="button button-google"
                                         style="width: 100%"
-                                        type="submit"
                                         >谷歌
                                     </button><input
                                         type="hidden"
@@ -89,7 +88,6 @@ import BaseHead from "../components/BaseHead.astro";
                                     <button
                                         class="button button-twitter"
                                         style="width: 100%"
-                                        type="submit"
                                         ><span
                                             class="translation_missing"
                                             title="translation missing: zh-CN.twitter"
@@ -109,7 +107,6 @@ import BaseHead from "../components/BaseHead.astro";
                                     <button
                                         class="button button-stripe"
                                         style="width: 100%"
-                                        type="submit"
                                         >条纹
                                     </button><input
                                         type="hidden"
@@ -181,7 +178,7 @@ import BaseHead from "../components/BaseHead.astro";
                                     />
                                 </fieldset>
                                 <button
-                                    class="button-primary button-block button-full-width primary js-login-button"
+                                    class="button-primary button-block button-full-width primary p-4"
                                     >登录</button
                                 >
                                 <div
