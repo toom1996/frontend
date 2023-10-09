@@ -1,5 +1,6 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
+import "../styles/global.css";
 ---
 
 <!doctype html>
@@ -33,31 +34,6 @@ import BaseHead from "../components/BaseHead.astro";
                 padding-left: 4rem;
                 padding-right: max(100% - 71.25rem - 4rem, 4rem);
             }
-        }
-
-        .tab-buttons[role="tablist"] [role="tab"],
-        .widget .overlay .close-button,
-        .category-card,
-        button,
-        .button {
-            background: transparent;
-            font-size: 1rem;
-            line-height: 1.5;
-            --line-height: 1.5rem;
-            padding: 0.75rem 1rem;
-            border: solid 0.0625rem rgb(var(--color) / var(--border-alpha));
-            color: currentColor;
-            border-radius: 0.25rem;
-            font-family: inherit;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            cursor: pointer;
-            -webkit-text-decoration: none;
-            text-decoration: none;
-            transition: var(--transition-duration) ease-out;
-            transition-property: all;
         }
 
         .button-facebook {
@@ -110,86 +86,69 @@ import BaseHead from "../components/BaseHead.astro";
             color: #fff;
         }
 
-        input:not([type]),
-        input[type="email"],
-        input[type="date"],
-        input[type="datetime-local"],
-        input[type="number"],
-        input[type="password"],
-        input[type="search"],
-        input[type="tel"],
-        input[type="text"],
-        input[type="url"],
-        textarea,
-        select,
-        .input,
-        .chosen-container .chosen-choices,
-        .textarea {
-            font-family: inherit;
-            padding: 0.75rem 1rem;
-            font-size: 1rem;
-            line-height: 1.5;
-            --line-height: 1.5rem;
-            border: solid 0.0625rem rgb(var(--color) / var(--border-alpha));
-            border-radius: 0.25rem;
-            display: block;
-            width: 100%;
-            background-color: #000000;
-            color: rgb(var(--contrast-filled));
-            --active-bg: #242423;
+        @media (min-width: 1024px) {
+            .modals-container aside > img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
         }
-        [role=separator] {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-    gap: .75rem
-}
 
-[role=separator]::before,[role=separator]::after {
-    content: "";
-    border-bottom: solid .0625rem rgb(var(--color)/var(--border-alpha))
-}
+        @media (min-width: 1024px) {
+            aside {
+                border-left: solid 0.0625rem
+                    rgb(var(--color) / var(--border-alpha));
+                grid-column: 2;
+                width: 40vw;
+                overflow: auto;
+                background-color: rgb(var(--filled));
+                color: rgb(var(--contrast-filled));
+                padding: 1.5rem;
+                gap: 1rem;
+                grid-auto-rows: max-content;
+                display: grid;
+                /* position: fixed; */
+                top: 0;
+                right: 0;
+                bottom: 0;
+                z-index: var(--z-index-menubar);
+            }
+        }
 
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            overflow-wrap: break-word;
+            overflow-wrap: anywhere;
+        }
 
-@media(min-width: 1024px) {
-    .modals-container aside {
-        display:grid;
-        position: relative
-    }
+        body {
+            font-size: 0.875rem;
+            line-height: 1.3;
+            --line-height: 1.1375rem;
+            font-family: var(--font-family);
+            -webkit-font-smoothing: antialiased;
+            color: rgb(var(--color));
+        }
 
-    .modals-container aside>img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        object-fit: cover
-    }
-}
-
-@media(min-width: 1024px) {
-    aside {
-        border-left:solid .0625rem rgb(var(--color)/var(--border-alpha));
-        grid-column: 2;
-        width: 40vw;
-        overflow: auto;
-        background-color: rgb(var(--filled));
-        color: rgb(var(--contrast-filled));
-        --active-bg: var(--body-bg);
-        padding: 1.5rem;
-        gap: 1rem;
-        grid-auto-rows: max-content;
-        display: grid;
-        position: fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        z-index: var(--z-index-menubar);
-    }
-}
-
+        body {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
+        }
+        main {
+            overflow: auto;
+            grid-column: 1;
+            grid-row: 1;
+            display: flex;
+            flex-direction: column;
+        }
     </style>
-    <body class="bg-slate-600">
+    <body class="bg-white">
         <div class="modals-container" style="display: contents">
             <div class="modal gr-auth squished" style="display: contents">
                 <main class="login-form">
@@ -298,7 +257,7 @@ import BaseHead from "../components/BaseHead.astro";
                                 name="authenticity_token"
                                 value="_B4F4mhDEHCaEtd2bhmwnp-IwwILCKd45SK1sW8yqVBV9bl6Ae8Rq6ksry_MNdsTkLPartaA8BEnAy4zyBBLEQ"
                                 autocomplete="off"
-                            /><section class="row classic-auth js-classic-auth">
+                            /><section class="grid gap-8">
                                 <input
                                     type="hidden"
                                     name="next"
@@ -314,11 +273,6 @@ import BaseHead from "../components/BaseHead.astro";
                                         <label class="top-level-label"
                                             >电子邮件</label
                                         >
-                                        <a
-                                            class="legacy-only pull-right"
-                                            href="/signup?next=https%3A%2F%2Fgumroad.com%2F"
-                                            >想要创建一个帐户？</a
-                                        >
                                     </legend>
                                     <input
                                         class="required top-level-input"
@@ -328,13 +282,12 @@ import BaseHead from "../components/BaseHead.astro";
                                     />
                                 </fieldset>
                                 <fieldset>
-                                    <legend>
+                                    <legend class="contents">
                                         <label class="top-level-label"
                                             >密码</label
                                         >
-                                        <a
-                                            class="pull-right js-show-forgot-password-form-trigger"
-                                            href="#">忘记密码了吗？</a
+                                        <a class="float-right" href="#"
+                                            >忘记密码了吗？</a
                                         >
                                     </legend>
                                     <input
@@ -345,7 +298,7 @@ import BaseHead from "../components/BaseHead.astro";
                                     />
                                 </fieldset>
                                 <button
-                                    class="button-primary button-block button-full-width primary p-4 bg-black"
+                                    class="button-primary p-4 hover:bg-pink-400"
                                     >登录</button
                                 >
                                 <div
@@ -355,52 +308,11 @@ import BaseHead from "../components/BaseHead.astro";
                                 >
                                 </div>
                             </section>
-                        </form><form
-                            id="forgot-password-form"
-                            class="soft-hidden formtastic user"
-                            novalidate="novalidate"
-                            action="https://app.gumroad.com/forgot_password"
-                            accept-charset="UTF-8"
-                            method="post"
-                        >
-                            <input
-                                type="hidden"
-                                name="authenticity_token"
-                                value="ShSd9jp2ZIcQ4Heo4qWNW8Ru9ndPaOmwiIzNS6LLScgFNTc2wE20Q3NkecD0SCBi2un9K14cKxIXS4WotpKMIA"
-                                autocomplete="off"
-                            /><section>
-                                <div
-                                    class="error-indicator danger"
-                                    role="alert"
-                                    style="display:none"
-                                >
-                                </div>
-                                <fieldset>
-                                    <legend>
-                                        <label class="top-level-label"
-                                            >通过电子邮件将重置说明发送至</label
-                                        >
-                                    </legend>
-                                    <input
-                                        class="email top-level-input required"
-                                        type="email"
-                                        name="user[email]"
-                                    />
-                                </fieldset>
-                                <button
-                                    class="primary button-primary button-block button-full-width js-forgot-password-button"
-                                    >发送</button
-                                >
-                                <a
-                                    class="button button-default button-block button-full-width js-hide-forgot-password-form-trigger"
-                                    href="#">取消</a
-                                >
-                            </section>
                         </form>
                     </div>
                 </main>
             </div>
-            <aside class="avatars-container">
+            <aside class="relative">
                 <img
                     src="https://assets.gumroad.com/assets/auth/background-29d487bd6d844e8a6b763d36a7bff15523c665c4e44f8fd67840815f2edbea24.png"
                 />
