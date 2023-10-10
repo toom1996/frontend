@@ -1,5 +1,7 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
+import LoginForm from '../components/pages/login/LoginForm.vue'
+export const prerender = true;
 import "../styles/global.css";
 ---
 
@@ -243,72 +245,7 @@ import "../styles/global.css";
                                 </form>
                             </div>
                         </section>
-                        <form
-                            class="row stacked formtastic user"
-                            id="login-form"
-                            autocomplete="off"
-                            novalidate="novalidate"
-                            action="https://app.gumroad.com/login"
-                            accept-charset="UTF-8"
-                            method="post"
-                        >
-                            <input
-                                type="hidden"
-                                name="authenticity_token"
-                                value="_B4F4mhDEHCaEtd2bhmwnp-IwwILCKd45SK1sW8yqVBV9bl6Ae8Rq6ksry_MNdsTkLPartaA8BEnAy4zyBBLEQ"
-                                autocomplete="off"
-                            /><section class="grid gap-8">
-                                <input
-                                    type="hidden"
-                                    name="next"
-                                    id="next"
-                                    value="https://gumroad.com/"
-                                    autocomplete="off"
-                                />
-                                <div class="divider" role="separator">
-                                    <span>或者</span>
-                                </div>
-                                <fieldset>
-                                    <legend>
-                                        <label class="top-level-label"
-                                            >电子邮件</label
-                                        >
-                                    </legend>
-                                    <input
-                                        class="required top-level-input"
-                                        tabindex="1"
-                                        type="email"
-                                        name="user[login_identifier]"
-                                    />
-                                </fieldset>
-                                <fieldset>
-                                    <legend class="contents">
-                                        <label class="top-level-label"
-                                            >密码</label
-                                        >
-                                        <a class="float-right" href="#"
-                                            >忘记密码了吗？</a
-                                        >
-                                    </legend>
-                                    <input
-                                        class="password required top-level-input"
-                                        tabindex="2"
-                                        type="password"
-                                        name="user[password]"
-                                    />
-                                </fieldset>
-                                <button
-                                    class="button-primary p-4 hover:bg-pink-400"
-                                    >登录</button
-                                >
-                                <div
-                                    class="js-recaptcha"
-                                    data-sitekey="6LfD8OcaAAAAAPeGM03M5l8k1UXcAblGS0vS9uVU"
-                                    id="loginRecaptcha"
-                                >
-                                </div>
-                            </section>
-                        </form>
+                        <LoginForm client:load/>
                     </div>
                 </main>
             </div>
