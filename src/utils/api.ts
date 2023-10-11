@@ -1,3 +1,3 @@
-import { get } from '../utils/request'
+import { post } from '../utils/request'
 
-export function v1StoreGoodsIndex () {return get('/v1/store/goods/index')}
+export function v1StoreGoodsIndex (params:object) {return post('/v1/web/auth/login', params)}

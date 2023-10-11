@@ -1,10 +1,6 @@
 <template>
     <div class="">
-        <input type="hidden" name="authenticity_token"
-            value="_B4F4mhDEHCaEtd2bhmwnp-IwwILCKd45SK1sW8yqVBV9bl6Ae8Rq6ksry_MNdsTkLPartaA8BEnAy4zyBBLEQ"
-            autocomplete="off" />
         <section class="grid gap-8">
-            <input type="hidden" name="next" id="next" value="https://gumroad.com/" autocomplete="off" />
             <div class="divider" role="separator">
                 <span>或者</span>
             </div>
@@ -12,14 +8,14 @@
                 <legend class="mb-2">
                     <label>电子邮件</label>
                 </legend>
-                <input class="required top-level-input" tabindex="1" type="email" name="user[login_identifier]" />
+                <input v-model="state.form.username" class="required top-level-input" tabindex="1" type="email"/>
             </fieldset>
             <fieldset>
                 <legend class="mb-2 w-full">
                     <label class="top-level-label">密码</label>
                     <a class="float-right" href="#">忘记密码了吗？</a>
                 </legend>
-                <input class="password required top-level-input" tabindex="2" type="password" name="user[password]" />
+                <input v-model="state.form.password" class="password required top-level-input" tabindex="2" type="password"/>
             </fieldset>
             <button class="button-primary p-4 hover:bg-pink-400" @click="handleLogin" :disabled="state.isLoading">
                 <svg v-show="state.isLoading" class="animate-spin -ml-1 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -41,16 +37,17 @@ import { ref, onMounted, reactive } from 'vue'
 import { v1StoreGoodsIndex } from '@/utils/api'
 const state = reactive({
     isLoading: false,
-    baseUrl: 'http://localhost:4321',
-    login: { // login state
-        username: null
-    },
+    form: {
+        username: '',
+        password: '',
+    }
 })
 
 function handleLogin() {
     state.isLoading = true
-    console.log('111111')
-    v1StoreGoodsIndex()
-    console.log('ddddddddddddddddd')
+    console.log(state.form)
+    v1StoreGoodsIndex(state.form).then(e => {
+
+    })
 }
 </script>
