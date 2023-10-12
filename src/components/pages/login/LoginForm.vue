@@ -43,10 +43,9 @@ const state = reactive({
 
 function handleLogin() {
     state.isLoading = true
-    console.log(state.form)
     webAuthLogin(state.form).then(e => {
 
-    }).finally(e => {
+    }).finally(() => {
         state.isLoading = false
     });
 }
