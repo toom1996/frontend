@@ -32,7 +32,7 @@
 </template>
 <script setup>
 import { ref, onMounted, reactive } from 'vue'
-import { v1StoreGoodsIndex } from '@/utils/api'
+import { webAuthLogin } from '@/api/v1'
 const state = reactive({
     isLoading: false,
     form: {
@@ -44,8 +44,10 @@ const state = reactive({
 function handleLogin() {
     state.isLoading = true
     console.log(state.form)
-    v1StoreGoodsIndex(state.form).then(e => {
+    webAuthLogin(state.form).then(e => {
 
-    })
+    }).finally(e => {
+        state.isLoading = false
+    });
 }
 </script>
