@@ -27,8 +27,6 @@
                 </svg>
                 登录
             </button>
-            <div class="js-recaptcha" data-sitekey="6LfD8OcaAAAAAPeGM03M5l8k1UXcAblGS0vS9uVU" id="loginRecaptcha">
-            </div>
         </section>
     </div>
 </template>
