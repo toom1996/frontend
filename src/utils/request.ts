@@ -27,6 +27,8 @@ service.interceptors.response.use(
     },
     (error) => {
         console.log(error)
+        throw '网络异常'
+        // return error
     }
 )
 
@@ -45,6 +47,7 @@ export function get(url: string, params = {}): Promise<any> {
 export function post(url: string, params = {}): Promise<any> {
     return new Promise((resolve, reject) => {
         service.postForm(url, params).then(response => {
+            console.log(response)
             resolve(response.data)
         }).catch(error => {
             reject(error)

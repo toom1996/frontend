@@ -165,8 +165,12 @@ import "../styles/global.css";
                         <h1 class="text-4xl">登录</h1>
                     </header>
                     <div class="input-group">
+                        <div class="divider" role="separator">
+                            <span>第三方登录</span>
+                        </div>
                         <section
                             style="display: grid; grid-gap: var(--spacer-6); padding-bottom: var(--spacer-7);"
+                            class="pt-8"
                         >
                             <div
                                 class="error-indicator danger"
@@ -186,7 +190,7 @@ import "../styles/global.css";
                                     <button
                                         class="button button-facebook"
                                         style="width: 100%"
-                                        >Facebook
+                                        >微信
                                     </button><input
                                         type="hidden"
                                         name="authenticity_token"
@@ -201,7 +205,7 @@ import "../styles/global.css";
                                     <button
                                         class="button button-google"
                                         style="width: 100%"
-                                        >谷歌
+                                        >QQ
                                     </button><input
                                         type="hidden"
                                         name="authenticity_token"
@@ -219,7 +223,7 @@ import "../styles/global.css";
                                         ><span
                                             class="translation_missing"
                                             title="translation missing: zh-CN.twitter"
-                                            >Twitter</span
+                                            >微博</span
                                         >
                                     </button><input
                                         type="hidden"

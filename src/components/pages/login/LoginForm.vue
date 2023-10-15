@@ -4,6 +4,7 @@
             <div class="divider" role="separator">
                 <span>或者</span>
             </div>
+            <div v-show="state.login.isFail" class="error-indicator danger" role="alert" style="">{{ state.login.errorMessage }}</div>
             <fieldset>
                 <legend class="mb-2">
                     <label>电子邮件</label>
@@ -17,8 +18,8 @@
                 </legend>
                 <input v-model="state.form.password" class="password required top-level-input" tabindex="2" type="password"/>
             </fieldset>
-            <button class="button-primary p-4 hover:bg-pink-400" @click="handleLogin" :disabled="state.isLoading">
-                <svg v-show="state.isLoading" class="animate-spin -ml-1 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+            <button class="button-primary p-4 hover:bg-pink-400" @click="handleLogin" :disabled="state.login.isLoading">
+                <svg v-show="state.login.isLoading" class="animate-spin -ml-1 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
                     viewBox="0 0 24 24">
                     <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                     <path class="opacity-75" fill="currentColor"
@@ -32,9 +33,15 @@
 </template>
 <script setup>
 import { ref, onMounted, reactive } from 'vue'
+import Cookies from "js-cookie";
 import { webAuthLogin } from '@/api/v1'
+import { KEY } from 'src/consts';
 const state = reactive({
-    isLoading: false,
+    login: {
+        isLoading: false,
+        isFail: false,
+        errorMessage: '',
+    },
     form: {
         username: '',
         password: '',
@@ -42,11 +49,22 @@ const state = reactive({
 })
 
 function handleLogin() {
-    state.isLoading = true
+    state.login.isLoading = true
     webAuthLogin(state.form).then(e => {
+        if (e.code !== 0) {
+            state.login.isFail = true
+            state.login.errorMessage = e.msg
+            return
+        }
 
+        localStorage.setItem(KEY.local.stateLogin, JSON.stringify(e.info))
+        Cookies.set(KEY.cookie.login, e.token.plainTextToken)
+        window.location = '/';
+    }).catch(e => {
+        state.login.isFail = true
+        state.login.errorMessage = e
     }).finally(() => {
-        state.isLoading = false
+        state.login.isLoading = false
     });
 }
 </script>

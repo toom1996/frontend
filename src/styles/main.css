@@ -1,18 +1,32 @@
-#hbx-header {
-    border-bottom-width: 1px;
-    height: 60px;
-    text-transform: uppercase;
-    transition: background .3s ease-out;
-    z-index: 20
+.navbar {
+    z-index: 999;
+    width: 100%;
+    color: #000;
+    background-color: #fff;
+    border-bottom: 2px solid #000;
+    transition: flex .2s;
+    position: -webkit-sticky;
+    position: sticky;
+    top: -1px;
 }
-
-#hbx-header {
-    --tw-bg-opacity: 1;
-    --tw-text-opacity: 1;
-    background-color: rgba(255,255,255,var(--tw-bg-opacity));
-    border-color: #000;
-    color: rgba(0,0,0,var(--tw-text-opacity))
+.nav-container {
+    width: 100%;
+    max-width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 2vw;
+    padding-right: 0;
+    transition: all .6s;
+    display: flex;
 }
+.centered {
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+  }
 
 .container {
     margin-left: auto;
