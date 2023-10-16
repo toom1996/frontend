@@ -3,7 +3,43 @@ import SectionUser from "./Header.vue";
 const post = await fetch("http://127.0.0.1:8000/v1/header/menus");
 const { data } = await post.json();
 ---
+<style>
+    .nav-menu-secondary {
+    border-left: 2px solid #000;
+    align-items: center;
+    margin-right: 0;
+    transition: margin .6s ease-in-out, flex .6s ease-in-out;
+    display: flex;
+}
+    .nav-link.log-in {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 1.5rem 3vw;
+}
+.nav-link {
+    color: #000;
+    margin-left: 1.5vw;
+    margin-right: 1.5vw;
+    padding: 0;
+    font-size: 1rem;
+    position: relative;
+}
 
+.nav-link.log-in:hover {
+    background-color: #ff90e8;
+}
+</style>
+<div
+    data-w-id="a728c127-4064-6da0-d4b3-97de49699544"
+    class="py-8 px-3vw border-solid border-b-2 border-black"
+>
+    <img
+        src="/logo.svg"
+        loading="lazy"
+        alt=""
+        class="mega-gum-logo w-full"
+    />
+</div>
 <div
     data-animation="default"
     class="navbar w-nav"
@@ -58,17 +94,6 @@ const { data } = await post.json();
         </a>
         <nav role="navigation" class="nav-menu w-nav-menu centered">
             <a
-                href="/login"
-                class="nav-link hidden-login w-inline-block"
-            >
-                <div class="nav-link-text">Login</div>
-            </a><a
-                data-w-id="74b2d8b7-de5a-9e4c-c0ce-c4e4067f3f1c"
-                href="https://app.gumroad.com/signup"
-                class="nav-link hidden-sign-up w-inline-block"
-            >
-                <div class="nav-link-text">Start Selling</div>
-            </a><a
                 data-w-id="26a834a9-196a-c35c-1055-52c655195738"
                 href="/features"
                 class="nav-link w-inline-block"
@@ -104,7 +129,7 @@ const { data } = await post.json();
                 </div>
             </a>
         </nav>
-        <SectionUser></SectionUser>
+        <SectionUser />
     </div>
     <div class="w-nav-overlay" data-wf-ignore="" id="w-nav-overlay-0"></div>
 </div>

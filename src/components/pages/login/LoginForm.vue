@@ -18,7 +18,7 @@
                 </legend>
                 <input v-model="state.form.password" class="password required top-level-input" tabindex="2" type="password"/>
             </fieldset>
-            <button class="button-primary p-4 hover:bg-pink-400" @click="handleLogin" :disabled="state.login.isLoading">
+            <button class="button-primary-bg-black p-4 hover:bg-pink-400" @click="handleLogin" :disabled="state.login.isLoading">
                 <svg v-show="state.login.isLoading" class="animate-spin -ml-1 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
                     viewBox="0 0 24 24">
                     <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>

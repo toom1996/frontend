@@ -5,11 +5,18 @@
  */
 /* The integration's default injected base.css file */
 
-.button-primary {
+.button-primary-bg-black {
 	background-color: rgb(var(--black));
     color: var(--white);
     --active-bg: var(--body-bg);
 }
+
+.button-primary-bg-white {
+	background-color: rgb(var(--white));
+    color: var(--black);
+    --active-bg: var(--body-bg);
+}
+
 
 
 button{
@@ -174,12 +181,12 @@ strong,
 b {
 	font-weight: 700;
 }
-a {
+/* a {
 	color: var(--accent);
-}
-a:hover {
+} */
+/* a:hover {
 	color: var(--accent);
-}
+} */
 p {
 	margin-bottom: 1em;
 }

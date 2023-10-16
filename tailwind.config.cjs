@@ -7,6 +7,9 @@ module.exports = {
       fontFamily: {
         sans: ["Inter Variable", "Inter", ...defaultTheme.fontFamily.sans],
       },
+      spacing: {
+        '3vw': '3vw'
+      }
     },
   },
   plugins: [
