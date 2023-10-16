@@ -2,44 +2,56 @@
 import SectionUser from "./Header.vue";
 const post = await fetch("http://127.0.0.1:8000/v1/header/menus");
 const { data } = await post.json();
+const { showTopBanner = false } = Astro.props;
+console.log(showTopBanner)
 ---
+
 <style>
     .nav-menu-secondary {
-    border-left: 2px solid #000;
-    align-items: center;
-    margin-right: 0;
-    transition: margin .6s ease-in-out, flex .6s ease-in-out;
-    display: flex;
-}
+        border-left: 2px solid #000;
+        align-items: center;
+        margin-right: 0;
+        transition:
+            margin 0.6s ease-in-out,
+            flex 0.6s ease-in-out;
+        display: flex;
+    }
     .nav-link.log-in {
-    margin-left: 0;
-    margin-right: 0;
-    padding: 1.5rem 3vw;
-}
-.nav-link {
-    color: #000;
-    margin-left: 1.5vw;
-    margin-right: 1.5vw;
-    padding: 0;
-    font-size: 1rem;
-    position: relative;
-}
+        margin-left: 0;
+        margin-right: 0;
+        padding: 1.5rem 3vw;
+    }
+    .nav-link {
+        color: #000;
+        margin-left: 1.5vw;
+        margin-right: 1.5vw;
+        padding: 0;
+        font-size: 1rem;
+        position: relative;
+    }
 
-.nav-link.log-in:hover {
-    background-color: #ff90e8;
-}
+    .nav-link.log-in:hover {
+        background-color: #ff90e8;
+    }
 </style>
-<div
-    data-w-id="a728c127-4064-6da0-d4b3-97de49699544"
-    class="py-8 px-3vw border-solid border-b-2 border-black"
->
-    <img
-        src="/logo.svg"
-        loading="lazy"
-        alt=""
-        class="mega-gum-logo w-full"
-    />
-</div>
+<topBanner>
+    {
+        showTopBanner === true ? (
+            <div
+                data-w-id="a728c127-4064-6da0-d4b3-97de49699544"
+                class="py-8 px-3vw border-solid border-b-2 border-black"
+            >
+                <img
+                    src="/logo.svg"
+                    loading="lazy"
+                    alt=""
+                    class="mega-gum-logo w-full"
+                />
+            </div>
+        ) : null
+    }
+</topBanner>
+
 <div
     data-animation="default"
     class="navbar w-nav"
@@ -55,7 +67,7 @@ const { data } = await post.json();
     <div class="w-embed"></div>
     <div class="nav-container w-container">
         <a
-            href="/blog"
+            href="/"
             class="brand homepage w-nav-brand"
             style="display: block; transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;"
         >
@@ -124,7 +136,7 @@ const { data } = await post.json();
                 href="/discover"
                 class="nav-link w-inline-block"
             >
-                <div class="nav-link-text">Discover</div>
+                <div class="nav-link-text">探索</div>
                 <div class="nav-link-underline" style="width: 0%; height: 1px;">
                 </div>
             </a>

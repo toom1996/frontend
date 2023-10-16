@@ -1,0 +1,55 @@
+---
+import MainLayout from "../layouts/main.astro";
+import Header from "../components/common/Header.astro";
+import "../styles/main.css";
+import "../styles/global.css";
+const showTopBanner = false;
+---
+<style>
+    @media(min-width: 1024px) {
+    body>header,header.sticky,main>* {
+        padding:4rem max((100% - 71.25rem)/2,4rem);
+    }
+
+    body>header:where(.sidebar-nav *),header.sticky:where(.sidebar-nav *),main>*:where(.sidebar-nav *) {
+        padding-left: 4rem;
+        padding-right: max(100% - 71.25rem - 4rem,4rem)
+    }
+}
+</style>
+<MainLayout>
+    <Header showTopBanner={showTopBanner} />
+    <header class="p-8">
+        <div class="hero-actions">
+            <a class="logo" href="/"><div class="logo-full">&nbsp;</div></a><div
+                class="separator"
+            >
+            </div><div class="combobox" style="flex-grow:1">
+                <div class="input">
+                    <span class="icon icon-solid-search"></span><input
+                        type="search"
+                        placeholder="搜索产品..."
+                        role="combobox"
+                        aria-expanded="false"
+                        aria-autocomplete="list"
+                        aria-controls=":R1l:"
+                        value=""
+                    />
+                </div><datalist id=":R1l:" hidden=""></datalist>
+            </div>
+        </div>
+    </header>
+    <div role="nav">
+        <div class="nested-menu">
+            <div role="menubar" aria-busy="false">
+                <div>
+                    <a
+                        href="/"
+                        class="pill button"
+                        role="menuitem"
+                        aria-current="true">全部</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</MainLayout>

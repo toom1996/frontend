@@ -1,7 +1,7 @@
 <template>
   <div class="nav-menu-secondary">
     <a href="/login" class="py-6 px-3vw button-primary-bg-white hover:bg-pink-400">
-      <div>Login</div>
+      <div>登录</div>
     </a><a href="https://app.gumroad.com/signup"
       class="button-primary-bg-black hover:bg-pink-400 py-6 px-3vw border-solid border-l-2 border-black">
       <div>Start Selling</div>
