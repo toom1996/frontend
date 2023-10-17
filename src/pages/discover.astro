@@ -1,6 +1,8 @@
 ---
 import MainLayout from "../layouts/main.astro";
 import MainHeader from "../components/common/Header.astro";
+import DiscoverFilter from '../components/DiscoverFilter.vue';
+import Test from '../components/HeaderNav.vue';
 import "../styles/main.css";
 import "../styles/global.css";
 const showTopBanner = false;
@@ -35,7 +37,15 @@ const images = [
         }
     }
 
-    .filter > * {
+    .filter {
+        display: grid;
+        background-color: rgb(var(--black));
+        color: var(--white);
+        --active-bg: var(--body-bg);
+        border: solid 0.0625rem rgb(var(--color) / var(--border-alpha));
+        border-radius: 0.25rem;
+    }
+    .filter * {
         display: flex;
         flex-wrap: wrap;
         align-items: center;
@@ -43,15 +53,14 @@ const images = [
         gap: 1rem;
         justify-content: space-between;
     }
-
-    .filter {
-        display: grid;
-        background-color: rgb(var(--filled));
-        color: rgb(var(--contrast-filled));
-        --active-bg: var(--body-bg);
-        border: solid 0.0625rem rgb(var(--color) / var(--border-alpha));
-        border-radius: 0.25rem;
-    }
+    .stack>* {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+    justify-content: space-between
+}
 
     article.product-card {
     transition: var(--transition-duration) ease-out;
@@ -100,7 +109,7 @@ article.product-card,article.product {
 
 .carousel .items {
     display: flex;
-    overflow-x: scroll;
+    /* overflow-x: scroll; */
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
     align-items: center;
@@ -118,7 +127,8 @@ article.product-card .carousel {
     border-bottom: solid .0625rem rgb(var(--color)/var(--border-alpha));
     position: relative;
     border-radius: .25rem .25rem 0 0;
-    padding-bottom: 100%
+    padding-bottom: 100%;
+    padding-bottom: calc(40vh);
 }
 
 .grid,.product-card-grid {
@@ -187,105 +197,11 @@ article.product-card footer {
             </div>
         </div>
         <div class="with-sidebar">
-            <div class="filter">
-                <header>
-                    <div>显示3955产品的1-18</div><div>
-                        <a role="button">清除</a>
-                    </div>
-                </header>
-                <div role="navigation" aria-label="类别">
-                    <menu>
-                        <li>
-                            <a
-                                href="/3d"
-                                aria-current="false"
-                                style="text-decoration: none;"
-                                >3D<span class="icon icon-outline-cheveron-right"
-                                ></span></a
-                            >
-                        </li><li>
-                            <a
-                                href="/audio"
-                                aria-current="false"
-                                style="text-decoration: none;"
-                                >声音的<span
-                                    class="icon icon-outline-cheveron-right"
-                                ></span></a
-                            >
-                        </li><li>
-                            <a
-                                href="/business-and-money"
-                                aria-current="false"
-                                style="text-decoration: none;"
-                                >商业与金钱<span
-                                    class="icon icon-outline-cheveron-right"
-                                ></span></a
-                            >
-                        </li><li>
-                            <a
-                                href="/comics-and-graphic-novels"
-                                aria-current="false"
-                                style="text-decoration: none;">漫画与图画小说</a
-                            >
-                        </li><li>
-                            <a
-                                href="/design"
-                                aria-current="false"
-                                style="text-decoration: none;"
-                                >设计<span class="icon icon-outline-cheveron-right"
-                                ></span></a
-                            >
-                        </li><li>
-                            <a
-                                href="/drawing-and-painting"
-                                aria-current="false"
-                                style="text-decoration: none;"
-                                >绘图和绘画<span
-                                    class="icon icon-outline-cheveron-right"
-                                ></span></a
-                            >
-                        </li><li>
-                            <a
-                                href="/education"
-                                aria-current="false"
-                                style="text-decoration: none;"
-                                >教育<span class="icon icon-outline-cheveron-right"
-                                ></span></a
-                            >
-                        </li><li>
-                            <a
-                                href="/fiction-books"
-                                aria-current="false"
-                                style="text-decoration: none;"
-                                >小说书籍<span
-                                    class="icon icon-outline-cheveron-right"
-                                ></span></a
-                            >
-                        </li><li>
-                            <a
-                                href="/films"
-                                aria-current="false"
-                                style="text-decoration: none;"
-                                >电影<span class="icon icon-outline-cheveron-right"
-                                ></span></a
-                            >
-                        </li><li>
-                            <a
-                                href="/fitness-and-health"
-                                aria-current="false"
-                                style="text-decoration: none;"
-                                >健身与健康<span
-                                    class="icon icon-outline-cheveron-right"
-                                ></span></a
-                            >
-                        </li>
-                    </menu>
-                </div>
-            </div>
+            <DiscoverFilter client:load />
             <div class="product-card-grid">
                 {
                     images.map((e) => (
-                        <article class="product-card">
+                        <article class="product-card shadow">
                             <a
                                 href="https://logopackage.gumroad.com/l/logoPackageExpress3?layout=discover&recommended_by=search"
                                 class="stretched-link"

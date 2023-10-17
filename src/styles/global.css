@@ -119,6 +119,11 @@ button:hover {
     box-shadow: .25rem .25rem 0rem rgb(var(--color));
 }
 
+.shadow:hover {
+	transform: translate(-0.25rem,-0.25rem);
+    box-shadow: .25rem .25rem 0rem rgb(var(--color));
+}
+
 @font-face {
 	font-family: 'Atkinson';
 	src: url('/fonts/atkinson-regular.woff') format('woff');
