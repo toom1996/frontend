@@ -63,7 +63,7 @@ const handleClick = () => {
 }
 </script>
 <style scoped>
-    .filter * {
+    .filter>* {
         display: flex;
         flex-wrap: wrap;
         align-items: center;
@@ -71,12 +71,4 @@ const handleClick = () => {
         gap: 1rem;
         justify-content: space-between;
     }
-    .stack>* {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    padding: 1rem;
-    gap: 1rem;
-    justify-content: space-between
-}
 </style>
