@@ -1,12 +1,133 @@
 ---
 import MainLayout from "../layouts/main.astro";
-import Header from "../components/common/Header.astro";
+import MainHeader from "../components/common/Header.astro";
 import "../styles/main.css";
 import "../styles/global.css";
 const showTopBanner = false;
+const images = [
+    'https://imgf1.pop-fashion.com/fashion/presscon/20230617029SZ6753/focus/women/middle/PatBo174977_004_SZ6753.jpg',
+    'https://shows.vogueimg.com.cn/202310/9a70dd72b7ae394629ca542199bd2c42/2020/F2020RTW/escada-pre/collection/16DjkbLVv5x2732_h_L.jpg',
+    'https://shows.vogueimg.com.cn/202310/bf994b6e6e06389357020c8945b8a2e1/2020/F2020RTW/zadig-voltaire/collection/90P0Gd9kxgP2732_h_L.jpg',
+    'https://shows.vogueimg.com.cn/202310/416f8c42005f977cbbbe08d20573f90d/2020/F2020RTW/zadig-voltaire/collection/ay9y86L1LQD2732_h_L.jpg',
+    'http://img.aiimg.com/uploads/userup/0905/1600431QR1.jpg',
+    'https://ts1.cn.mm.bing.net/th/id/R-C.2d64fccb4c52f84713e700e21c670c97?rik=jIykRcNiN%2b9ORw&riu=http%3a%2f%2fwww.linkshop.com.cn%2fupload%2farticle%2f2018%2f20180307143934_2812_lssize.jpg&ehk=BTwVTSantudy28orpo5Y%2fUqA%2fyR8B9PuREs%2fUm9HYUo%3d&risl=&pid=ImgRaw&r=0'
+];
 ---
+
 <style>
-    @media(min-width: 1024px) {
+    .product-card-grid {
+    --min-grid-absolute-size: 16rem;
+    --max-grid-relative-size: 33%;
+}
+
+    @media (min-width: 1024px) {
+        body > header,
+        header.sticky,
+        main > * {
+            padding: 4rem max((100% - 71.25rem)/2, 4rem);
+        }
+
+        body > header:where(.sidebar-nav *),
+        header.sticky:where(.sidebar-nav *),
+        main > *:where(.sidebar-nav *) {
+            padding-left: 4rem;
+            padding-right: max(100% - 71.25rem - 4rem, 4rem);
+        }
+    }
+
+    .filter > * {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        padding: 1rem;
+        gap: 1rem;
+        justify-content: space-between;
+    }
+
+    .filter {
+        display: grid;
+        background-color: rgb(var(--filled));
+        color: rgb(var(--contrast-filled));
+        --active-bg: var(--body-bg);
+        border: solid 0.0625rem rgb(var(--color) / var(--border-alpha));
+        border-radius: 0.25rem;
+    }
+
+    article.product-card {
+    transition: var(--transition-duration) ease-out;
+    transition-property: all;
+    display: grid;
+    grid-template-rows: auto 1fr auto
+}
+
+article.product-card {
+    transition: var(--transition-duration) ease-out;
+    transition-property: all;
+    display: grid;
+    grid-template-rows: auto 1fr auto
+}
+
+article.product-card,article.product {
+    position: relative;
+    background-color: rgb(var(--filled));
+    color: rgb(var(--contrast-filled));
+    --active-bg: var(--body-bg);
+    border: solid .0625rem rgb(var(--color)/var(--border-alpha));
+    border-radius: .25rem
+}
+
+
+.with-sidebar {
+    display: grid;
+    gap: 4rem;
+    align-items: flex-start;
+    grid-template-columns: 1fr;
+    grid-auto-columns: 3fr
+}
+
+@media(min-width: 1024px) {
+    .with-sidebar:not(.squished .with-sidebar) {
+        grid-auto-flow:column;
+    }
+
+    .with-sidebar:not(.squished .with-sidebar)>.sticky {
+        max-height: min(100%,100vh);
+        position: sticky;
+        top: 0;
+        overflow-y: auto
+    }
+}
+
+.carousel .items {
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    align-items: center;
+    height: 100%;
+    scrollbar-width: none
+}
+
+article.product-card .carousel .items {
+    position: absolute;
+    width: 100%;
+    border-radius: .25rem .25rem 0 0
+}
+
+article.product-card .carousel {
+    border-bottom: solid .0625rem rgb(var(--color)/var(--border-alpha));
+    position: relative;
+    border-radius: .25rem .25rem 0 0;
+    padding-bottom: 100%
+}
+
+.grid,.product-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(max(min(var(--min-grid-absolute-size),100%),var(--max-grid-relative-size) - 1rem),1fr));
+    gap: 1rem;
+}
+
+@media(min-width: 1024px) {
     body>header,header.sticky,main>* {
         padding:4rem max((100% - 71.25rem)/2,4rem);
     }
@@ -16,40 +137,198 @@ const showTopBanner = false;
         padding-right: max(100% - 71.25rem - 4rem,4rem)
     }
 }
+article.product-card header {
+    padding: 1rem;
+    display: grid;
+    grid-template-rows: 1fr;
+    gap: .5rem;
+    border-bottom: solid .0625rem rgb(var(--color)/var(--border-alpha))
+}
+article.product-card footer {
+    display: grid;
+    grid-template-columns: 1fr auto;
+}
 </style>
 <MainLayout>
-    <Header showTopBanner={showTopBanner} />
-    <header class="p-8">
-        <div class="hero-actions">
-            <a class="logo" href="/"><div class="logo-full">&nbsp;</div></a><div
-                class="separator"
-            >
-            </div><div class="combobox" style="flex-grow:1">
-                <div class="input">
-                    <span class="icon icon-solid-search"></span><input
-                        type="search"
-                        placeholder="搜索产品..."
-                        role="combobox"
-                        aria-expanded="false"
-                        aria-autocomplete="list"
-                        aria-controls=":R1l:"
-                        value=""
-                    />
-                </div><datalist id=":R1l:" hidden=""></datalist>
+    <MainHeader showTopBanner={showTopBanner} />
+    <main>
+        <header class="p-8">
+            <div class="hero-actions">
+                <a class="logo" href="/"><div class="logo-full">&nbsp;</div></a><div
+                    class="separator"
+                >
+                </div><div class="combobox" style="flex-grow:1">
+                    <div class="input">
+                        <span class="icon icon-solid-search"></span><input
+                            type="search"
+                            placeholder="搜索产品..."
+                            role="combobox"
+                            aria-expanded="false"
+                            aria-autocomplete="list"
+                            aria-controls=":R1l:"
+                            value=""
+                        />
+                    </div><datalist id=":R1l:" hidden=""></datalist>
+                </div>
             </div>
-        </div>
-    </header>
-    <div role="nav">
-        <div class="nested-menu">
-            <div role="menubar" aria-busy="false">
-                <div>
-                    <a
-                        href="/"
-                        class="pill button"
-                        role="menuitem"
-                        aria-current="true">全部</a>
+        </header>
+        <div role="nav">
+            <div class="nested-menu">
+                <div role="menubar" aria-busy="false">
+                    <div>
+                        <a
+                            href="/"
+                            class="pill button"
+                            role="menuitem"
+                            aria-current="true">全部</a
+                        >
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+        <div class="with-sidebar">
+            <div class="filter">
+                <header>
+                    <div>显示3955产品的1-18</div><div>
+                        <a role="button">清除</a>
+                    </div>
+                </header>
+                <div role="navigation" aria-label="类别">
+                    <menu>
+                        <li>
+                            <a
+                                href="/3d"
+                                aria-current="false"
+                                style="text-decoration: none;"
+                                >3D<span class="icon icon-outline-cheveron-right"
+                                ></span></a
+                            >
+                        </li><li>
+                            <a
+                                href="/audio"
+                                aria-current="false"
+                                style="text-decoration: none;"
+                                >声音的<span
+                                    class="icon icon-outline-cheveron-right"
+                                ></span></a
+                            >
+                        </li><li>
+                            <a
+                                href="/business-and-money"
+                                aria-current="false"
+                                style="text-decoration: none;"
+                                >商业与金钱<span
+                                    class="icon icon-outline-cheveron-right"
+                                ></span></a
+                            >
+                        </li><li>
+                            <a
+                                href="/comics-and-graphic-novels"
+                                aria-current="false"
+                                style="text-decoration: none;">漫画与图画小说</a
+                            >
+                        </li><li>
+                            <a
+                                href="/design"
+                                aria-current="false"
+                                style="text-decoration: none;"
+                                >设计<span class="icon icon-outline-cheveron-right"
+                                ></span></a
+                            >
+                        </li><li>
+                            <a
+                                href="/drawing-and-painting"
+                                aria-current="false"
+                                style="text-decoration: none;"
+                                >绘图和绘画<span
+                                    class="icon icon-outline-cheveron-right"
+                                ></span></a
+                            >
+                        </li><li>
+                            <a
+                                href="/education"
+                                aria-current="false"
+                                style="text-decoration: none;"
+                                >教育<span class="icon icon-outline-cheveron-right"
+                                ></span></a
+                            >
+                        </li><li>
+                            <a
+                                href="/fiction-books"
+                                aria-current="false"
+                                style="text-decoration: none;"
+                                >小说书籍<span
+                                    class="icon icon-outline-cheveron-right"
+                                ></span></a
+                            >
+                        </li><li>
+                            <a
+                                href="/films"
+                                aria-current="false"
+                                style="text-decoration: none;"
+                                >电影<span class="icon icon-outline-cheveron-right"
+                                ></span></a
+                            >
+                        </li><li>
+                            <a
+                                href="/fitness-and-health"
+                                aria-current="false"
+                                style="text-decoration: none;"
+                                >健身与健康<span
+                                    class="icon icon-outline-cheveron-right"
+                                ></span></a
+                            >
+                        </li>
+                    </menu>
+                </div>
+            </div>
+            <div class="product-card-grid">
+                {
+                    images.map((e) => (
+                        <article class="product-card">
+                            <a
+                                href="https://logopackage.gumroad.com/l/logoPackageExpress3?layout=discover&recommended_by=search"
+                                class="stretched-link"
+                                aria-label="Logo Package Express 3.0" >
+                                <div class="carousel">
+                                    <div class="items">
+                                        <img src={e} />
+                                    </div>
+                                </div>
+                            </a>
+                            <header>
+                                <p class="text-xl font-normal">Jonathan Simkhai秋冬 2020 高级成衣</p>
+                            </header>
+                            <footer>
+                                <div class="rating" aria-label="评分">
+                                    <span class="icon icon-solid-star"></span><span
+                                        class="rating-average">4.9</span><span title="4.9评分">66</span>
+                                </div>
+                                <div
+                                    itemscope=""
+                                    itemprop="offers"
+                                    itemtype="https://schema.org/Offer"
+                                    style="display: flex; align-items: center;"
+                                >
+                                    <div class="has-tooltip" aria-describedby=":r3n:">
+                                        <div class="price" itemprop="price" content="119">
+                                            $119
+                                        </div><div role="tooltip" id=":r3n:">$119</div>
+                                    </div>
+                                    <link
+                                        itemprop="url"
+                                        href="https://logopackage.gumroad.com/l/logoPackageExpress3?layout=discover&recommended_by=search"
+                                    />
+                                    <div itemprop="availability" hidden="">
+                                        https://schema.org/InStock
+                                    </div>
+                                    <div itemprop="priceCurrency" hidden="">usd</div>
+                                </div>
+                            </footer>
+                        </article>
+                    ))
+                }
+            </div>
+        </div>
+    </main>
 </MainLayout>
