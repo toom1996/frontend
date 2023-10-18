@@ -1,4 +1,5 @@
 ---
+import { Icon } from 'astro-icon'
 import MainLayout from "../layouts/main.astro";
 import MainHeader from "../components/common/Header.astro";
 import DiscoverFilter from '../components/DiscoverFilter.vue';
@@ -7,12 +8,26 @@ import "../styles/main.css";
 import "../styles/global.css";
 const showTopBanner = false;
 const images = [
-    'https://imgf1.pop-fashion.com/fashion/presscon/20230617029SZ6753/focus/women/middle/PatBo174977_004_SZ6753.jpg',
-    'https://shows.vogueimg.com.cn/202310/9a70dd72b7ae394629ca542199bd2c42/2020/F2020RTW/escada-pre/collection/16DjkbLVv5x2732_h_L.jpg',
-    'https://shows.vogueimg.com.cn/202310/bf994b6e6e06389357020c8945b8a2e1/2020/F2020RTW/zadig-voltaire/collection/90P0Gd9kxgP2732_h_L.jpg',
-    'https://shows.vogueimg.com.cn/202310/416f8c42005f977cbbbe08d20573f90d/2020/F2020RTW/zadig-voltaire/collection/ay9y86L1LQD2732_h_L.jpg',
-    'http://img.aiimg.com/uploads/userup/0905/1600431QR1.jpg',
-    'https://ts1.cn.mm.bing.net/th/id/R-C.2d64fccb4c52f84713e700e21c670c97?rik=jIykRcNiN%2b9ORw&riu=http%3a%2f%2fwww.linkshop.com.cn%2fupload%2farticle%2f2018%2f20180307143934_2812_lssize.jpg&ehk=BTwVTSantudy28orpo5Y%2fUqA%2fyR8B9PuREs%2fUm9HYUo%3d&risl=&pid=ImgRaw&r=0'
+    {
+        url: 'https://imgf1.pop-fashion.com/fashion/presscon/20230617029SZ6753/focus/women/middle/PatBo174977_004_SZ6753.jpg',
+        title: '2024早春纽约《Bibhu Mohapatra》女装发布会'
+    },
+    {
+        url: 'https://shows.vogueimg.com.cn/202310/9a70dd72b7ae394629ca542199bd2c42/2020/F2020RTW/escada-pre/collection/16DjkbLVv5x2732_h_L.jpg',
+        title: '午报 | lululemon股价大涨市值破500亿美元，取代阿迪达斯成全球第二大运动品牌'
+    },
+    {
+        url: 'https://shows.vogueimg.com.cn/202310/bf994b6e6e06389357020c8945b8a2e1/2020/F2020RTW/zadig-voltaire/collection/90P0Gd9kxgP2732_h_L.jpg',
+        title: 'Zara推出纯白系列 清新优雅'
+    },
+    {
+        url: 'http://img.aiimg.com/uploads/userup/0905/1600431QR1.jpg',
+        title: 'Balenciaga 2017早秋系列 复古时尚'
+    },
+    {
+        url: 'https://ts1.cn.mm.bing.net/th/id/R-C.2d64fccb4c52f84713e700e21c670c97?rik=jIykRcNiN%2b9ORw&riu=http%3a%2f%2fwww.linkshop.com.cn%2fupload%2farticle%2f2018%2f20180307143934_2812_lssize.jpg&ehk=BTwVTSantudy28orpo5Y%2fUqA%2fyR8B9PuREs%2fUm9HYUo%3d&risl=&pid=ImgRaw&r=0',
+        title: 'Shalom Harlow: 重返聚光灯下'
+    },
 ];
 ---
 
@@ -37,22 +52,6 @@ const images = [
         }
     }
 
-    .filter {
-        display: grid;
-        background-color: rgb(var(--black));
-        color: var(--white);
-        --active-bg: var(--body-bg);
-        border: solid 0.0625rem rgb(var(--color) / var(--border-alpha));
-        border-radius: 0.25rem;
-    }
-    .filter * {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        padding: 1rem;
-        gap: 1rem;
-        justify-content: space-between;
-    }
     .stack>* {
     display: flex;
     flex-wrap: wrap;
@@ -128,7 +127,7 @@ article.product-card .carousel {
     position: relative;
     border-radius: .25rem .25rem 0 0;
     padding-bottom: 100%;
-    padding-bottom: calc(40vh);
+    padding-bottom: 140%;
 }
 
 .grid,.product-card-grid {
@@ -139,7 +138,7 @@ article.product-card .carousel {
 
 @media(min-width: 1024px) {
     body>header,header.sticky,main>* {
-        padding:4rem max((100% - 71.25rem)/2,4rem);
+        padding:4rem max((100% - 90rem)/2,4rem);
     }
 
     body>header:where(.sidebar-nav *),header.sticky:where(.sidebar-nav *),main>*:where(.sidebar-nav *) {
@@ -148,7 +147,6 @@ article.product-card .carousel {
     }
 }
 article.product-card header {
-    padding: 1rem;
     display: grid;
     grid-template-rows: 1fr;
     gap: .5rem;
@@ -208,16 +206,16 @@ article.product-card footer {
                                 aria-label="Logo Package Express 3.0" >
                                 <div class="carousel">
                                     <div class="items">
-                                        <img src={e} />
+                                        <img class="w-full" src={e.url} />
                                     </div>
                                 </div>
                             </a>
-                            <header>
-                                <p class="text-xl font-normal">Jonathan Simkhai秋冬 2020 高级成衣</p>
+                            <header class="p-2">
+                                <p class="text-xl font-normal">{e.title}</p>
                             </header>
                             <footer>
                                 <div class="rating" aria-label="评分">
-                                    <span class="icon icon-solid-star"></span><span
+                                    <Icon name="mdi:account"/><span
                                         class="rating-average">4.9</span><span title="4.9评分">66</span>
                                 </div>
                                 <div

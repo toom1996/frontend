@@ -1,7 +1,7 @@
 <template>
     <div class="filter stack" @click="handleClick">
-        <header>
-            <div>显示3955产品的1-18</div>
+        <header class="border-b-2 border-solid border-gray-950">
+            <div>共计 1234 条</div>
             <div>
                 <a role="button">清除!!</a>
             </div>
@@ -59,16 +59,33 @@ const msg = ref('Hello, world!')
 
 const handleClick = () => {
     console.log(123123213)
-  mitter.emit('msg', msg.value)
+    mitter.emit('msg', msg.value)
 }
 </script>
 <style scoped>
-    .filter>* {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        padding: 1rem;
-        gap: 1rem;
-        justify-content: space-between;
-    }
+.filter>* {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+    justify-content: space-between;
+}
+
+.filter {
+    display: grid;
+    background-color: rgb(var(--white));
+    color: var(--black);
+    --active-bg: var(--body-bg);
+    border: solid 0.0625rem rgb(var(--color) / var(--border-alpha));
+    border-radius: 0.25rem;
+}
+
+menu {
+    font-size: .875rem;
+    line-height: 1.3;
+    --line-height: 1.1375rem;
+    padding-left: 1rem;
+    margin-top: .75rem
+}
 </style>

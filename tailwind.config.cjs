@@ -9,6 +9,9 @@ module.exports = {
       },
       spacing: {
         '3vw': '3vw'
+      },
+      colors: {
+        'black': '#ffffff'
       }
     },
   },
