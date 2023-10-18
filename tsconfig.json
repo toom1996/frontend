@@ -18,7 +18,10 @@
     "paths": {
       "@/utils/*": ["src/utils/*"],
       "@/api/*": ["src/api/*"],
+      "@/icons/*": ["src/icons/*"],
+      "@/components/*": ["src/components/*"],
+      "@/layouts/*": ["src/layouts/*"],
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "src/**/*.astro"]
 }

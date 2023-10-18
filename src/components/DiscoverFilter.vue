@@ -8,44 +8,8 @@
         </header>
         <div role="navigation" aria-label="类别">
             <menu>
-                <li>
-                    <a href="/3d" aria-current="false" style="text-decoration: none;">3D<span
-                            class="icon icon-outline-cheveron-right"></span></a>
-                </li>
-                <li>
-                    <a href="/audio" aria-current="false" style="text-decoration: none;">声音的<span
-                            class="icon icon-outline-cheveron-right"></span></a>
-                </li>
-                <li>
-                    <a href="/business-and-money" aria-current="false" style="text-decoration: none;">商业与金钱<span
-                            class="icon icon-outline-cheveron-right"></span></a>
-                </li>
-                <li>
-                    <a href="/comics-and-graphic-novels" aria-current="false" style="text-decoration: none;">漫画与图画小说</a>
-                </li>
-                <li>
-                    <a href="/design" aria-current="false" style="text-decoration: none;">设计<span
-                            class="icon icon-outline-cheveron-right"></span></a>
-                </li>
-                <li>
-                    <a href="/drawing-and-painting" aria-current="false" style="text-decoration: none;">绘图和绘画<span
-                            class="icon icon-outline-cheveron-right"></span></a>
-                </li>
-                <li>
-                    <a href="/education" aria-current="false" style="text-decoration: none;">教育<span
-                            class="icon icon-outline-cheveron-right"></span></a>
-                </li>
-                <li>
-                    <a href="/fiction-books" aria-current="false" style="text-decoration: none;">小说书籍<span
-                            class="icon icon-outline-cheveron-right"></span></a>
-                </li>
-                <li>
-                    <a href="/films" aria-current="false" style="text-decoration: none;">电影<span
-                            class="icon icon-outline-cheveron-right"></span></a>
-                </li>
-                <li>
-                    <a href="/fitness-and-health" aria-current="false" style="text-decoration: none;">健身与健康<span
-                            class="icon icon-outline-cheveron-right"></span></a>
+                <li class="py-1" v-for="item, index in filterColumns">
+                    <a class="flex" href="/3d" aria-current="false" style="text-decoration: none;">{{ item }}<ChevronRight /></a>
                 </li>
             </menu>
         </div>
@@ -54,8 +18,11 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import mitter from '@/utils/eventBus'
+import  ChevronRight  from '@/icons/ChevronRight.vue'
 
-const msg = ref('Hello, world!')
+const filterColumns = ref([
+    '3D', '声音的', '商业与金钱', '漫画与图画小说', '设计', '绘图和绘画', '教育', '小说书籍', '电影', '健身与健康'
+])
 
 const handleClick = () => {
     console.log(123123213)
@@ -82,8 +49,8 @@ const handleClick = () => {
 }
 
 menu {
-    font-size: .875rem;
-    line-height: 1.3;
+    font-size: 1.5rem;
+    line-height: 1.2;
     --line-height: 1.1375rem;
     padding-left: 1rem;
     margin-top: .75rem
