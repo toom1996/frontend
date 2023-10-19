@@ -25,6 +25,16 @@ import "../styles/global.css";
 		grid-auto-columns: 1fr;
 		display: grid;
 	}
+
+	.earned-income-number {
+		font-size: 11.25rem;
+	}
+
+	.text-lg {
+		letter-spacing: -0.01em;
+		font-size: 2rem;
+		line-height: 1.25;
+	}
 </style>
 <MainLayout>
 	<div class="grid-halves">
@@ -63,19 +73,136 @@ import "../styles/global.css";
 			</div>
 		</div>
 	</div>
+	<div class="selection-box show-wrap" style="background-color:#34AD60;">
+		<!-- <div class="box-left">
+			<div class="show-title">
+				<div class="main-title">
+					<img src="/public/img/runway_gallery.e0850e4d.png" alt="" />
+				</div>
+				<div class="sub-title">当下秀场</div>
+			</div>
+			<div class="show-img">
+				<div class="data-list">
+					<div
+						style="height:0px;position:relative;padding-top:50%;"
+						class=""
+					>
+						<a
+							href="/detail/listDetail?channel=20850&subject_id=0&folder_id=152151&mode=2&data_type=1&p=1"
+							target="_blank"
+							class="img-list"
+							style="height:100%;width:100%;position:absolute;top:0px;left:0px;"
+						>
+							<div class="el-image img-item">
+								<img
+									src="https://img00.sxxl.com/adption/2023/1019/1909/Mancandy_2024春夏_墨西哥_风衣_-_-20231019094115419628_c_600_900_100.jpg"
+									class="el-image__inner"
+									style="object-fit: cover;"
+								/>
+							</div>
+							<div class="el-image img-item">
+								<img
+									src="https://img00.sxxl.com/adption/2023/1019/1909/Mancandy_2024春夏_墨西哥_-_-20231019094116674984_c_600_900_100.jpg"
+									class="el-image__inner"
+									style="object-fit: cover;"
+								/>
+							</div>
+							<div class="el-image img-item">
+								<img
+									src="https://img00.sxxl.com/adption/2023/1019/1909/Mancandy_2024春夏_墨西哥_短裤_-_-20231019094116309504_c_600_900_100.jpg"
+									class="el-image__inner"
+									style="object-fit: cover;"
+								/>
+							</div>
+						</a>
+					</div>
+					<p class="data-title" style="color:#1f1f1f;">
+						2024春夏墨西哥(Mancandy)男女装发布会
+					</p>
+				</div>
+				<div class="data-list">
+					<div
+						style="height:0px;position:relative;padding-top:50%;"
+						class=""
+					>
+						<a
+							href="/detail/listDetail?channel=20850&subject_id=0&folder_id=152153&mode=2&data_type=1&p=1"
+							target="_blank"
+							class="img-list"
+							style="height:100%;width:100%;position:absolute;top:0px;left:0px;"
+						>
+							<div class="el-image img-item">
+								<img
+									src="https://img00.sxxl.com/adption/2023/1019/1910/Oscar_de_la_Renta_2024_25秋冬_纽约_皮裙_-_-20231019100722995643_c_600_900_100.jpg"
+									class="el-image__inner"
+									style="object-fit: cover;"
+								/>
+							</div>
+							<div class="el-image img-item">
+								<img
+									src="https://img00.sxxl.com/adption/2023/1019/1910/Oscar_de_la_Renta_2024_25秋冬_纽约_-_-20231019100722464282_c_600_900_100.jpg"
+									class="el-image__inner"
+									style="object-fit: cover;"
+								/>
+							</div>
+							<div class="el-image img-item">
+								<img
+									src="https://img00.sxxl.com/adption/2023/1019/1910/Oscar_de_la_Renta_2024_25秋冬_纽约_婚纱_-_-20231019100722554316_c_600_900_100.jpg"
+									class="el-image__inner"
+									style="object-fit: cover;"
+								/>
+							</div>
+						</a>
+					</div>
+					<p class="data-title" style="color:#1f1f1f;">
+						2024/25秋冬纽约(Oscar de la Renta)婚纱礼服发布会
+					</p>
+				</div>
+			</div>
+		</div> -->
+		<div class="box-right">
+			<div class="text-list">
+				<div class="text-item">
+					<div class="text-box">
+						<a
+							href="/detail/listDetail?channel=20850&subject_id=0&folder_id=152151&mode=2&data_type=1&p=1"
+							target="_blank"
+							class="">Mancandy</a
+						>
+						<img
+							src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgBAMAAAAQtmoLAAAAJ1BMVEUAAAAeHh4fHx8fHx8gICAdHR0gICAfHx8gICAgICAfHx8eHh4fHx+WKMN6AAAADHRSTlMAoIDfIGBf7zAQz5BWq+KMAAABI0lEQVRYw+3NsUpCcRTH8dNFwppqabpDNN+xJWgIeo0G23uABodoaQ3cfAPBl1BBQc9DOYjo4Qd+/0ccFO53//Ix02o/UDu0w2UPn/ehfhywypNDAwMAngU8C3gW8CzgWcAJkIqBOgwMzD/CwECvZLjeA6xk+NoDwsDA1MLAwKMMBMgAgAwEyIAAD90I8PAXAB66/QDIAIAMAMgAgAwAyIAADx0BYHgPAA+dV9+2MhwicIdDBCamAwA6AKADADogoAMDOjCggwIjHCKw/IcBABkIsN+nTQBIAECDJHAzTgLDHfCSBGZvSeD5MoFbAaA6CVy1wMmBJglUxwOLLPCdBX7OArBGAKgSAIkdkCMEAGJuliN6Vl4jABECICEAEQJQD1bcGvEowau+iYCYAAAAAElFTkSuQmCC"
+							alt="arrow"
+							class="arrow"
+						/>
+					</div>
+				</div>
+				<div class="text-item">
+					<div class="text-box">
+						<a
+							href="/detail/listDetail?channel=20850&subject_id=0&folder_id=152153&mode=2&data_type=1&p=1"
+							target="_blank"
+							class="">Oscar de la Renta</a
+						>
+						<img
+							src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgBAMAAAAQtmoLAAAAJ1BMVEUAAAAeHh4fHx8fHx8gICAdHR0gICAfHx8gICAgICAfHx8eHh4fHx+WKMN6AAAADHRSTlMAoIDfIGBf7zAQz5BWq+KMAAABI0lEQVRYw+3NsUpCcRTH8dNFwppqabpDNN+xJWgIeo0G23uABodoaQ3cfAPBl1BBQc9DOYjo4Qd+/0ccFO53//Ix02o/UDu0w2UPn/ehfhywypNDAwMAngU8C3gW8CzgWcAJkIqBOgwMzD/CwECvZLjeA6xk+NoDwsDA1MLAwKMMBMgAgAwEyIAAD90I8PAXAB66/QDIAIAMAMgAgAwAyIAADx0BYHgPAA+dV9+2MhwicIdDBCamAwA6AKADADogoAMDOjCggwIjHCKw/IcBABkIsN+nTQBIAECDJHAzTgLDHfCSBGZvSeD5MoFbAaA6CVy1wMmBJglUxwOLLPCdBX7OArBGAKgSAIkdkCMEAGJuliN6Vl4jABECICEAEQJQD1bcGvEowau+iYCYAAAAAElFTkSuQmCC"
+							alt="arrow"
+							class="arrow"
+						/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	<div
 		data-w-id="bb928bf3-04e0-6e31-a1a0-7150d683dd1c"
 		class="section income-earned-section"
 	>
 		<div class="container">
-			<div class="earned-income-intro">
+			<div class="earned-income-intro p-10 text-center">
 				<h3 class="earned-income-number">
 					$<span id="payout-usd" class="counter">2，973，102</span>
-				</h3><div class="text-lg">
-					The amount of income earned by Gumroad <span
-						class="line-break"
-						>digital entrepreneurs last week.</span>
-				</div>
+				</h3>
+				<div class="text-lg">条素材及文章供您查阅</div>
 			</div>
 		</div>
 	</div>
