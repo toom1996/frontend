@@ -1,9 +1,11 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
+import MainHeader from "../components/common/Header.astro";
+const showTopBanner = false;
 ---
 
 <html lang="en">
-	<BaseHead/></BaseHead>
+	<BaseHead /></BaseHead>
 	<head>
 		<style>
 			main {
@@ -47,6 +49,7 @@ import BaseHead from '../components/BaseHead.astro';
 	</head>
 
 	<body class="bg-white">
+		<MainHeader showTopBanner={showTopBanner} />
 		<slot />
 	</body>
 </html>

@@ -3,6 +3,9 @@ import SectionUser from "./Header.vue";
 const post = await fetch("http://127.0.0.1:8000/v1/header/menus");
 const { data } = await post.json();
 const { showTopBanner = false } = Astro.props;
+const headers = [
+    'T台', '街拍', '成衣', '品牌', '花纹', 'AI', '色彩'
+];
 console.log(showTopBanner)
 ---
 
@@ -105,41 +108,18 @@ console.log(showTopBanner)
             </div>
         </a>
         <nav role="navigation" class="nav-menu w-nav-menu centered">
-            <a
+            {
+                headers.map((data) => (
+                <a
                 data-w-id="26a834a9-196a-c35c-1055-52c655195738"
                 href="/features"
-                class="nav-link w-inline-block"
-            >
-                <div class="nav-link-text">Features</div>
-                <div class="nav-link-underline" style="width: 0%; height: 1px;">
-                </div>
-            </a><a
-                data-w-id="c358c3e7-418d-f411-4a76-8587c27a2faf"
-                href="/pricing"
-                class="nav-link w-inline-block"
-            >
-                <div class="nav-link-text">Pricing</div>
-                <div class="nav-link-underline" style="width: 0%; height: 1px;">
-                </div>
-            </a><a
-                id="blog-link"
-                data-w-id="c358c3e7-418d-f411-4a76-8587c27a2fb7"
-                href="/blog"
-                class="nav-link w-inline-block"
-            >
-                <div class="nav-link-text">Blog</div>
-                <div class="nav-link-underline" style="width: 0%; height: 1px;">
-                </div>
-            </a><a
-                id="discover"
-                data-w-id="c358c3e7-418d-f411-4a76-8587c27a2fbf"
-                href="/discover"
-                class="nav-link w-inline-block"
-            >
-                <div class="nav-link-text">探索</div>
-                <div class="nav-link-underline" style="width: 0%; height: 1px;">
-                </div>
-            </a>
+                class="nav-link w-inline-block">
+                    <div class="nav-link-text">{data}</div>
+                        <div class="nav-link-underline" style="width: 0%; height: 1px;">
+                    </div>
+                </a>
+                ))
+            }
         </nav>
         <SectionUser />
     </div>

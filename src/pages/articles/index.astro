@@ -1,0 +1,532 @@
+---
+import BaseHead from "../../components/BaseHead.astro";
+// import Header from '../components/Header.astro';
+import Footer from "../../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
+export const prerender = false;
+import Header from "../../components/common/Header.vue";
+import Header1 from "../../components/common/Header.astro";
+import "../../styles/main.css";
+import "../../styles/global.css";
+// const post = await fetch("http://127.0.0.1:8000/api/v1/header/menus")
+// const {data} = await post.json()
+// console.log(data)
+---
+
+<!doctype html>
+<html lang="en">
+	<script>console.log('v:0.0.1')</script>
+
+	<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+
+	<body class="bg-white">
+		<!-- <Header client:load /> -->
+		<Header1 />
+		<div
+			id="journal-container"
+			data-controller="journal-article"
+			data-action="load@window->journal-article#handleImageBlock"
+			data-v-app=""
+		>
+			<div class="container md:px-8 px-0 md:mt-8 max-w-screen-2xl">
+				<div class="flex flex-wrap md:flex-nowrap flex-row-reverse">
+					<div class="w-full" id="article-list">
+						<div id="feature-banner">
+							<a
+								class="hover:opacity-100"
+								href="https://hbx.com/cn/journal/2023/05/2023-y2k-berghain-goth"
+								><div class="relative">
+									<img
+										src="https://aliyun-img.hypebeast.cn/https%3A%2F%2Fhbx.hypebeast.com%2Ffiles%2F2023%2F04%2FTR2-MEN-3x21800x1200.jpg?fit=max&w=1080&q=90"
+										class="w-full aspect-ratio-3x2 hidden md:inline-block"
+									/><img
+										src="https://aliyun-img.hypebeast.cn/https%3A%2F%2Fhbx.hypebeast.com%2Ffiles%2F2023%2F04%2FTR2-MEN-3x21800x1200.jpg?fit=max&w=720&q=90"
+										class="w-full aspect-ratio-3x2 md:hidden"
+									/>
+								</div><div class="post-summary">
+									<div
+										class="hidden md:block md:mt-lg mt-0 lg:mt-0 mb-xs text-base leading-dense"
+									>
+										服裝
+									</div><h2
+										class="font-bold leading-none text-2xl md:text-3xl hover:opacity-70"
+									>
+										2023 春夏男装潮流趋势：Y2K, BERGHAIN
+										GOTH 和更多风格
+									</h2><div class="post-excerpt mt-sm">
+									</div><div
+										class="underline font-bold mt-6 uppercase leading-dense hover:opacity-70"
+									>
+										阅读更多
+									</div>
+								</div></a
+							>
+						</div><hr /><div
+							class="flex font-bold my-6 leading-none px-md md:px-0 text-2xl md:text-3xl md:mb-xl justify-between"
+						>
+							<h3 class="md:mt-xs">最新文章</h3><div
+								class="flex items-end justify-between w-2xl md:hidden"
+							>
+							</div>
+						</div><div
+							id="journal-search"
+							class="hidden mx-md"
+							data-controller="journal-filter"
+							data-journal-filter-url-value="https://hbx.com/cn/journal"
+							data-journal-filter-query-value="{}"
+						>
+							<div
+								class="relative block md:inline-block mt-lg md:mt-0"
+							>
+								<input
+									data-action="keyup->journal-filter#searchJournal"
+									data-journal-filter-target="nameInput"
+									class="w-full hover:border-input hover:border focus:border focus:border-input"
+									type="text"
+									placeholder="搜寻文章"
+									style="padding-left: 43px;"
+								/><svg
+									data-action="click->journal-filter#searchJournal"
+									class="absolute left-md top-md cursor-pointer icon icon-xl"
+									><use
+										xlink:href="/icomoon/hbx/symbol-defs.svg#icon-search-dark"
+									></use></svg
+								>
+							</div>
+						</div><div id="journal-list" class="px-md md:px-0">
+							<a
+								class="hover:opacity-100"
+								href="https://hbx.com/cn/journal/2023/06/shixinwenyue"
+								><div
+									class="grid grid-cols-1 lg:grid-cols-2 my-6 md:my-xl"
+								>
+									<div class="col mb-sm lg:mb-0">
+										<img
+											src="https://aliyun-img.hypebeast.cn/https%3A%2F%2Fhbx.hypebeast.com%2Ffiles%2F2023%2F06%2Fpick100.jpg?fit=max&w=720&q=90"
+											class="aspect-ratio-3x2"
+										/>
+									</div><div class="col">
+										<div class="flex flex-col">
+											<div
+												class="text-xs lg:text-base leading-dense"
+											>
+												服裝
+											</div><h2
+												class="font-bold leading-none my-2 mt-xs text-2xl md:text-3xl hover:opacity-70"
+											>
+												施鑫文月专访：我想要做有温度的音乐
+											</h2><div
+												class="leading-dense lg:text-lg"
+											>
+											</div><div
+												class="font-bold mt-4 underline leading-none md:leading-normal hover:opacity-70"
+											>
+												阅读更多
+											</div>
+										</div>
+									</div>
+								</div></a
+							><hr /><a
+								class="hover:opacity-100"
+								href="https://hbx.com/cn/journal/2023/05/a24"
+								><div
+									class="grid grid-cols-1 lg:grid-cols-2 my-6 md:my-xl"
+								>
+									<div class="col mb-sm lg:mb-0">
+										<img
+											src="https://aliyun-img.hypebeast.cn/https%3A%2F%2Fhbx.hypebeast.com%2Ffiles%2F2023%2F06%2Fbeef-characters-sneakers-a24-netflix-01.jpeg?fit=max&w=720&q=90"
+											class="aspect-ratio-3x2"
+										/>
+									</div><div class="col">
+										<div class="flex flex-col">
+											<div
+												class="text-xs lg:text-base leading-dense"
+											>
+												鞋类
+											</div><h2
+												class="font-bold leading-none mb-sm mt-xs text-2xl md:text-3xl hover:opacity-70"
+											>
+												A24《怒呛人生》里的角色会穿着怎样的运动鞋？
+											</h2><div
+												class="leading-dense lg:text-lg"
+											>
+											</div><div
+												class="font-bold mt-lg underline leading-none md:leading-normal hover:opacity-70"
+											>
+												阅读更多
+											</div>
+										</div>
+									</div>
+								</div></a
+							><hr /><a
+								class="hover:opacity-100"
+								href="https://hbx.com/cn/journal/2023/05/2023-bikercore-sheer"
+								><div
+									class="grid grid-cols-1 lg:grid-cols-2 my-6 md:my-xl"
+								>
+									<div class="col mb-sm lg:mb-0">
+										<img
+											src="https://aliyun-img.hypebeast.cn/https%3A%2F%2Fhbx.hypebeast.com%2Ffiles%2F2023%2F04%2FTR2-WM-3x21800x1200.jpg?fit=max&w=720&q=90"
+											class="aspect-ratio-3x2"
+										/>
+									</div><div class="col">
+										<div class="flex flex-col">
+											<div
+												class="text-xs lg:text-base leading-dense"
+											>
+												服裝
+											</div><h2
+												class="font-bold leading-none mb-sm mt-xs text-2xl md:text-3xl hover:opacity-70"
+											>
+												2023
+												春夏女装潮流趋势：BIKERCORE、SHEER
+												和更多风格
+											</h2><div
+												class="leading-dense lg:text-lg"
+											>
+											</div><div
+												class="font-bold mt-lg underline leading-none md:leading-normal hover:opacity-70"
+											>
+												阅读更多
+											</div>
+										</div>
+									</div>
+								</div></a
+							><hr /><a
+								class="hover:opacity-100"
+								href="https://hbx.com/cn/journal/2023/05/collina-strada"
+								><div
+									class="grid grid-cols-1 lg:grid-cols-2 my-6 md:my-xl"
+								>
+									<div class="col mb-sm lg:mb-0">
+										<img
+											src="https://aliyun-img.hypebeast.cn/https%3A%2F%2Fhbx.hypebeast.com%2Ffiles%2F2023%2F05%2Fcollina-strada-0-1.jpeg?fit=max&w=720&q=90"
+											class="aspect-ratio-3x2"
+										/>
+									</div><div class="col">
+										<div class="flex flex-col">
+											<div
+												class="text-xs lg:text-base leading-dense"
+											>
+												服裝
+											</div><h2
+												class="font-bold leading-none mb-sm mt-xs text-2xl md:text-3xl hover:opacity-70"
+											>
+												COLLINA STRADA:
+												以慢时尚理念守护永续未来
+											</h2><div
+												class="leading-dense lg:text-lg"
+											>
+											</div><div
+												class="font-bold mt-lg underline leading-none md:leading-normal hover:opacity-70"
+											>
+												阅读更多
+											</div>
+										</div>
+									</div>
+								</div></a
+							><hr /><a
+								class="hover:opacity-100"
+								href="https://hbx.com/cn/journal/2023/05/2023"
+								><div
+									class="grid grid-cols-1 lg:grid-cols-2 my-6 md:my-xl"
+								>
+									<div class="col mb-sm lg:mb-0">
+										<img
+											src="https://aliyun-img.hypebeast.cn/https%3A%2F%2Fhbx.hypebeast.com%2Ffiles%2F2023%2F05%2Fspring-handbags-trends-editorial-2023-0.jpeg?fit=max&w=720&q=90"
+											class="aspect-ratio-3x2"
+										/>
+									</div><div class="col">
+										<div class="flex flex-col">
+											<div
+												class="text-xs lg:text-base leading-dense"
+											>
+												服裝
+											</div><h2
+												class="font-bold leading-none mb-sm mt-xs text-2xl md:text-3xl hover:opacity-70"
+											>
+												2023
+												不容错过的大热包款！潮流解析及搭配指南
+											</h2><div
+												class="leading-dense lg:text-lg"
+											>
+											</div><div
+												class="font-bold mt-lg underline leading-none md:leading-normal hover:opacity-70"
+											>
+												阅读更多
+											</div>
+										</div>
+									</div>
+								</div></a
+							><hr /><a
+								class="hover:opacity-100"
+								href="https://hbx.com/cn/journal/2023/05/raw-emotions-kurtis-archives-jeans-neighborhood-undercover-louis-vuitton-jeans-collection-2"
+								><div
+									class="grid grid-cols-1 lg:grid-cols-2 my-6 md:my-xl"
+								>
+									<div class="col mb-sm lg:mb-0">
+										<img
+											src="https://aliyun-img.hypebeast.cn/https%3A%2F%2Fhbx.hypebeast.com%2Ffiles%2F2023%2F05%2FBanner_003.jpg?fit=max&w=720&q=90"
+											class="aspect-ratio-3x2"
+										/>
+									</div><div class="col">
+										<div class="flex flex-col">
+											<h2
+												class="font-bold leading-none mb-sm mt-xs text-2xl md:text-3xl hover:opacity-70"
+											>
+												专访 RAW EMOTIONS
+												主理人的牛仔裤收藏
+											</h2><div
+												class="leading-dense lg:text-lg"
+											>
+												一览主理人 Kurtis 的惊人收藏
+											</div><div
+												class="font-bold mt-lg underline leading-none md:leading-normal hover:opacity-70"
+											>
+												阅读更多
+											</div>
+										</div>
+									</div>
+								</div></a
+							><hr /><a
+								class="hover:opacity-100"
+								href="https://hbx.com/cn/journal/2023/05/how-to-style-heeled-boots-jerry-haha-editorial-interview-guide-margiela-tabi-our-legacy-3"
+								><div
+									class="grid grid-cols-1 lg:grid-cols-2 my-6 md:my-xl"
+								>
+									<div class="col mb-sm lg:mb-0">
+										<img
+											src="https://aliyun-img.hypebeast.cn/https%3A%2F%2Fhbx.hypebeast.com%2Ffiles%2F2023%2F05%2Fjerry-haha-boots-000.jpg?fit=max&w=720&q=90"
+											class="aspect-ratio-3x2"
+										/>
+									</div><div class="col">
+										<div class="flex flex-col">
+											<div
+												class="text-xs lg:text-base leading-dense"
+											>
+												服裝
+											</div><h2
+												class="font-bold leading-none mb-sm mt-xs text-2xl md:text-3xl hover:opacity-70"
+											>
+												如何以 JERRY HAHA
+												風格塑造高跟靴造型
+											</h2><div
+												class="leading-dense lg:text-lg"
+											>
+											</div><div
+												class="font-bold mt-lg underline leading-none md:leading-normal hover:opacity-70"
+											>
+												阅读更多
+											</div>
+										</div>
+									</div>
+								</div></a
+							><hr /><a
+								class="hover:opacity-100"
+								href="https://hbx.com/cn/journal/2023/04/hbx-new-york-community-feature-sierrarena-5"
+								><div
+									class="grid grid-cols-1 lg:grid-cols-2 my-6 md:my-xl"
+								>
+									<div class="col mb-sm lg:mb-0">
+										<img
+											src="https://aliyun-img.hypebeast.cn/https%3A%2F%2Fhbx.hypebeast.com%2Ffiles%2F2023%2F04%2Fhbx-new-york-community-feature-sierrarena-0.jpg?fit=max&w=720&q=90"
+											class="aspect-ratio-3x2"
+										/>
+									</div><div class="col">
+										<div class="flex flex-col">
+											<div
+												class="text-xs lg:text-base leading-dense"
+											>
+												服裝
+											</div><h2
+												class="font-bold leading-none mb-sm mt-xs text-2xl md:text-3xl hover:opacity-70"
+											>
+												HBX MEETS: 纽约时尚造型师 SIERRA
+												RENA
+											</h2><div
+												class="leading-dense lg:text-lg"
+											>
+											</div><div
+												class="font-bold mt-lg underline leading-none md:leading-normal hover:opacity-70"
+											>
+												阅读更多
+											</div>
+										</div>
+									</div>
+								</div></a
+							><hr /><a
+								class="hover:opacity-100"
+								href="https://hbx.com/cn/journal/2023/04/hbx-ss23cn-2"
+								><div
+									class="grid grid-cols-1 lg:grid-cols-2 my-6 md:my-xl"
+								>
+									<div class="col mb-sm lg:mb-0">
+										<img
+											src="https://aliyun-img.hypebeast.cn/https%3A%2F%2Fhbx.hypebeast.com%2Ffiles%2F2023%2F04%2FFeature-Banner_1200x800.jpg?fit=max&w=720&q=90"
+											class="aspect-ratio-3x2"
+										/>
+									</div><div class="col">
+										<div class="flex flex-col">
+											<div
+												class="text-xs lg:text-base leading-dense"
+											>
+												服裝
+											</div><h2
+												class="font-bold leading-none mb-sm mt-xs text-2xl md:text-3xl hover:opacity-70"
+											>
+												HBX SS23：重塑自我
+											</h2><div
+												class="leading-dense lg:text-lg"
+											>
+												探索我们为您精挑细选的春夏季时尚潮流单品。
+											</div><div
+												class="font-bold mt-lg underline leading-none md:leading-normal hover:opacity-70"
+											>
+												阅读更多
+											</div>
+										</div>
+									</div>
+								</div></a
+							><hr />
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container text-center my-8">
+				<div data-v-df3ee8ac="">
+					<!--v-if--><!--v-if-->
+					<div class="pagination ml-auto mr-auto" data-v-df3ee8ac="">
+						<a
+							class="uppercase paginator-button font-bold berrics-style muted"
+							data-v-df3ee8ac=""
+							><span class="hidden md:inline" data-v-df3ee8ac=""
+								>←</span
+							> 上一页</a
+						><a
+							href="https://hbx.com/cn/journal?page=1"
+							class="paginator-button font-bold underline p-3"
+							data-v-df3ee8ac="">1</a
+						><a
+							href="https://hbx.com/cn/journal?page=2"
+							class="paginator-button p-3"
+							data-v-df3ee8ac="">2</a
+						><a
+							href="https://hbx.com/cn/journal?page=3"
+							class="paginator-button p-3"
+							data-v-df3ee8ac="">3</a
+						><a
+							href="https://hbx.com/cn/journal?page=2&limit=10"
+							class="uppercase paginator-button font-bold berrics-style"
+							data-v-df3ee8ac=""
+							>下一页 <span
+								class="hidden md:inline"
+								data-v-df3ee8ac="">→</span
+							></a
+						>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer
+			id="hbx-footer"
+			class="uppercase pt-lg sm:pt-xl pb-xl text-xs border-t border-black"
+			data-controller="footer"
+			data-action="load@window->footer#loadComponents"
+			data-v-app=""
+		>
+			<div class="container px-md md:px-xl">
+				<div
+					class="flex justify-between flex-wrap sm:mt-lg leading-tight"
+				>
+					<ul
+						class="font-bold mb-md hidden md:flex flex-row space-x-lg"
+						itemscope=""
+						itemtype="http://schema.org/SiteNavigationElement"
+					>
+						<li itemprop="name">
+							<a
+								itemprop="url"
+								href="https://hbx.com/cn/about"
+								data-controller="ga-custom-event"
+								data-ga-custom-event-category-value="footer_navigation"
+								data-ga-custom-event-action-value="click"
+								data-ga-custom-event-label-value="hbx-footer-page-about"
+							>
+								关于
+							</a>
+						</li><li itemprop="name">
+							<a
+								itemprop="url"
+								href="https://hbx.com/cn/stores"
+								data-controller="ga-custom-event"
+								data-ga-custom-event-category-value="footer_navigation"
+								data-ga-custom-event-action-value="click"
+								data-ga-custom-event-label-value="hbx-footer-page-retail-stores"
+							>
+								零售店
+							</a>
+						</li><li itemprop="name">
+							<a
+								itemprop="url"
+								href="https://hbx.com/cn/faq"
+								data-controller="ga-custom-event"
+								data-ga-custom-event-category-value="footer_navigation"
+								data-ga-custom-event-action-value="click"
+								data-ga-custom-event-label-value="hbx-footer-page-help"
+							>
+								帮助
+							</a>
+						</li><li itemprop="name">
+							<a
+								itemprop="url"
+								href="https://hbx.com/cn/pro"
+								data-controller="ga-custom-event"
+								data-ga-custom-event-category-value="footer_navigation"
+								data-ga-custom-event-action-value="click"
+								data-ga-custom-event-label-value="hbx-footer-page-pro"
+							>
+								HBX Pro
+							</a>
+						</li><li itemprop="name">
+							<a
+								itemprop="url"
+								href="https://hbx.com/cn/referral"
+								data-controller="ga-custom-event"
+								data-ga-custom-event-category-value="footer_navigation"
+								data-ga-custom-event-action-value="click"
+								data-ga-custom-event-label-value="hbx-footer-page-referral"
+							>
+								客户推荐计划
+							</a>
+						</li><li itemprop="name">
+							<a
+								itemprop="url"
+								href="https://hbx.com/cn/affiliates"
+								data-controller="ga-custom-event"
+								data-ga-custom-event-category-value="footer_navigation"
+								data-ga-custom-event-action-value="click"
+								data-ga-custom-event-label-value="hbx-footer-page-affiliates"
+							>
+								联属营销计划
+							</a>
+						</li>
+					</ul><div class="copyright text-left lg:text-right">
+						<div class="flex flex-row flex-wrap md:justify-end">
+							<span class="pr-xs"
+								>2023 <a href="https://hypebeast.ltd/"
+									>Hypebeast Limited</a
+								> 版权所有</span
+							><a href="https://hbx.com/cn/terms" class="pr-xs"
+								>网站声明</a
+							><a href="https://hbx.com/cn/privacy" class="pr-xs"
+								>隐私政策</a
+							><a href="https://hbx.com/cn/gdpr">gdpr</a>
+						</div><span
+							>HBX® is a registered trademark of Hypebeast Hong
+							Kong Ltd.</span>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>
