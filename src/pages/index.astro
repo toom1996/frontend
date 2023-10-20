@@ -35,46 +35,48 @@ import "../styles/global.css";
 		font-size: 2rem;
 		line-height: 1.25;
 	}
+
+	.selection-box {
+		grid-template-columns: 3fr 1fr;
+	}
+
+	.show-wrap .box-left {
+    -webkit-box-flex: 1;
+    -webkit-flex: auto;
+    -moz-box-flex: 1;
+    -ms-flex: auto;
+    flex: auto;
+    position: relative;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    /* padding-left:12.61167%; */
+}
+
+.show-wrap .box-left .show-img {
+    width: 100%;
+    padding-top: 50%;
+    position: relative;
+}
+
+.show-wrap .box-left .data-list {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    -webkit-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    transition: all .3s ease
+}
 </style>
 <MainLayout>
-	<div class="grid-halves">
-		<div class="bg-teal border-right no-overflow">
-			<img
-				src="https://assets-global.website-files.com/6171b265e5c8aa59b42c3472/619532e016b9ee57c1b529e6_home-feature-1.svg"
-				loading="lazy"
-				alt=""
-				class="callout-image sell-anything"
-			/>
-		</div><div>
-			<div class="column-padding">
-				<div class="content-grid">
-					<h3 class="text-2xl">Sell anything</h3><div class="text-md">
-						Video lessons. Monthly subscriptions. Physical products.
-						Whatever! Gumroad was created to help you experiment
-						with all kinds of ideas and formats.
-					</div><ul role="list" class="list-grid">
-						<li class="arrow-list-item">
-							Sell your Top 10 lists
-						</li><li class="arrow-list-item">
-							Sell your crypto tips
-						</li><li class="arrow-list-item">
-							Sell your fractal pack
-						</li><li class="arrow-list-item">
-							Sell your keto cookbook
-						</li><li class="arrow-list-item">
-							Sell your C4D scenes
-						</li><li class="arrow-list-item">
-							Sell your new emojis
-						</li><li class="arrow-list-item">
-							Seriously, sell anything!
-						</li><li class="arrow-list-item"></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="selection-box show-wrap" style="background-color:#34AD60;">
-		<!-- <div class="box-left">
+	<div class="selection-box show-wrap grid" style="background-color:#34AD60;">
+		<div class="box-left">
 			<div class="show-title">
 				<div class="main-title">
 					<img src="/public/img/runway_gallery.e0850e4d.png" alt="" />
@@ -83,15 +85,11 @@ import "../styles/global.css";
 			</div>
 			<div class="show-img">
 				<div class="data-list">
-					<div
-						style="height:0px;position:relative;padding-top:50%;"
-						class=""
-					>
+					<div class="">
 						<a
 							href="/detail/listDetail?channel=20850&subject_id=0&folder_id=152151&mode=2&data_type=1&p=1"
 							target="_blank"
-							class="img-list"
-							style="height:100%;width:100%;position:absolute;top:0px;left:0px;"
+							class="img-list flex"
 						>
 							<div class="el-image img-item">
 								<img
@@ -120,16 +118,12 @@ import "../styles/global.css";
 						2024春夏墨西哥(Mancandy)男女装发布会
 					</p>
 				</div>
-				<div class="data-list">
-					<div
-						style="height:0px;position:relative;padding-top:50%;"
-						class=""
-					>
+				<div class="data-list hidden">
+					<div class="">
 						<a
 							href="/detail/listDetail?channel=20850&subject_id=0&folder_id=152153&mode=2&data_type=1&p=1"
 							target="_blank"
-							class="img-list"
-							style="height:100%;width:100%;position:absolute;top:0px;left:0px;"
+							class="img-list flex"
 						>
 							<div class="el-image img-item">
 								<img
@@ -159,7 +153,7 @@ import "../styles/global.css";
 					</p>
 				</div>
 			</div>
-		</div> -->
+		</div>
 		<div class="box-right">
 			<div class="text-list">
 				<div class="text-item">
@@ -175,13 +169,25 @@ import "../styles/global.css";
 							class="arrow"
 						/>
 					</div>
-				</div>
-				<div class="text-item">
+				</div><div class="text-item">
 					<div class="text-box">
 						<a
-							href="/detail/listDetail?channel=20850&subject_id=0&folder_id=152153&mode=2&data_type=1&p=1"
+							href="/detail/listDetail?channel=20850&subject_id=0&folder_id=152157&mode=2&data_type=1&p=1"
 							target="_blank"
-							class="">Oscar de la Renta</a
+							class="">Valentino</a
+						>
+						<img
+							src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgBAMAAAAQtmoLAAAAJ1BMVEUAAAAeHh4fHx8fHx8gICAdHR0gICAfHx8gICAgICAfHx8eHh4fHx+WKMN6AAAADHRSTlMAoIDfIGBf7zAQz5BWq+KMAAABI0lEQVRYw+3NsUpCcRTH8dNFwppqabpDNN+xJWgIeo0G23uABodoaQ3cfAPBl1BBQc9DOYjo4Qd+/0ccFO53//Ix02o/UDu0w2UPn/ehfhywypNDAwMAngU8C3gW8CzgWcAJkIqBOgwMzD/CwECvZLjeA6xk+NoDwsDA1MLAwKMMBMgAgAwEyIAAD90I8PAXAB66/QDIAIAMAMgAgAwAyIAADx0BYHgPAA+dV9+2MhwicIdDBCamAwA6AKADADogoAMDOjCggwIjHCKw/IcBABkIsN+nTQBIAECDJHAzTgLDHfCSBGZvSeD5MoFbAaA6CVy1wMmBJglUxwOLLPCdBX7OArBGAKgSAIkdkCMEAGJuliN6Vl4jABECICEAEQJQD1bcGvEowau+iYCYAAAAAElFTkSuQmCC"
+							alt="arrow"
+							class="arrow"
+						/>
+					</div>
+				</div><div class="text-item">
+					<div class="text-box">
+						<a
+							href="/detail/listDetail?channel=20850&subject_id=0&folder_id=152023&mode=2&data_type=1&p=1"
+							target="_blank"
+							class="">Todd Snyder</a
 						>
 						<img
 							src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgBAMAAAAQtmoLAAAAJ1BMVEUAAAAeHh4fHx8fHx8gICAdHR0gICAfHx8gICAgICAfHx8eHh4fHx+WKMN6AAAADHRSTlMAoIDfIGBf7zAQz5BWq+KMAAABI0lEQVRYw+3NsUpCcRTH8dNFwppqabpDNN+xJWgIeo0G23uABodoaQ3cfAPBl1BBQc9DOYjo4Qd+/0ccFO53//Ix02o/UDu0w2UPn/ehfhywypNDAwMAngU8C3gW8CzgWcAJkIqBOgwMzD/CwECvZLjeA6xk+NoDwsDA1MLAwKMMBMgAgAwEyIAAD90I8PAXAB66/QDIAIAMAMgAgAwAyIAADx0BYHgPAA+dV9+2MhwicIdDBCamAwA6AKADADogoAMDOjCggwIjHCKw/IcBABkIsN+nTQBIAECDJHAzTgLDHfCSBGZvSeD5MoFbAaA6CVy1wMmBJglUxwOLLPCdBX7OArBGAKgSAIkdkCMEAGJuliN6Vl4jABECICEAEQJQD1bcGvEowau+iYCYAAAAAElFTkSuQmCC"
@@ -193,6 +199,43 @@ import "../styles/global.css";
 			</div>
 		</div>
 	</div>
+	<div class="grid-halves">
+		<div class="bg-teal border-right no-overflow">
+			<img
+				src="https://assets-global.website-files.com/6171b265e5c8aa59b42c3472/619532e016b9ee57c1b529e6_home-feature-1.svg"
+				loading="lazy"
+				alt=""
+				class="callout-image sell-anything"
+			/>
+		</div><div>
+			<div class="column-padding">
+				<div class="content-grid">
+					<h3 class="text-2xl">色彩分析</h3><div class="text-md">
+						Video lessons. Monthly subscriptions. Physical products.
+						Whatever! Gumroad was created to help you experiment
+						with all kinds of ideas and formats.
+					</div><ul role="list" class="list-grid">
+						<li class="arrow-list-item">
+							Sell your Top 10 lists
+						</li><li class="arrow-list-item">
+							Sell your crypto tips
+						</li><li class="arrow-list-item">
+							Sell your fractal pack
+						</li><li class="arrow-list-item">
+							Sell your keto cookbook
+						</li><li class="arrow-list-item">
+							Sell your C4D scenes
+						</li><li class="arrow-list-item">
+							Sell your new emojis
+						</li><li class="arrow-list-item">
+							Seriously, sell anything!
+						</li><li class="arrow-list-item"></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div>街拍</div>
 	<div
 		data-w-id="bb928bf3-04e0-6e31-a1a0-7150d683dd1c"
 		class="section income-earned-section"

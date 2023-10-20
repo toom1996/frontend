@@ -4,7 +4,7 @@
       <div>登录</div>
     </a><a href="https://app.gumroad.com/signup"
       class="button-primary-bg-black hover:bg-pink-400 py-6 px-3vw border-solid border-l-2 border-black">
-      <div>Start Selling</div>
+      <div>MORE</div>
     </a>
   </div>
   <!-- <nav id="section-user" class="w-2/5 md:w-auto flex flex-grow-0 flex-nowrap justify-end items-center">
