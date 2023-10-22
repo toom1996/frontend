@@ -37,7 +37,7 @@ import "../styles/global.css";
 	}
 
 	.selection-box {
-		grid-template-columns: 3fr 1fr;
+		grid-template-columns: 3fr 1.5fr;
 	}
 
 	.show-wrap .box-left {
@@ -67,16 +67,25 @@ import "../styles/global.css";
     left: 0;
     width: 100%;
     height: 100%;
-    opacity: 0;
+    /* opacity: 0; */
     -webkit-transition: all .3s ease;
     -o-transition: all .3s ease;
     -moz-transition: all .3s ease;
     transition: all .3s ease
 }
+.text-item {
+	height: 10rem;
+}
+
+.show-wrap .box-left .show-title {
+    position: absolute;
+    top: 32px;
+    left: 32px
+}
 </style>
 <MainLayout>
 	<div class="selection-box show-wrap grid" style="background-color:#34AD60;">
-		<div class="box-left">
+		<div class="box-left flex">
 			<div class="show-title">
 				<div class="main-title">
 					<img src="/public/img/runway_gallery.e0850e4d.png" alt="" />
@@ -85,11 +94,16 @@ import "../styles/global.css";
 			</div>
 			<div class="show-img">
 				<div class="data-list">
-					<div class="">
+					<div class="" style="height:0px;position:relative;padding-top:50%;">
 						<a
 							href="/detail/listDetail?channel=20850&subject_id=0&folder_id=152151&mode=2&data_type=1&p=1"
 							target="_blank"
 							class="img-list flex"
+							style="height: 100%;
+							width: 100%;
+							position: absolute;
+							top: 0px;
+							left: 0px;"
 						>
 							<div class="el-image img-item">
 								<img
@@ -163,11 +177,6 @@ import "../styles/global.css";
 							target="_blank"
 							class="">Mancandy</a
 						>
-						<img
-							src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgBAMAAAAQtmoLAAAAJ1BMVEUAAAAeHh4fHx8fHx8gICAdHR0gICAfHx8gICAgICAfHx8eHh4fHx+WKMN6AAAADHRSTlMAoIDfIGBf7zAQz5BWq+KMAAABI0lEQVRYw+3NsUpCcRTH8dNFwppqabpDNN+xJWgIeo0G23uABodoaQ3cfAPBl1BBQc9DOYjo4Qd+/0ccFO53//Ix02o/UDu0w2UPn/ehfhywypNDAwMAngU8C3gW8CzgWcAJkIqBOgwMzD/CwECvZLjeA6xk+NoDwsDA1MLAwKMMBMgAgAwEyIAAD90I8PAXAB66/QDIAIAMAMgAgAwAyIAADx0BYHgPAA+dV9+2MhwicIdDBCamAwA6AKADADogoAMDOjCggwIjHCKw/IcBABkIsN+nTQBIAECDJHAzTgLDHfCSBGZvSeD5MoFbAaA6CVy1wMmBJglUxwOLLPCdBX7OArBGAKgSAIkdkCMEAGJuliN6Vl4jABECICEAEQJQD1bcGvEowau+iYCYAAAAAElFTkSuQmCC"
-							alt="arrow"
-							class="arrow"
-						/>
 					</div>
 				</div><div class="text-item">
 					<div class="text-box">
@@ -176,24 +185,42 @@ import "../styles/global.css";
 							target="_blank"
 							class="">Valentino</a
 						>
-						<img
-							src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgBAMAAAAQtmoLAAAAJ1BMVEUAAAAeHh4fHx8fHx8gICAdHR0gICAfHx8gICAgICAfHx8eHh4fHx+WKMN6AAAADHRSTlMAoIDfIGBf7zAQz5BWq+KMAAABI0lEQVRYw+3NsUpCcRTH8dNFwppqabpDNN+xJWgIeo0G23uABodoaQ3cfAPBl1BBQc9DOYjo4Qd+/0ccFO53//Ix02o/UDu0w2UPn/ehfhywypNDAwMAngU8C3gW8CzgWcAJkIqBOgwMzD/CwECvZLjeA6xk+NoDwsDA1MLAwKMMBMgAgAwEyIAAD90I8PAXAB66/QDIAIAMAMgAgAwAyIAADx0BYHgPAA+dV9+2MhwicIdDBCamAwA6AKADADogoAMDOjCggwIjHCKw/IcBABkIsN+nTQBIAECDJHAzTgLDHfCSBGZvSeD5MoFbAaA6CVy1wMmBJglUxwOLLPCdBX7OArBGAKgSAIkdkCMEAGJuliN6Vl4jABECICEAEQJQD1bcGvEowau+iYCYAAAAAElFTkSuQmCC"
-							alt="arrow"
-							class="arrow"
-						/>
 					</div>
-				</div><div class="text-item">
+				</div>
+				<div class="text-item">
 					<div class="text-box">
 						<a
 							href="/detail/listDetail?channel=20850&subject_id=0&folder_id=152023&mode=2&data_type=1&p=1"
 							target="_blank"
 							class="">Todd Snyder</a
 						>
-						<img
-							src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgBAMAAAAQtmoLAAAAJ1BMVEUAAAAeHh4fHx8fHx8gICAdHR0gICAfHx8gICAgICAfHx8eHh4fHx+WKMN6AAAADHRSTlMAoIDfIGBf7zAQz5BWq+KMAAABI0lEQVRYw+3NsUpCcRTH8dNFwppqabpDNN+xJWgIeo0G23uABodoaQ3cfAPBl1BBQc9DOYjo4Qd+/0ccFO53//Ix02o/UDu0w2UPn/ehfhywypNDAwMAngU8C3gW8CzgWcAJkIqBOgwMzD/CwECvZLjeA6xk+NoDwsDA1MLAwKMMBMgAgAwEyIAAD90I8PAXAB66/QDIAIAMAMgAgAwAyIAADx0BYHgPAA+dV9+2MhwicIdDBCamAwA6AKADADogoAMDOjCggwIjHCKw/IcBABkIsN+nTQBIAECDJHAzTgLDHfCSBGZvSeD5MoFbAaA6CVy1wMmBJglUxwOLLPCdBX7OArBGAKgSAIkdkCMEAGJuliN6Vl4jABECICEAEQJQD1bcGvEowau+iYCYAAAAAElFTkSuQmCC"
-							alt="arrow"
-							class="arrow"
-						/>
+					</div>
+				</div>
+				<div class="text-item">
+					<div class="text-box">
+						<a
+							href="/detail/listDetail?channel=20850&subject_id=0&folder_id=152023&mode=2&data_type=1&p=1"
+							target="_blank"
+							class="">Todd Snyder</a
+						>
+					</div>
+				</div>
+				<div class="text-item">
+					<div class="text-box">
+						<a
+							href="/detail/listDetail?channel=20850&subject_id=0&folder_id=152023&mode=2&data_type=1&p=1"
+							target="_blank"
+							class="">Todd Snyder</a
+						>
+					</div>
+				</div>
+				<div class="text-item">
+					<div class="text-box">
+						<a
+							href="/detail/listDetail?channel=20850&subject_id=0&folder_id=152023&mode=2&data_type=1&p=1"
+							target="_blank"
+							class="">Todd Snyder</a
+						>
 					</div>
 				</div>
 			</div>
@@ -235,7 +262,109 @@ import "../styles/global.css";
 			</div>
 		</div>
 	</div>
-	<div>街拍</div>
+	<div class="page8">
+        <div class="content_wrapper_rem">
+          <div class="tab_box flex justify-between" js-common-tab="">
+            <div class="tab_title_warp">
+              <div class="title_box">
+                <div class="tit">四大时装周</div>
+                <div class="tit_en">FOUR FASHION WEEKS</div>
+              </div>
+              <div class="tab_title js_page8_tab_title">
+                <div class="" tab-nav="" data-weekname="PARIS" cursorshover="true">
+                  <span class="tit">巴黎时装周</span>
+                  <span>PARIS FASHION WEEK</span>
+                  <i class="home_icon"></i>
+                </div>
+                <div tab-nav="" data-weekname="LONDON" cursorshover="true" class="on">
+                  <span class="tit" cursorshover="true">伦敦时装周</span>
+                  <span cursorshover="true">LONDON FASHION WEEK</span>
+                  <i class="home_icon"></i>
+                </div>
+                <div tab-nav="" data-weekname="NEWYORK" cursorshover="true">
+                  <span class="tit">纽约时装周</span>
+                  <span>NEWYORK FASHION WEEK</span>
+                  <i class="home_icon"></i>
+                </div>
+                <div tab-nav="" data-weekname="MILAN">
+                  <span class="tit">米兰时装周</span>
+                  <span>MILAN FASHION WEEK</span>
+                  <i class="home_icon"></i>
+                </div>
+              </div>
+            </div>
+            <div class="tab_content_box_warp">
+              <div class="info whitespace-nowrap flex">
+                <span><i class="home_icon"></i>汇聚全球30多个国家和地区</span>
+                <span><i class="home_icon"></i>3000多个品牌和设计师</span>
+                <span><i class="home_icon"></i>7*24H实时更新</span>
+                <span><i class="home_icon"></i>高清、细节、视频及数字发布</span>
+              </div>
+              <div class="tab_content_box flex-1" tab-content-group="">
+                <div class="mask_label js_page8_weekname" font-family="en-bold">LONDON</div>
+                <div class="mask_label diff" font-family="en-bold">FASHION WEEK</div>
+                <div class="tab_content flex flex-wrap js_page8_itembox" tab-content=""><a class="item" href="/runways/typ_ttshowpic-bra_172381-reg_272/" target="_blank">
+              <div class="item_content" js_follow_item="">
+                <div class="cover">
+                  <img src="https://imgf1.pop-fashion.com/fashion/presscon/20230929010SZ7085/focus/women/middle/Givenchy_001_SZ7085.jpg" alt="">
+                </div>
+                <div class="label">2024春夏</div>
+              </div>
+              <div class="title">Givenchy</div>
+            </a><a class="item" href="/runways/typ_ttshowpic-bra_118795-reg_272/" target="_blank">
+              <div class="item_content" js_follow_item="">
+                <div class="cover">
+                  <img src="https://imgf1.pop-fashion.com/fashion/presscon/20230929001SZ7085/focus/man/middle/IsabelMarant_001_SZ7085.jpg" alt="">
+                </div>
+                <div class="label">2024春夏</div>
+              </div>
+              <div class="title">Isabel Marant</div>
+            </a><a class="item" href="/runways/typ_ttshowpic-bra_135757-reg_272/" target="_blank">
+              <div class="item_content" js_follow_item="">
+                <div class="cover">
+                  <img src="https://imgf1.pop-fashion.com/fashion/presscon/20231003011SZ7085/focus/women/middle/LouisVuitton_001_SZ7085.jpg" alt="">
+                </div>
+                <div class="label">2024春夏</div>
+              </div>
+              <div class="title">Louis Vuitton</div>
+            </a><a class="item" href="/runways/typ_ttshowpic-bra_49673-reg_272/" target="_blank">
+              <div class="item_content" js_follow_item="">
+                <div class="cover">
+                  <img src="https://imgf1.pop-fashion.com/fashion/presscon/20231001009SZ7085/focus/women/middle/Hermes_001_SZ7085.jpg" alt="">
+                </div>
+                <div class="label">2024春夏</div>
+              </div>
+              <div class="title">Hermes</div>
+            </a><a class="item" href="/runways/typ_ttshowpic-bra_185589-reg_272/" target="_blank">
+              <div class="item_content" js_follow_item="">
+                <div class="cover">
+                  <img src="https://imgf1.pop-fashion.com/fashion/presscon/20230928010SZ7085/focus/women/middle/AcneStudios_001_SZ7085.jpg" alt="">
+                </div>
+                <div class="label">2024春夏</div>
+              </div>
+              <div class="title">Acne Studios</div>
+            </a><a class="item" href="/runways/typ_ttshowpic-bra_141891-reg_272/" target="_blank">
+              <div class="item_content" js_follow_item="">
+                <div class="cover">
+                  <img src="https://imgf1.pop-fashion.com/fashion/presscon/20230624108SZ6910/focus/women/middle/KENZO_01_SZ6910.jpg" alt="">
+                </div>
+                <div class="label">2024春夏</div>
+              </div>
+              <div class="title">KENZO</div>
+            </a><a class="item" href="/runways/typ_ttshowpic-bra_174813-reg_272/" target="_blank">
+              <div class="item_content" js_follow_item="">
+                <div class="cover">
+                  <img src="https://imgf1.pop-fashion.com/fashion/presscon/20230930007SZ7085/focus/women/middle/YohjiYamamoto_001_SZ7085.jpg" alt="">
+                </div>
+                <div class="label">2024春夏</div>
+              </div>
+              <div class="title">Yohji Yamamoto</div>
+            </a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 	<div
 		data-w-id="bb928bf3-04e0-6e31-a1a0-7150d683dd1c"
 		class="section income-earned-section"
