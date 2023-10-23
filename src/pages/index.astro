@@ -7,11 +7,23 @@ export const prerender = false;
 import Header from "../components/common/Header.vue";
 import Header1 from "../components/common/Header.astro";
 import MainLayout from "../layouts/main.astro";
+import { Icon } from "astro-icon";
 import "../styles/main.css";
 import "../styles/global.css";
 // const post = await fetch("http://127.0.0.1:8000/api/v1/header/menus")
 // const {data} = await post.json()
 // console.log(data)
+const tStageBrand = [
+	"Mancandy",
+	"Valentino",
+	"Hatra",
+	"Carla Fernandez",
+	"Xander Zhou",
+	"C+Plus Series",
+	"Kiss the Future",
+	"Tanja Uvera",
+	"Todd Snyder",
+];
 ---
 
 <style>
@@ -41,60 +53,324 @@ import "../styles/global.css";
 	}
 
 	.show-wrap .box-left {
-    -webkit-box-flex: 1;
-    -webkit-flex: auto;
-    -moz-box-flex: 1;
-    -ms-flex: auto;
-    flex: auto;
-    position: relative;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -moz-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    /* padding-left:12.61167%; */
-}
+		-webkit-box-flex: 1;
+		-webkit-flex: auto;
+		-moz-box-flex: 1;
+		-ms-flex: auto;
+		flex: auto;
+		position: relative;
+		-webkit-box-align: center;
+		-webkit-align-items: center;
+		-moz-box-align: center;
+		-ms-flex-align: center;
+		align-items: center;
+		/* padding-left:12.61167%; */
+	}
 
-.show-wrap .box-left .show-img {
-    width: 100%;
-    padding-top: 50%;
-    position: relative;
-}
+	.show-wrap .box-left .show-img {
+		width: 100%;
+		padding-top: 50%;
+		position: relative;
+	}
 
-.show-wrap .box-left .data-list {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* opacity: 0; */
-    -webkit-transition: all .3s ease;
-    -o-transition: all .3s ease;
-    -moz-transition: all .3s ease;
-    transition: all .3s ease
-}
-.text-item {
-	height: 10rem;
-}
+	.show-wrap .box-left .data-list {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		/* opacity: 0; */
+		-webkit-transition: all 0.3s ease;
+		-o-transition: all 0.3s ease;
+		-moz-transition: all 0.3s ease;
+		transition: all 0.3s ease;
+	}
 
-.show-wrap .box-left .show-title {
-    position: absolute;
-    top: 32px;
-    left: 32px
-}
+	.show-wrap .box-left .show-title {
+		position: absolute;
+		top: 32px;
+		left: 32px;
+	}
+
+	.inner {
+		--innerWidth: 1920px;
+		width: 100%;
+		max-width: var(--innerWidth);
+		margin: 0 auto;
+		padding: 0 var(--pad-inner);
+	}
+
+	.inner--sm {
+		--innerWidth: 931px;
+	}
+
+	.inner--lg {
+		--innerWidth: 1216px;
+	}
+
+	.inner--xl {
+		--innerWidth: 1386px;
+	}
+
+	.inner--xxl {
+		--innerWidth: 1650px;
+	}
+
+	.inner--xxxl {
+		--innerWidth: 1834px;
+	}
+
+	.swiper {
+		overflow: hidden;
+	}
+
+	#content {
+		flex: 1;
+	}
+
+	.block {
+		margin-top: clamp(20px, 3vw, 50px);
+		margin-bottom: clamp(50px, 20vw, 200px);
+	}
+
+	.block--mb-s {
+		margin-bottom: clamp(50px, 20vw, 100px);
+	}
+
+	.block--private {
+		position: relative;
+		display: flex;
+		align-items: center;
+		min-height: calc(100vh - 71px);
+		margin: 0;
+		padding: clamp(50px, 20vw, 100px) 0;
+		background: rgba(0, 0, 0, 0.7);
+	}
+
+	.block--private .c-heading,
+	.block--private .c-view-all {
+		color: #fff;
+	}
+
+	.block--private .bg-private {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+		-o-object-fit: contain;
+		object-fit: contain;
+	}
+
+	.block[class*="--bg"] {
+		margin: clamp(50px, 20vw, 200px) 0;
+		padding: 100px 0;
+	}
+
+	.block[class*="--gray"] {
+		background: var(--bg-3rd);
+	}
+
+	.l-list-sites {
+		display: flex;
+		flex-wrap: wrap;
+		gap: clamp(30px, 3vw, 94px);
+	}
+
+	.l-list-sites__col {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		min-width: min(380px, 100%);
+	}
+
+	.l-list-sites__col.s-2 .list-sites {
+		margin-top: 24px;
+	}
+
+	.l-list-sites__col.s-2 .list-sites__item {
+		padding: 0;
+	}
+
+	.l-list-sites__col.s-2 .list-sites__card {
+		flex-direction: column;
+		gap: 0;
+	}
+
+	.l-list-sites__col.s-2 .list-sites__left {
+		flex-direction: column;
+		gap: 0;
+	}
+
+	.l-list-sites__col.s-2 .list-sites__figure {
+		position: relative;
+		width: 100%;
+	}
+
+	.l-list-sites__col.s-2 .list-sites__media {
+		width: 100%;
+		border-radius: var(--rounded-normal);
+	}
+
+	.l-list-sites__col.s-2 .list-sites__info {
+		width: 100%;
+		min-height: 120px;
+	}
+
+	.l-list-sites__heading {
+		padding-bottom: 24px;
+		font-size: var(--text-size-primary);
+	}
+
+	.l-list-sites__more {
+		margin-top: clamp(20px, 3vw, 44px);
+	}
+
+	.l-list-sites .list-sites {
+		flex: 1;
+	}
+
+	.list-sites--bw {
+		height: 100%;
+		background: #fff;
+		border-radius: var(--rounded-normal);
+	}
+
+	.list-sites--collapsed-nom {
+		height: calc(162px + clamp(10px, 4vw, 48px));
+		overflow: hidden;
+	}
+
+	.list-sites__item {
+		padding: clamp(10px, 4vw, 24px) clamp(0px, 1vw, 24px);
+	}
+
+	.list-sites__item:not(:last-child) {
+		border-bottom: 1px solid var(--border-gray);
+	}
+
+	.list-sites__item:has(.list-sites__more) {
+		padding: 0;
+	}
+
+	.list-sites__card {
+		display: flex;
+		align-items: center;
+		gap: clamp(10px, 4vw, 20px);
+	}
+
+	.list-sites__left {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: clamp(10px, 4vw, 20px);
+		flex: 1;
+		min-width: 0;
+	}
+
+	.list-sites__right {
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+		justify-content: center;
+	}
+
+	.list-sites__figure {
+		flex-shrink: 0;
+	}
+
+	.list-sites__media {
+		border-radius: 50%;
+		-o-object-fit: cover;
+		object-fit: cover;
+		width: clamp(40px, 4vw, 72px);
+		height: auto;
+		transition: all 0.3s;
+	}
+
+	.list-sites__media:hover {
+		filter: brightness(80%);
+	}
+
+	.list-sites__thumb {
+		border-radius: var(--rounded-small);
+	}
+
+	.list-sites__label {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
+
+	.list-sites__title {
+		font-size: 18px;
+		font-size: clamp(18px, 17.2957746479px + 0.1408450704vw, 20px);
+		font-weight: bold;
+		line-height: 120%;
+	}
+
+	.list-sites__title--truncate {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	.list-sites__info {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		flex: 1;
+		min-width: 0;
+	}
+
+	.list-sites__number {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		line-height: 100%;
+		min-width: 43px;
+	}
+
+	.list-sites__number small {
+		font-size: 10px;
+	}
+
+	.list-sites__more {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		height: 60px;
+		font-size: 6px;
+		letter-spacing: 2px;
+		transition: all 0.3s;
+	}
+
+	.list-sites__more:hover {
+		letter-spacing: 4px;
+	}
 </style>
 <MainLayout>
-	<div class="selection-box show-wrap grid" style="background-color:#34AD60;">
+	<div
+		class="selection-box show-wrap grid rounded-2xl bg-slate-950 text-white"
+	>
 		<div class="box-left flex">
 			<div class="show-title">
 				<div class="main-title">
-					<img src="/public/img/runway_gallery.e0850e4d.png" alt="" />
+					<div class="sub-title text-2xl font-bold">
+						RUNWAY GALLERY
+					</div>
 				</div>
-				<div class="sub-title">当下秀场</div>
+				<div class="sub-title text-2xl font-bold">当下秀场</div>
 			</div>
 			<div class="show-img">
 				<div class="data-list">
-					<div class="" style="height:0px;position:relative;padding-top:50%;">
+					<div
+						class=""
+						style="height:0px;position:relative;padding-top:50%;"
+					>
 						<a
 							href="/detail/listDetail?channel=20850&subject_id=0&folder_id=152151&mode=2&data_type=1&p=1"
 							target="_blank"
@@ -169,60 +445,23 @@ import "../styles/global.css";
 			</div>
 		</div>
 		<div class="box-right">
-			<div class="text-list">
-				<div class="text-item">
-					<div class="text-box">
-						<a
-							href="/detail/listDetail?channel=20850&subject_id=0&folder_id=152151&mode=2&data_type=1&p=1"
-							target="_blank"
-							class="">Mancandy</a
-						>
-					</div>
-				</div><div class="text-item">
-					<div class="text-box">
-						<a
-							href="/detail/listDetail?channel=20850&subject_id=0&folder_id=152157&mode=2&data_type=1&p=1"
-							target="_blank"
-							class="">Valentino</a
-						>
-					</div>
-				</div>
-				<div class="text-item">
-					<div class="text-box">
-						<a
-							href="/detail/listDetail?channel=20850&subject_id=0&folder_id=152023&mode=2&data_type=1&p=1"
-							target="_blank"
-							class="">Todd Snyder</a
-						>
-					</div>
-				</div>
-				<div class="text-item">
-					<div class="text-box">
-						<a
-							href="/detail/listDetail?channel=20850&subject_id=0&folder_id=152023&mode=2&data_type=1&p=1"
-							target="_blank"
-							class="">Todd Snyder</a
-						>
-					</div>
-				</div>
-				<div class="text-item">
-					<div class="text-box">
-						<a
-							href="/detail/listDetail?channel=20850&subject_id=0&folder_id=152023&mode=2&data_type=1&p=1"
-							target="_blank"
-							class="">Todd Snyder</a
-						>
-					</div>
-				</div>
-				<div class="text-item">
-					<div class="text-box">
-						<a
-							href="/detail/listDetail?channel=20850&subject_id=0&folder_id=152023&mode=2&data_type=1&p=1"
-							target="_blank"
-							class="">Todd Snyder</a
-						>
-					</div>
-				</div>
+			<div class="text-list flex items-center flex-col my-10">
+				{
+					tStageBrand.map((data) => (
+						<div class="text-item pt-10">
+							<div class="text-box">
+								<a
+									href="/"
+									target="_blank"
+									class="font-bold text-5xl flex"
+								>
+										<span>{data}</span>
+										<Icon name="ion:chevron-right" class="w-10 hidden hover:block"/>
+								</a>
+							</div>
+						</div>
+					))
+				}
 			</div>
 		</div>
 	</div>
@@ -262,109 +501,434 @@ import "../styles/global.css";
 			</div>
 		</div>
 	</div>
-	<div class="page8">
-        <div class="content_wrapper_rem">
-          <div class="tab_box flex justify-between" js-common-tab="">
-            <div class="tab_title_warp">
-              <div class="title_box">
-                <div class="tit">四大时装周</div>
-                <div class="tit_en">FOUR FASHION WEEKS</div>
-              </div>
-              <div class="tab_title js_page8_tab_title">
-                <div class="" tab-nav="" data-weekname="PARIS" cursorshover="true">
-                  <span class="tit">巴黎时装周</span>
-                  <span>PARIS FASHION WEEK</span>
-                  <i class="home_icon"></i>
-                </div>
-                <div tab-nav="" data-weekname="LONDON" cursorshover="true" class="on">
-                  <span class="tit" cursorshover="true">伦敦时装周</span>
-                  <span cursorshover="true">LONDON FASHION WEEK</span>
-                  <i class="home_icon"></i>
-                </div>
-                <div tab-nav="" data-weekname="NEWYORK" cursorshover="true">
-                  <span class="tit">纽约时装周</span>
-                  <span>NEWYORK FASHION WEEK</span>
-                  <i class="home_icon"></i>
-                </div>
-                <div tab-nav="" data-weekname="MILAN">
-                  <span class="tit">米兰时装周</span>
-                  <span>MILAN FASHION WEEK</span>
-                  <i class="home_icon"></i>
-                </div>
-              </div>
-            </div>
-            <div class="tab_content_box_warp">
-              <div class="info whitespace-nowrap flex">
-                <span><i class="home_icon"></i>汇聚全球30多个国家和地区</span>
-                <span><i class="home_icon"></i>3000多个品牌和设计师</span>
-                <span><i class="home_icon"></i>7*24H实时更新</span>
-                <span><i class="home_icon"></i>高清、细节、视频及数字发布</span>
-              </div>
-              <div class="tab_content_box flex-1" tab-content-group="">
-                <div class="mask_label js_page8_weekname" font-family="en-bold">LONDON</div>
-                <div class="mask_label diff" font-family="en-bold">FASHION WEEK</div>
-                <div class="tab_content flex flex-wrap js_page8_itembox" tab-content=""><a class="item" href="/runways/typ_ttshowpic-bra_172381-reg_272/" target="_blank">
-              <div class="item_content" js_follow_item="">
-                <div class="cover">
-                  <img src="https://imgf1.pop-fashion.com/fashion/presscon/20230929010SZ7085/focus/women/middle/Givenchy_001_SZ7085.jpg" alt="">
-                </div>
-                <div class="label">2024春夏</div>
-              </div>
-              <div class="title">Givenchy</div>
-            </a><a class="item" href="/runways/typ_ttshowpic-bra_118795-reg_272/" target="_blank">
-              <div class="item_content" js_follow_item="">
-                <div class="cover">
-                  <img src="https://imgf1.pop-fashion.com/fashion/presscon/20230929001SZ7085/focus/man/middle/IsabelMarant_001_SZ7085.jpg" alt="">
-                </div>
-                <div class="label">2024春夏</div>
-              </div>
-              <div class="title">Isabel Marant</div>
-            </a><a class="item" href="/runways/typ_ttshowpic-bra_135757-reg_272/" target="_blank">
-              <div class="item_content" js_follow_item="">
-                <div class="cover">
-                  <img src="https://imgf1.pop-fashion.com/fashion/presscon/20231003011SZ7085/focus/women/middle/LouisVuitton_001_SZ7085.jpg" alt="">
-                </div>
-                <div class="label">2024春夏</div>
-              </div>
-              <div class="title">Louis Vuitton</div>
-            </a><a class="item" href="/runways/typ_ttshowpic-bra_49673-reg_272/" target="_blank">
-              <div class="item_content" js_follow_item="">
-                <div class="cover">
-                  <img src="https://imgf1.pop-fashion.com/fashion/presscon/20231001009SZ7085/focus/women/middle/Hermes_001_SZ7085.jpg" alt="">
-                </div>
-                <div class="label">2024春夏</div>
-              </div>
-              <div class="title">Hermes</div>
-            </a><a class="item" href="/runways/typ_ttshowpic-bra_185589-reg_272/" target="_blank">
-              <div class="item_content" js_follow_item="">
-                <div class="cover">
-                  <img src="https://imgf1.pop-fashion.com/fashion/presscon/20230928010SZ7085/focus/women/middle/AcneStudios_001_SZ7085.jpg" alt="">
-                </div>
-                <div class="label">2024春夏</div>
-              </div>
-              <div class="title">Acne Studios</div>
-            </a><a class="item" href="/runways/typ_ttshowpic-bra_141891-reg_272/" target="_blank">
-              <div class="item_content" js_follow_item="">
-                <div class="cover">
-                  <img src="https://imgf1.pop-fashion.com/fashion/presscon/20230624108SZ6910/focus/women/middle/KENZO_01_SZ6910.jpg" alt="">
-                </div>
-                <div class="label">2024春夏</div>
-              </div>
-              <div class="title">KENZO</div>
-            </a><a class="item" href="/runways/typ_ttshowpic-bra_174813-reg_272/" target="_blank">
-              <div class="item_content" js_follow_item="">
-                <div class="cover">
-                  <img src="https://imgf1.pop-fashion.com/fashion/presscon/20230930007SZ7085/focus/women/middle/YohjiYamamoto_001_SZ7085.jpg" alt="">
-                </div>
-                <div class="label">2024春夏</div>
-              </div>
-              <div class="title">Yohji Yamamoto</div>
-            </a></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+	<div class="block">
+		<div class="inner">
+			<div class="c-heading c-heading--small">
+				<div class="c-heading__top">
+					<h2 class="text-default">News and Updates</h2>
+				</div>
+				<div class="c-heading__middle">
+					<div class="c-heading__between">
+						<h3 class="heading-5">
+							Follow what's brand<br />new in digital design.
+						</h3>
+						<div>
+							Don't miss the <strong>latest</strong> happenings on
+
+
+							<strong>awwwards</strong>.
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="l-list-sites">
+				<div class="l-list-sites__col">
+					<h3 class="heading-hr"><strong>w.news</strong></h3>
+					<ul class="list-sites">
+						<li class="list-sites__item">
+							<div class="list-sites__card">
+								<figure class="list-sites__figure">
+									<a
+										href="/inspiration/image-transition-lynxeye"
+									>
+										<img
+											width="72"
+											height="72"
+											loading="lazy"
+											class="list-sites__media"
+											src="https://assets.awwwards.com/awards/media/cache/square_thumb_140/element/2023/10/65259a56270a3545666145_static.jpeg"
+											alt="Image transition"
+										/>
+									</a>
+								</figure>
+								<div class="list-sites__info">
+									<div class="list-sites__label">
+										Element of the Day
+										<span
+											class="budget-tag budget-tag--solid--black"
+											>FRESH</span
+										>
+									</div>
+									<h3
+										class="list-sites__title list-sites__title--truncate"
+									>
+										<a
+											href="/inspiration/image-transition-lynxeye"
+											title="Image transition"
+										>
+											Image transition
+										</a>
+									</h3>
+								</div>
+							</div>
+						</li>
+						<li class="list-sites__item">
+							<div class="list-sites__card">
+								<figure class="list-sites__figure">
+									<a
+										href="/c2-montr%C3%A9al-by-koki-kiko-and-friends-wins-sotm-may.html"
+									>
+										<img
+											width="72"
+											height="72"
+											loading="lazy"
+											class="list-sites__media"
+											src="https://assets.awwwards.com/awards/media/cache/square_thumb_140/images/2023/06/c2mtl-thumb.jpg"
+											alt="C2 Montréal by KOKI-KIKO and friends wins SOTM May"
+										/>
+									</a>
+								</figure>
+								<div class="list-sites__info">
+									<div class="list-sites__label">
+										News - June 27, 2023
+									</div>
+									<h3
+										class="list-sites__title list-sites__title--truncate"
+									>
+										<a
+											href="/c2-montr%C3%A9al-by-koki-kiko-and-friends-wins-sotm-may.html"
+											title="C2 Montréal by KOKI-KIKO and friends wins SOTM May"
+										>
+											C2 Montréal by KOKI-KIKO and friends
+											wins SOTM May
+										</a>
+									</h3>
+								</div>
+							</div>
+						</li>
+						<li class="list-sites__item">
+							<div class="list-sites__card">
+								<figure class="list-sites__figure">
+									<a
+										href="/engine-station-by-monogrid-a-3d-experiential-e-commerce-destination.html"
+									>
+										<img
+											width="72"
+											height="72"
+											loading="lazy"
+											class="list-sites__media"
+											src="https://assets.awwwards.com/awards/media/cache/square_thumb_140/images/2023/05/es-thumb-v2.jpg"
+											alt="Engine Station by MONOGRID: A 3D Experiential E-Commerce Destination"
+										/>
+									</a>
+								</figure>
+								<div class="list-sites__info">
+									<div class="list-sites__label">
+										News - May 24, 2023
+									</div>
+									<h3
+										class="list-sites__title list-sites__title--truncate"
+									>
+										<a
+											href="/engine-station-by-monogrid-a-3d-experiential-e-commerce-destination.html"
+											title="Engine Station by MONOGRID: A 3D Experiential E-Commerce Destination"
+										>
+											Engine Station by MONOGRID: A 3D
+											Experiential E-Commerce Destination
+										</a>
+									</h3>
+								</div>
+							</div>
+						</li>
+						<li class="list-sites__item">
+							<div class="list-sites__card">
+								<figure class="list-sites__figure">
+									<a
+										href="/case-study-reinventing-locomotive-r.html"
+									>
+										<img
+											width="72"
+											height="72"
+											loading="lazy"
+											class="list-sites__media"
+											src="https://assets.awwwards.com/awards/media/cache/square_thumb_140/images/2023/05/loco-thumb.jpg"
+											alt="Reinventing Locomotive® Wins Site of the Month March"
+										/>
+									</a>
+								</figure>
+								<div class="list-sites__info">
+									<div class="list-sites__label">
+										News - May 10, 2023
+									</div>
+									<h3
+										class="list-sites__title list-sites__title--truncate"
+									>
+										<a
+											href="/case-study-reinventing-locomotive-r.html"
+											title="Reinventing Locomotive® Wins Site of the Month March"
+										>
+											Reinventing Locomotive® Wins Site
+											of the Month March
+										</a>
+									</h3>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="l-list-sites__col">
+					<h3 class="heading-hr">
+						<strong>w.creators - close to you</strong>
+					</h3>
+					<ul class="list-sites">
+						<li class="list-sites__item">
+							<div class="list-sites__card">
+								<figure class="list-sites__figure">
+									<a href="/andwhystudio/">
+										<img
+											width="72"
+											height="72"
+											loading="lazy"
+											class="list-sites__media"
+											src="https://assets.awwwards.com/awards/media/cache/thumb_user_retina/avatar/612910/6062e270ab0c9858112022.jpg"
+											alt="&why"
+										/>
+									</a>
+								</figure>
+								<div class="list-sites__info">
+									<div class="list-sites__label">
+										Agency
+										<span
+											class="budget-tag budget-tag--solid--black"
+											>INTERNATIONAL</span
+										>
+									</div>
+									<h3
+										class="list-sites__title list-sites__title--truncate"
+									>
+										<a href="/andwhystudio/" title="&why">
+											&amp;why
+										</a>
+									</h3>
+								</div>
+							</div>
+						</li>
+						<li class="list-sites__item">
+							<div class="list-sites__card">
+								<figure class="list-sites__figure">
+									<a href="/edesigninteractive/">
+										<img
+											width="72"
+											height="72"
+											loading="lazy"
+											class="list-sites__media"
+											src="https://assets.awwwards.com/awards/media/cache/thumb_user_retina/avatar/73948/5a4bcf5814d88.png"
+											alt="eDesign Interactive"
+										/>
+									</a>
+								</figure>
+								<div class="list-sites__info">
+									<div class="list-sites__label">
+										Agency
+										<span
+											class="budget-tag budget-tag--solid--black"
+											>INTERNATIONAL</span
+										>
+									</div>
+									<h3
+										class="list-sites__title list-sites__title--truncate"
+									>
+										<a
+											href="/edesigninteractive/"
+											title="eDesign Interactive"
+										>
+											eDesign Interactive
+										</a>
+									</h3>
+								</div>
+							</div>
+						</li>
+						<li class="list-sites__item">
+							<div class="list-sites__card">
+								<figure class="list-sites__figure">
+									<a href="/seirim/">
+										<img
+											width="72"
+											height="72"
+											loading="lazy"
+											class="list-sites__media"
+											src="https://assets.awwwards.com/awards/media/cache/thumb_user_retina/avatar/356971/560102cf4cefa.jpeg"
+											alt="SEIRIM"
+										/>
+									</a>
+								</figure>
+								<div class="list-sites__info">
+									<div class="list-sites__label">
+										Agency - China
+									</div>
+									<h3
+										class="list-sites__title list-sites__title--truncate"
+									>
+										<a href="/seirim/" title="SEIRIM">
+											SEIRIM
+										</a>
+									</h3>
+								</div>
+							</div>
+						</li>
+						<li class="list-sites__item">
+							<div class="list-sites__card">
+								<figure class="list-sites__figure">
+									<a href="/sumaart/">
+										<img
+											width="72"
+											height="72"
+											loading="lazy"
+											class="list-sites__media"
+											src="https://assets.awwwards.com/awards/media/cache/thumb_user_retina/avatar/778595/5d5ccd2d8acd7208623311.jpg"
+											alt="sumaart"
+										/>
+									</a>
+								</figure>
+								<div class="list-sites__info">
+									<div class="list-sites__label">
+										Agency - China
+									</div>
+									<h3
+										class="list-sites__title list-sites__title--truncate"
+									>
+										<a href="/sumaart/" title="sumaart">
+											sumaart
+										</a>
+									</h3>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="l-list-sites__col">
+					<h3 class="heading-hr">
+						<strong>w.creators - close to you</strong>
+					</h3>
+					<ul class="list-sites">
+						<li class="list-sites__item">
+							<div class="list-sites__card">
+								<figure class="list-sites__figure">
+									<a href="/andwhystudio/">
+										<img
+											width="72"
+											height="72"
+											loading="lazy"
+											class="list-sites__media"
+											src="https://assets.awwwards.com/awards/media/cache/thumb_user_retina/avatar/612910/6062e270ab0c9858112022.jpg"
+											alt="&why"
+										/>
+									</a>
+								</figure>
+								<div class="list-sites__info">
+									<div class="list-sites__label">
+										Agency
+										<span
+											class="budget-tag budget-tag--solid--black"
+											>INTERNATIONAL</span
+										>
+									</div>
+									<h3
+										class="list-sites__title list-sites__title--truncate"
+									>
+										<a href="/andwhystudio/" title="&why">
+											&amp;why
+										</a>
+									</h3>
+								</div>
+							</div>
+						</li>
+						<li class="list-sites__item">
+							<div class="list-sites__card">
+								<figure class="list-sites__figure">
+									<a href="/edesigninteractive/">
+										<img
+											width="72"
+											height="72"
+											loading="lazy"
+											class="list-sites__media"
+											src="https://assets.awwwards.com/awards/media/cache/thumb_user_retina/avatar/73948/5a4bcf5814d88.png"
+											alt="eDesign Interactive"
+										/>
+									</a>
+								</figure>
+								<div class="list-sites__info">
+									<div class="list-sites__label">
+										Agency
+										<span
+											class="budget-tag budget-tag--solid--black"
+											>INTERNATIONAL</span
+										>
+									</div>
+									<h3
+										class="list-sites__title list-sites__title--truncate"
+									>
+										<a
+											href="/edesigninteractive/"
+											title="eDesign Interactive"
+										>
+											eDesign Interactive
+										</a>
+									</h3>
+								</div>
+							</div>
+						</li>
+						<li class="list-sites__item">
+							<div class="list-sites__card">
+								<figure class="list-sites__figure">
+									<a href="/seirim/">
+										<img
+											width="72"
+											height="72"
+											loading="lazy"
+											class="list-sites__media"
+											src="https://assets.awwwards.com/awards/media/cache/thumb_user_retina/avatar/356971/560102cf4cefa.jpeg"
+											alt="SEIRIM"
+										/>
+									</a>
+								</figure>
+								<div class="list-sites__info">
+									<div class="list-sites__label">
+										Agency - China
+									</div>
+									<h3
+										class="list-sites__title list-sites__title--truncate"
+									>
+										<a href="/seirim/" title="SEIRIM">
+											SEIRIM
+										</a>
+									</h3>
+								</div>
+							</div>
+						</li>
+						<li class="list-sites__item">
+							<div class="list-sites__card">
+								<figure class="list-sites__figure">
+									<a href="/sumaart/">
+										<img
+											width="72"
+											height="72"
+											loading="lazy"
+											class="list-sites__media"
+											src="https://assets.awwwards.com/awards/media/cache/thumb_user_retina/avatar/778595/5d5ccd2d8acd7208623311.jpg"
+											alt="sumaart"
+										/>
+									</a>
+								</figure>
+								<div class="list-sites__info">
+									<div class="list-sites__label">
+										Agency - China
+									</div>
+									<h3
+										class="list-sites__title list-sites__title--truncate"
+									>
+										<a href="/sumaart/" title="sumaart">
+											sumaart
+										</a>
+									</h3>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 	<div
 		data-w-id="bb928bf3-04e0-6e31-a1a0-7150d683dd1c"
 		class="section income-earned-section"

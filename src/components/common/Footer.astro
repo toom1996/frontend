@@ -1,0 +1,235 @@
+<style>
+    #footer a {
+        color: var(--color-primary);
+    }
+
+    #footer a:hover {
+        opacity: 0.75;
+    }
+
+    .footer__top {
+        margin-bottom: clamp(40px, 4vw, 150px);
+    }
+
+    .footer__top .box-featured {
+        background: var(--ch-bg, var(--bg-4rd));
+    }
+
+    .footer__bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        flex-wrap: wrap;
+        margin-bottom: 120px;
+        padding-top: clamp(24px, 3vw, 48px);
+        font-size: 14px;
+        font-weight: 400;
+        background-image: linear-gradient(
+            to right,
+            rgb(var(--color-dotteds-rgb)) 0 10%,
+            rgba(255, 255, 255, 0) 10%
+        );
+        background-position: top;
+        background-size: 8px 1px;
+        background-repeat: repeat-x;
+    }
+
+    .footer__wrapper {
+        display: flex;
+    }
+
+    .footer__nav {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .footer__item {
+        display: flex;
+        line-height: 140%;
+        font-size: clamp(35px, 20vw, 4vw);
+        font-weight: bold;
+    }
+
+    .footer__item:not(:last-child):after {
+        content: "-";
+        margin: 0 0.4em;
+        font-weight: 300;
+    }
+
+    .footer__figure {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        transition: opacity 0.3s;
+        transform-origin: center;
+        pointer-events: none;
+    }
+
+    .footer__figure.show {
+        opacity: 1;
+    }
+
+    .footer__figure.show img {
+        opacity: 0.9;
+        transform: scale(1) rotate(20deg);
+    }
+
+    .footer__img {
+        transform: scale(0);
+        transition: all 0.3s;
+    }
+
+    .footer__logo {
+        display: inline-flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: clamp(30px, 4vw, 60px);
+    }
+
+    .footer__logo--s1 svg {
+        width: 40px;
+    }
+
+    .footer__logo--s2 svg:nth-child(1) {
+        width: 44px;
+        height: auto;
+        fill: var(--color-primary);
+    }
+
+    .footer__logo--s2 .sticker-svg {
+        width: clamp(40px, 4vw, 72px);
+    }
+
+    .footer__logo svg {
+        fill: var(--color-primary);
+    }
+
+    .footer__nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0 24px;
+    }
+
+    .footer__grid {
+        --grid-min: 18%;
+        --menu-margin: clamp(10px, 4vw, 20px);
+        flex: 1;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(var(--grid-min), 1fr));
+        grid-gap: 24px;
+    }
+
+    .footer__menu {
+        font-weight: bold;
+        line-height: 100%;
+    }
+
+    .footer__menu li:not(:last-child) {
+        margin-bottom: var(--menu-margin);
+    }
+</style>
+<footer id="footer">
+    <div class="inner">
+        <div class="footer__top">
+            <p class="footer__logo footer__logo--small">
+                <svg width="30" height="16" viewBox="0 0 30 16"
+                    ><path
+                        d="m18.4 0-2.803 10.855L12.951 0H9.34L6.693 10.855 3.892 0H0l5.012 15.812h3.425l2.708-10.228 2.709 10.228h3.425L22.29 0h-3.892ZM24.77 13.365c0 1.506 1.12 2.635 2.615 2.635C28.879 16 30 14.87 30 13.365c0-1.506-1.12-2.636-2.615-2.636s-2.615 1.13-2.615 2.636Z"
+                    ></path></svg
+                >
+            </p>
+            <div class="footer__wrapper">
+                <div class="footer__grid">
+                    <ul class="footer__menu">
+                        <li><a href="/websites/">Websites</a></li>
+                        <li><a href="/collections/search/">Collections</a></li>
+                    </ul>
+                    <ul class="footer__menu">
+                        <li><a href="/academy/">Academy</a></li>
+                        <li><a href="/jobs/search/">Jobs</a></li>
+                    </ul>
+                    <ul class="footer__menu">
+                        <li><a href="/directory/search/">Directory</a></li>
+                        <li>
+                            <a href="https://conference.awwwards.com"
+                                >Conferences</a>
+                        </li>
+                    </ul>
+                    <ul class="footer__menu">
+                        <li><a rel="nofollow" href="/faqs/">FAQs</a></li>
+                        <li>
+                            <a rel="nofollow" href="/about-us/">About Us</a>
+                        </li>
+                        <li>
+                            <a rel="nofollow" href="/contact-us/">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="box-featured">
+                    <div class="box-featured__content">
+                        Next Conference
+                        <svg
+                            class="ico-svg box-featured__m"
+                            viewBox="0 0 20 20"
+                            width="20"
+                        >
+                            <use
+                                xlink:href="https://www.awwwards.com/assets/redesign/images/sprite-icons.svg#calendar"
+                            ></use>
+                        </svg>
+
+                        <strong
+                            ><a
+                                href="https://conference.awwwards.com"
+                                class="link-underlined">Amsterdam</a
+                            ></strong
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <div class="footer__left">
+                <ul class="footer__nav">
+                    <li>
+                        <a rel="nofollow" href="/cookies-policy/"
+                            >Cookies Policy</a>
+                    </li>
+                    <li><a rel="nofollow" href="/terms/">Legal Terms</a></li>
+                    <li>
+                        <a rel="nofollow" href="/privacy-policy/"
+                            >Privacy Policy</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer__right">
+                <ul class="footer__nav">
+                    <li><strong>Connect:</strong></li>
+                    <li>
+                        <a href="https://www.instagram.com/awwwards"
+                            >Instagram</a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/company/awwwards"
+                            >LinkedIn</a>
+                    </li>
+                    <li><a href="https://twitter.com/awwwards">Twitter</a></li>
+                    <li>
+                        <a href="https://www.facebook.com/awwwards">Facebook</a>
+                    </li>
+                    <li>
+                        <a href="https://www.youtube.com/awwwardstv">YouTube</a>
+                    </li>
+                    <li>
+                        <a href="https://www.tiktok.com/@awwwards.com"
+                            >TikTok</a>
+                    </li>
+                    <li>
+                        <a href="https://www.pinterest.es/awwwards/"
+                            >Pinterest</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
