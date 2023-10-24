@@ -8,8 +8,12 @@ import Header from "../components/common/Header.vue";
 import Header1 from "../components/common/Header.astro";
 import MainLayout from "../layouts/main.astro";
 import { Icon } from "astro-icon";
+import 'swiper/css';
 import "../styles/main.css";
 import "../styles/global.css";
+const state = {
+	showTopBanner: true
+}
 // const post = await fetch("http://127.0.0.1:8000/api/v1/header/menus")
 // const {data} = await post.json()
 // console.log(data)
@@ -26,20 +30,79 @@ const tStageBrand = [
 ];
 
 const hotBrand = [
-	{ name: "Louis Vuitton", area: 'Paris'},
-	{ name: "BOSS", area: 'Paris'},
-	{ name: "Moncler", area: 'USA'},
-	{ name: "PRADA", area: 'Paris'},
-	{ name: "GUCCI", area: 'China'},
-	{ name: "MIU MIU", area: 'UK'},
-	{ name: "FENDI", area: 'Paris'},
-	{ name: "Emporio Armani", area: 'Canada'},
-	{ name: "Loro Piana", area: 'Paris'},
-	{ name: 'AI.design', area: 'Itaily'}
+	{
+		name: "Louis Vuitton",
+		area: 'Paris',
+		images: [
+			'https://imgf1.pop-fashion.com/styles/2023/1020/F_399_20231020104213/man/2324AW/159/outerwear/jacket/19/middle/91afadca-a21d-4273-8d7e-cf9f862af827.JPG',
+			'https://imgf1.pop-fashion.com/styles/2023/1020/202310200000210691/women/2324AW/7/outerwear/jacket/202310200023193581/middle/9756f271-6bbd-4d5a-9a53-66728bb0373a.JPG'
+		]
+	},
+	{ name: "BOSS", area: 'Paris', images:[]},
+	{ name: "Moncler", area: 'USA', images:[]},
+	{ name: "PRADA", area: 'Paris', images:[]},
+	{ name: "GUCCI", area: 'China', images:[]},
+	{ name: "MIU MIU", area: 'UK', images:[]},
+	{ name: "FENDI", area: 'Paris', images:[]},
+	{ name: "Emporio Armani", area: 'Canada', images:[]},
+	{ name: "Loro Piana", area: 'Paris', images:[]},
+	{ name: 'AI.design', area: 'Itaily', images:[]}
 ];
 ---
 
 <style>
+	    .swiper {
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .autoplay-progress {
+      position: absolute;
+      right: 16px;
+      bottom: 16px;
+      z-index: 10;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: var(--swiper-theme-color);
+    }
+
+    .autoplay-progress svg {
+      --progress: 0;
+      position: absolute;
+      left: 0;
+      top: 0px;
+      z-index: 10;
+      width: 100%;
+      height: 100%;
+      stroke-width: 4px;
+      stroke: var(--swiper-theme-color);
+      fill: none;
+      stroke-dashoffset: calc(125.6 * (1 - var(--progress)));
+      stroke-dasharray: 125.6;
+      transform: rotate(-90deg);
+    }
+
+	
 	.grid-halves {
 		width: 100%;
 		grid-column-gap: 0px;
@@ -512,55 +575,33 @@ const hotBrand = [
 				</div>
 			</div>
 			<div class="l-list-sites pt-14">
-				<div class="l-list-sites__col">
-					<h3 class="heading-hr"><strong>w.news</strong></h3>
-					<ul class="list-sites">
-						{
-							hotBrand.map(data => (
-							<li class="list-sites__item">
-							<div class="list-sites__card">
-								<figure class="list-sites__figure">
-									<a
-										href="/inspiration/image-transition-lynxeye"
-									>
-										<img
-											width="72"
-											height="72"
-											loading="lazy"
-											class="list-sites__media"
-											src="https://assets.awwwards.com/awards/media/cache/square_thumb_140/element/2023/10/65259a56270a3545666145_static.jpeg"
-											alt="Image transition"
-										/>
-									</a>
-								</figure>
-								<div class="list-sites__info">
-									<div class="list-sites__label">
-										Element of the Day
-										<span
-											class="budget-tag budget-tag--solid--black"
-											>FRESH</span>
-									</div>
-									<h3
-										class="list-sites__title list-sites__title--truncate"
-									>
-										<a
-											href="/inspiration/image-transition-lynxeye"
-											title="Image transition"
-										>
-											{ data.name }
-										</a>
-									</h3>
-								</div>
-							</div>
-						</li>
-							))
-						}
-						
-					</ul>
-				</div>
-				<div class="l-list-sites__col">
-					asdasdasdasd
-				</div>
+				{
+					hotBrand.map((data) => (
+						<button>{data.name}</button>
+					))
+				}
+				  <div class="swiper mySwiper">
+					<div class="swiper-wrapper">
+					  <div class="swiper-slide">Slide 1</div>
+					  <div class="swiper-slide">Slide 2</div>
+					  <div class="swiper-slide">Slide 3</div>
+					  <div class="swiper-slide">Slide 4</div>
+					  <div class="swiper-slide">Slide 5</div>
+					  <div class="swiper-slide">Slide 6</div>
+					  <div class="swiper-slide">Slide 7</div>
+					  <div class="swiper-slide">Slide 8</div>
+					  <div class="swiper-slide">Slide 9</div>
+					</div>
+					<div class="swiper-button-next"></div>
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-pagination"></div>
+					<div class="autoplay-progress">
+					  <svg viewBox="0 0 48 48">
+						<circle cx="24" cy="24" r="20"></circle>
+					  </svg>
+					  <span></span>
+					</div>
+				  </div>
 			</div>
 			<div class="l-list-sites__col">
 				热门推荐
@@ -580,4 +621,32 @@ const hotBrand = [
 			</div>
 		</div>
 	</div>
+	<script>
+	import Swiper from 'swiper/bundle';
+	import 'swiper/css/bundle';
+		const progressCircle = document.querySelector(".autoplay-progress svg");
+    const progressContent = document.querySelector(".autoplay-progress span");
+    var swiper = new Swiper(".mySwiper", {
+      spaceBetween: 30,
+      centeredSlides: true,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev"
+      },
+      on: {
+        autoplayTimeLeft(s, time, progress) {
+          progressCircle.style.setProperty("--progress", 1 - progress);
+          progressContent.textContent = `${Math.ceil(time / 1000)}s`;
+        }
+      }
+    });
+	</script>
 </MainLayout>
