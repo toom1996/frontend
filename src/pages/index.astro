@@ -38,15 +38,24 @@ const hotBrand = [
 			'https://imgf1.pop-fashion.com/styles/2023/1020/202310200000210691/women/2324AW/7/outerwear/jacket/202310200023193581/middle/9756f271-6bbd-4d5a-9a53-66728bb0373a.JPG'
 		]
 	},
-	{ name: "BOSS", area: 'Paris', images:[]},
-	{ name: "Moncler", area: 'USA', images:[]},
-	{ name: "PRADA", area: 'Paris', images:[]},
-	{ name: "GUCCI", area: 'China', images:[]},
-	{ name: "MIU MIU", area: 'UK', images:[]},
-	{ name: "FENDI", area: 'Paris', images:[]},
-	{ name: "Emporio Armani", area: 'Canada', images:[]},
-	{ name: "Loro Piana", area: 'Paris', images:[]},
-	{ name: 'AI.design', area: 'Itaily', images:[]}
+	{ name: "BOSS", area: 'Paris', images:['https://imgf1.pop-fashion.com/styles/2023/1020/F_399_20231020104213/man/2324AW/159/outerwear/jacket/19/middle/91afadca-a21d-4273-8d7e-cf9f862af827.JPG',
+			'https://imgf1.pop-fashion.com/styles/2023/1020/202310200000210691/women/2324AW/7/outerwear/jacket/202310200023193581/middle/9756f271-6bbd-4d5a-9a53-66728bb0373a.JPG']},
+	{ name: "Moncler", area: 'USA', images:['https://imgf1.pop-fashion.com/styles/2023/1020/F_399_20231020104213/man/2324AW/159/outerwear/jacket/19/middle/91afadca-a21d-4273-8d7e-cf9f862af827.JPG',
+			'https://imgf1.pop-fashion.com/styles/2023/1020/202310200000210691/women/2324AW/7/outerwear/jacket/202310200023193581/middle/9756f271-6bbd-4d5a-9a53-66728bb0373a.JPG']},
+	{ name: "PRADA", area: 'Paris', images:['https://imgf1.pop-fashion.com/styles/2023/1020/F_399_20231020104213/man/2324AW/159/outerwear/jacket/19/middle/91afadca-a21d-4273-8d7e-cf9f862af827.JPG',
+			'https://imgf1.pop-fashion.com/styles/2023/1020/202310200000210691/women/2324AW/7/outerwear/jacket/202310200023193581/middle/9756f271-6bbd-4d5a-9a53-66728bb0373a.JPG']},
+	{ name: "GUCCI", area: 'China', images:['https://imgf1.pop-fashion.com/styles/2023/1020/F_399_20231020104213/man/2324AW/159/outerwear/jacket/19/middle/91afadca-a21d-4273-8d7e-cf9f862af827.JPG',
+			'https://imgf1.pop-fashion.com/styles/2023/1020/202310200000210691/women/2324AW/7/outerwear/jacket/202310200023193581/middle/9756f271-6bbd-4d5a-9a53-66728bb0373a.JPG']},
+	{ name: "MIU MIU", area: 'UK', images:['https://imgf1.pop-fashion.com/styles/2023/1020/F_399_20231020104213/man/2324AW/159/outerwear/jacket/19/middle/91afadca-a21d-4273-8d7e-cf9f862af827.JPG',
+			'https://imgf1.pop-fashion.com/styles/2023/1020/202310200000210691/women/2324AW/7/outerwear/jacket/202310200023193581/middle/9756f271-6bbd-4d5a-9a53-66728bb0373a.JPG']},
+	{ name: "FENDI", area: 'Paris', images:['https://imgf1.pop-fashion.com/styles/2023/1020/F_399_20231020104213/man/2324AW/159/outerwear/jacket/19/middle/91afadca-a21d-4273-8d7e-cf9f862af827.JPG',
+			'https://imgf1.pop-fashion.com/styles/2023/1020/202310200000210691/women/2324AW/7/outerwear/jacket/202310200023193581/middle/9756f271-6bbd-4d5a-9a53-66728bb0373a.JPG']},
+	{ name: "Emporio Armani", area: 'Canada', images:['https://imgf1.pop-fashion.com/styles/2023/1020/F_399_20231020104213/man/2324AW/159/outerwear/jacket/19/middle/91afadca-a21d-4273-8d7e-cf9f862af827.JPG',
+			'https://imgf1.pop-fashion.com/styles/2023/1020/202310200000210691/women/2324AW/7/outerwear/jacket/202310200023193581/middle/9756f271-6bbd-4d5a-9a53-66728bb0373a.JPG']},
+	{ name: "Loro Piana", area: 'Paris', images:['https://imgf1.pop-fashion.com/styles/2023/1020/F_399_20231020104213/man/2324AW/159/outerwear/jacket/19/middle/91afadca-a21d-4273-8d7e-cf9f862af827.JPG',
+			'https://imgf1.pop-fashion.com/styles/2023/1020/202310200000210691/women/2324AW/7/outerwear/jacket/202310200023193581/middle/9756f271-6bbd-4d5a-9a53-66728bb0373a.JPG']},
+	{ name: 'AI.design', area: 'Itaily', images:['https://imgf1.pop-fashion.com/styles/2023/1020/F_399_20231020104213/man/2324AW/159/outerwear/jacket/19/middle/91afadca-a21d-4273-8d7e-cf9f862af827.JPG',
+			'https://imgf1.pop-fashion.com/styles/2023/1020/202310200000210691/women/2324AW/7/outerwear/jacket/202310200023193581/middle/9756f271-6bbd-4d5a-9a53-66728bb0373a.JPG']}
 ];
 ---
 
@@ -584,19 +593,15 @@ const hotBrand = [
 					<div class="swiper-wrapper">
 						{
 							hotBrand.map((data) => (
-								data.images.map(image => (
-									<div class="swiper-slide"><img src={image} /></div>
-								))
+								<div class="swiper-slide flex">
+									{
+										data.images.map(image => (
+											<img src={image} />
+										))
+									}
+								</div>
 							))
 						}
-					  <div class="swiper-slide">Slide 2</div>
-					  <div class="swiper-slide">Slide 3</div>
-					  <div class="swiper-slide">Slide 4</div>
-					  <div class="swiper-slide">Slide 5</div>
-					  <div class="swiper-slide">Slide 6</div>
-					  <div class="swiper-slide">Slide 7</div>
-					  <div class="swiper-slide">Slide 8</div>
-					  <div class="swiper-slide">Slide 9</div>
 					</div>
 					<div class="swiper-button-next"></div>
 					<div class="swiper-button-prev"></div>
