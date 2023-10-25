@@ -10,8 +10,8 @@ import nodejs from '@astrojs/node';
 export default defineConfig({
 	site: 'https://example.com',
 	integrations: [mdx(), sitemap(), vue(), tailwind()],
-	adapter: nodejs({
-		mode: 'standalone' // or 'standalone'
-	}),
-	output: 'hybrid',
+	// adapter: nodejs({
+	// 	mode: 'standalone' // or 'standalone'
+	// }),
+	// output: 'hybrid',
 });

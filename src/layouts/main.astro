@@ -2,6 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import MainHeader from "../components/common/Header.astro";
 import MainFooter from '../components/common/Footer.astro';
+import Spinner from '../components/Spinners.astro';
 const showTopBanner = false;
 ---
 
@@ -48,7 +49,7 @@ const showTopBanner = false;
 			}
 		</style>
 	</head>
-
+	<Spinner/>
 	<body class="bg-white">
 		<MainHeader showTopBanner={showTopBanner} />
 		<!-- <div class="container"> -->
