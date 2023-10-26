@@ -34,6 +34,7 @@ const hotBrand = [
 	{
 		name: "Louis Vuitton",
 		area: "Paris",
+		logo: 'https://img.ssfshop.com/display/category/THM/A30/A16/contents/22457_248482_1_KOR_20221020140542.png',
 		images: [
 			"https://imgf1.pop-fashion.com/styles/2023/1020/F_399_20231020104213/man/2324AW/159/outerwear/jacket/19/middle/91afadca-a21d-4273-8d7e-cf9f862af827.JPG",
 			"https://imgf1.pop-fashion.com/styles/2023/1020/202310200000210691/women/2324AW/7/outerwear/jacket/202310200023193581/middle/9756f271-6bbd-4d5a-9a53-66728bb0373a.JPG",
@@ -46,6 +47,7 @@ const hotBrand = [
 	{
 		name: "BOSS",
 		area: "Paris",
+		logo: 'https://img.ssfshop.com/display/category/THM/A30/A16/contents/22457_248482_1_KOR_20221020140542.png',
 		images: [
 			"https://imgf1.pop-fashion.com/styles/2023/1020/F_399_20231020104213/man/2324AW/159/outerwear/jacket/19/middle/91afadca-a21d-4273-8d7e-cf9f862af827.JPG",
 			"https://imgf1.pop-fashion.com/styles/2023/1020/202310200000210691/women/2324AW/7/outerwear/jacket/202310200023193581/middle/9756f271-6bbd-4d5a-9a53-66728bb0373a.JPG",
@@ -56,8 +58,9 @@ const hotBrand = [
 		],
 	},
 	{
-		name: "Moncler",
+		name: "Adidas",
 		area: "USA",
+		logo: 'https://img.ssfshop.com/display/category/THM/A30/A16/contents/22457_248481_61_KOR_20230908110236.png',
 		images: [
 			"https://imgf1.pop-fashion.com/styles/2023/1020/F_399_20231020104213/man/2324AW/159/outerwear/jacket/19/middle/91afadca-a21d-4273-8d7e-cf9f862af827.JPG",
 			"https://imgf1.pop-fashion.com/styles/2023/1020/202310200000210691/women/2324AW/7/outerwear/jacket/202310200023193581/middle/9756f271-6bbd-4d5a-9a53-66728bb0373a.JPG",
@@ -70,6 +73,7 @@ const hotBrand = [
 	{
 		name: "PRADA",
 		area: "Paris",
+		logo: 'https://img.ssfshop.com/display/category/THM/A30/A16/contents/22457_248482_1_KOR_20221020140542.png',
 		images: [
 			"https://imgf1.pop-fashion.com/styles/2023/1020/F_399_20231020104213/man/2324AW/159/outerwear/jacket/19/middle/91afadca-a21d-4273-8d7e-cf9f862af827.JPG",
 			"https://imgf1.pop-fashion.com/styles/2023/1020/202310200000210691/women/2324AW/7/outerwear/jacket/202310200023193581/middle/9756f271-6bbd-4d5a-9a53-66728bb0373a.JPG",
@@ -97,64 +101,6 @@ const hotBrand = [
 		align-items: center;
 	}
 
-	.swiper-slide img {
-		display: block;
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-	}
-
-	.autoplay-progress {
-		position: absolute;
-		right: 16px;
-		bottom: 16px;
-		z-index: 10;
-		width: 48px;
-		height: 48px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		font-weight: bold;
-		color: var(--swiper-theme-color);
-	}
-
-	.autoplay-progress svg {
-		--progress: 0;
-		position: absolute;
-		left: 0;
-		top: 0px;
-		z-index: 10;
-		width: 100%;
-		height: 100%;
-		stroke-width: 4px;
-		stroke: var(--swiper-theme-color);
-		fill: none;
-		stroke-dashoffset: calc(125.6 * (1 - var(--progress)));
-		stroke-dasharray: 125.6;
-		transform: rotate(-90deg);
-	}
-
-	.grid-halves {
-		width: 100%;
-		grid-column-gap: 0px;
-		grid-row-gap: 0px;
-		border-bottom: 2px solid #000;
-		grid-template-rows: auto;
-		grid-template-columns: 1fr 1fr;
-		grid-auto-columns: 1fr;
-		display: grid;
-	}
-
-	.earned-income-number {
-		font-size: 11.25rem;
-	}
-
-	.text-lg {
-		letter-spacing: -0.01em;
-		font-size: 2rem;
-		line-height: 1.25;
-	}
-
 	.selection-box {
 		grid-template-columns: 3fr 1.5fr;
 	}
@@ -175,7 +121,7 @@ const hotBrand = [
 	}
 
 	.show-wrap .box-left .show-img {
-		width: 100%;
+		margin-left: 10%;
 		padding-top: 50%;
 		position: relative;
 	}
@@ -205,26 +151,6 @@ const hotBrand = [
 		max-width: var(--innerWidth);
 		margin: 0 auto;
 		padding: 0 var(--pad-inner);
-	}
-
-	.inner--sm {
-		--innerWidth: 931px;
-	}
-
-	.inner--lg {
-		--innerWidth: 1216px;
-	}
-
-	.inner--xl {
-		--innerWidth: 1386px;
-	}
-
-	.inner--xxl {
-		--innerWidth: 1650px;
-	}
-
-	.inner--xxxl {
-		--innerWidth: 1834px;
 	}
 
 	.swiper {
@@ -278,187 +204,6 @@ const hotBrand = [
 		background: var(--bg-3rd);
 	}
 
-	.l-list-sites {
-		display: flex;
-		flex-wrap: wrap;
-		gap: clamp(30px, 3vw, 94px);
-	}
-
-	.l-list-sites__col {
-		flex: 1;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		min-width: min(380px, 100%);
-	}
-
-	.l-list-sites__col.s-2 .list-sites {
-		margin-top: 24px;
-	}
-
-	.l-list-sites__col.s-2 .list-sites__item {
-		padding: 0;
-	}
-
-	.l-list-sites__col.s-2 .list-sites__card {
-		flex-direction: column;
-		gap: 0;
-	}
-
-	.l-list-sites__col.s-2 .list-sites__left {
-		flex-direction: column;
-		gap: 0;
-	}
-
-	.l-list-sites__col.s-2 .list-sites__figure {
-		position: relative;
-		width: 100%;
-	}
-
-	.l-list-sites__col.s-2 .list-sites__media {
-		width: 100%;
-		border-radius: var(--rounded-normal);
-	}
-
-	.l-list-sites__col.s-2 .list-sites__info {
-		width: 100%;
-		min-height: 120px;
-	}
-
-	.l-list-sites__heading {
-		padding-bottom: 24px;
-		font-size: var(--text-size-primary);
-	}
-
-	.l-list-sites__more {
-		margin-top: clamp(20px, 3vw, 44px);
-	}
-
-	.l-list-sites .list-sites {
-		flex: 1;
-	}
-
-	.list-sites--bw {
-		height: 100%;
-		background: #fff;
-		border-radius: var(--rounded-normal);
-	}
-
-	.list-sites--collapsed-nom {
-		height: calc(162px + clamp(10px, 4vw, 48px));
-		overflow: hidden;
-	}
-
-	.list-sites__item {
-		padding: clamp(10px, 4vw, 15px) clamp(0px, 1vw, 24px);
-	}
-
-	.list-sites__item:not(:last-child) {
-		border-bottom: 1px solid var(--border-gray);
-	}
-
-	.list-sites__item:has(.list-sites__more) {
-		padding: 0;
-	}
-
-	.list-sites__card {
-		display: flex;
-		align-items: center;
-		gap: clamp(10px, 4vw, 20px);
-	}
-
-	.list-sites__left {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: clamp(10px, 4vw, 20px);
-		flex: 1;
-		min-width: 0;
-	}
-
-	.list-sites__right {
-		display: flex;
-		flex-direction: column;
-		gap: 4px;
-		justify-content: center;
-	}
-
-	.list-sites__figure {
-		flex-shrink: 0;
-	}
-
-	.list-sites__media {
-		border-radius: 50%;
-		-o-object-fit: cover;
-		object-fit: cover;
-		width: clamp(40px, 4vw, 72px);
-		height: auto;
-		transition: all 0.3s;
-	}
-
-	.list-sites__media:hover {
-		filter: brightness(80%);
-	}
-
-	.list-sites__thumb {
-		border-radius: var(--rounded-small);
-	}
-
-	.list-sites__label {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		flex-wrap: wrap;
-	}
-
-	.list-sites__title {
-		font-size: 18px;
-		font-size: clamp(18px, 17.2957746479px + 0.1408450704vw, 20px);
-		font-weight: bold;
-		line-height: 120%;
-	}
-
-	.list-sites__title--truncate {
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
-	}
-
-	.list-sites__info {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		flex: 1;
-		min-width: 0;
-	}
-
-	.list-sites__number {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		line-height: 100%;
-		min-width: 43px;
-	}
-
-	.list-sites__number small {
-		font-size: 10px;
-	}
-
-	.list-sites__more {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 100%;
-		height: 60px;
-		font-size: 6px;
-		letter-spacing: 2px;
-		transition: all 0.3s;
-	}
-
-	.list-sites__more:hover {
-		letter-spacing: 4px;
-	}
-
 	.text-item:hover svg {
 		display: block;
 	}
@@ -469,7 +214,7 @@ const hotBrand = [
 	}
 
 	.brand-toggle-progress {
-		height:20px;
+		height: 2px;
 		background-color: #000;
 	}
 </style>
@@ -488,7 +233,7 @@ const hotBrand = [
 				</div>
 				<div class="sub-title text-2xl font-bold">当下秀场</div>
 			</div>
-			<div class="show-img">
+			<div class="show-img w-full">
 				<div class="data-list">
 					<div
 						class=""
@@ -608,7 +353,18 @@ const hotBrand = [
 				</div>
 			</div>
 			<div class="l-list-sites pt-14">
-				{hotBrand.map((data) => <button>{data.name}</button>)}
+				<ul>
+					{
+					hotBrand.map((data) => <li>
+						<a href="/8seconds/main?dspCtgryNo=&amp;brandShopNo=BDMA07A01&amp;brndShopId=8SBSS&amp;utag=ref_tpl:111702$ref_cnr:22457$set:1$dpos:1" onclick="cnrClickLoging('22457','1','1','/8seconds/main?dspCtgryNo=&amp;brandShopNo=BDMA07A01&amp;brndShopId=8SBSS');">
+							<div class="brand-box">
+										<img class="swiper-lazy swiper-lazy-loaded" src={data.logo}>
+									</div>
+									<span class="tit">{data.name}</span>
+								</a>
+						</li>)
+					}
+				</ul>
 				<div class="swiper mySwiper">
 					<div class="swiper-wrapper">
 						{
@@ -628,18 +384,19 @@ const hotBrand = [
 							))
 						}
 					</div>
-					<div class="swiper-button-next"></div>
-					<div class="swiper-button-prev"></div>
-					<div class="swiper-pagination"></div>
-					<div class="autoplay-progress">
-						<svg viewBox="0 0 48 48">
-							<circle cx="24" cy="24" r="20"></circle>
-						</svg>
-						<span></span>
-					</div>
 				</div>
 			</div>
-			<div class="brand-toggle-progress"></div>
+			<div class="brand-swiper-pagination flex items-center">
+				<div class="w-full p-4">
+					<div class="brand-toggle-progress mt-2"></div>
+				</div>
+				<div class="brand-toggle-prev">
+					<Icon name="mdi-light:arrow-left-circle" class="w-8"></Icon>
+				</div>
+				<div class="brand-toggle-next">
+					<Icon name="mdi-light:arrow-right-circle" class="w-8"></Icon>
+				</div>
+			</div>
 			<div class="l-list-sites__col">
 				热门推荐 : 上衣 外套 裙 裤 套装 家居装 内衣 婚纱 礼服 泳装
 				婴儿服 帽子 围巾
@@ -665,27 +422,27 @@ const hotBrand = [
 			spaceBetween: 30,
 			centeredSlides: true,
 			autoplay: {
-				delay: 1000,
+				delay: 5000,
 				disableOnInteraction: false,
 			},
 			navigation: {
-				nextEl: ".swiper-button-next",
-				prevEl: ".swiper-button-prev",
+				nextEl: ".brand-toggle-next",
+				prevEl: ".brand-toggle-prev",
 			},
 			on: {
 				autoplayTimeLeft(s, time, progress) {
-					progressCircle.style.setProperty(
-						"--progress",
-						1 - progress,
-					);
+					// progressCircle.style.setProperty(
+					// 	"--progress",
+					// 	1 - progress,
+					// );
 
 					progressDiv.style.setProperty(
 						"width",
-						progress * 100 + "%"
+						(1 - progress) * 100 + "%"
 					)
-					progressContent.textContent = `${Math.ceil(
-						time / 1000,
-					)}s`;
+					// progressContent.textContent = `${Math.ceil(
+					// 	time / 1000,
+					// )}s`;
 				},
 			},
 		});
