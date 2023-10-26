@@ -1,70 +1,75 @@
+---
+const { showSpinner = false } = Astro.props;
+console.log('showSpinner', showSpinner)
+---
+
 <style lang="scss">
-    .spinners {
-        background: linear-gradient(120deg, #7bc6cc, #be93c5);
-        z-index: 99999;
-        height: 100vh;
-        width: 100vw;
-        position: fixed;
+  .spinners {
+    background: linear-gradient(120deg, #7bc6cc, #be93c5);
+    z-index: 99999;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+  }
+  // body {
+  //   padding: 10em 0;
+  //   background: linear-gradient(120deg, #7bc6cc, #be93c5);
+  // }
+  // h1 {
+  //   position: relative;
+  //   margin: 0;
+  //   color: #fff;
+  //   font-size: 64px;
+  //   font-family: 'Montserrat', sans-serif;
+  //   font-weight: 400;
+  //   text-align: center;
+  // }
+  // h2 {
+  //   margin: 5em 0 1em;
+  //   color: #fff;
+  //   font-size: 30px;
+  //   text-align: center;
+  //   font-family: 'Montserrat', sans-serif;
+  //   font-weight: 400;
+  // }
+
+  /* common */
+  .loading {
+    font-size: 84px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+    text-align: center;
+    span {
+      display: inline-block;
+      margin: 0 -0.05em;
     }
-// body {
-//   padding: 10em 0;
-//   background: linear-gradient(120deg, #7bc6cc, #be93c5);
-// }
-// h1 {
-//   position: relative;
-//   margin: 0;
-//   color: #fff;
-//   font-size: 64px;
-//   font-family: 'Montserrat', sans-serif;
-//   font-weight: 400;
-//   text-align: center;
-// }
-// h2 {
-//   margin: 5em 0 1em;
-//   color: #fff;
-//   font-size: 30px;
-//   text-align: center;
-//   font-family: 'Montserrat', sans-serif;
-//   font-weight: 400;
-// }
-
-
-
-/* common */
-.loading {
-  font-size: 84px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 800;
-  text-align: center;
-  span {
-    display: inline-block;
-    margin: 0 -.05em;
   }
-}
 
-/* code #4 */
-.loading04 {
-//   span {
-//     animation: loading04 .7s infinite;
-//     @for $i from 1 through 6 {
-//       &:nth-child(#{$i+1}) {
-//         animation-delay: #{$i*.1}s;
-//       }
-//     }
-//   }
-}
-@keyframes loading04 {
-  0%, 100% {
-    transform: translateY(0);
+  /* code #4 */
+  .loading04 {
+    //   span {
+    //     animation: loading04 .7s infinite;
+    //     @for $i from 1 through 6 {
+    //       &:nth-child(#{$i+1}) {
+    //         animation-delay: #{$i*.1}s;
+    //       }
+    //     }
+    //   }
   }
-  50% {
-    transform: translateY(15px);
+  @keyframes loading04 {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(15px);
+    }
   }
-}
-
 </style>
-<div class="spinners">
-    <section>
+{
+  showSpinner === true ? (
+    <div class="spinners">
+      <section>
         <div class="loading loading04">
           <span>W</span>
           <span>H</span>
@@ -73,25 +78,30 @@
           <span style="animation: loading04 0.7s infinite;">'S </span>
           <span>N</span>
           <span>E</span>
-            <span>X</span>
-            <span>T</span>
+          <span>X</span>
+          <span>T</span>
         </div>
       </section>
       数据加载中...
-</div>
-<script>
-function ready(callback: any) {
-  if (document.readyState === 'interactive' || document.readyState === 'complete') {
-    // DOM已经加载完成
-    callback();
-  } else {
-    document.addEventListener('DOMContentLoaded', callback);
-  }
+    </div>
+  ) : null
 }
+<script>
+  function ready(callback: any) {
+    if (
+      document.readyState === "interactive" ||
+      document.readyState === "complete"
+    ) {
+      // DOM已经加载完成
+      callback();
+    } else {
+      document.addEventListener("DOMContentLoaded", callback);
+    }
+  }
 
-// 使用示例
-ready(function() {
-  // 在这里添加需要在DOM加载完成后执行的代码
-  document.getElementsByClassName('spinners')[0].hidden = true
-});
+  // 使用示例
+  ready(function () {
+    // 在这里添加需要在DOM加载完成后执行的代码
+    document.getElementsByClassName("spinners")[0].hidden = true;
+  });
 </script>

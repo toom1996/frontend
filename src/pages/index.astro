@@ -13,6 +13,7 @@ import "../styles/main.css";
 import "../styles/global.css";
 const state = {
 	showTopBanner: true,
+	showSpinner: true
 };
 // const post = await fetch("http://127.0.0.1:8000/api/v1/header/menus")
 // const {data} = await post.json()
@@ -466,8 +467,15 @@ const hotBrand = [
 		color: #fff;
 		text-decoration: underline;
 	}
+
+	.brand-toggle-progress {
+		height:20px;
+		background-color: #000;
+	}
 </style>
-<MainLayout>
+<MainLayout
+	showSpinner = {state.showSpinner}
+>
 	<div
 		class="selection-box show-wrap grid rounded-2xl bg-slate-950 text-white"
 	>
@@ -631,6 +639,7 @@ const hotBrand = [
 					</div>
 				</div>
 			</div>
+			<div class="brand-toggle-progress"></div>
 			<div class="l-list-sites__col">
 				热门推荐 : 上衣 外套 裙 裤 套装 家居装 内衣 婚纱 礼服 泳装
 				婴儿服 帽子 围巾
@@ -646,6 +655,11 @@ const hotBrand = [
 		const progressContent = document.querySelector(
 			".autoplay-progress span",
 		);
+
+		const progressDiv = document.querySelector(
+			".brand-toggle-progress",
+		);
+
 		var swiper = new Swiper(".mySwiper", {
 			loop: true,
 			spaceBetween: 30,
@@ -664,6 +678,11 @@ const hotBrand = [
 						"--progress",
 						1 - progress,
 					);
+
+					progressDiv.style.setProperty(
+						"width",
+						progress * 100 + "%"
+					)
 					progressContent.textContent = `${Math.ceil(
 						time / 1000,
 					)}s`;
