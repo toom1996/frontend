@@ -1,6 +1,7 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
 import MainHeader from "../components/common/Header.astro";
+import WtnHeader from "../components/v1/common/Header.astro";
 import MainFooter from "../components/common/Footer.astro";
 import Spinner from "../components/Spinners.astro";
 
@@ -52,7 +53,8 @@ const { showSpinner, showTopBanner } = Astro.props;
 </html>
 <Spinner showSpinner={showSpinner} />
 <body class="bg-white">
-	<MainHeader showTopBanner={showTopBanner} />
+	<!-- <MainHeader showTopBanner={showTopBanner} /> -->
+	<WtnHeader></WtnHeader>
 	<!-- <div class="container"> -->
 	<div>
 		<slot />

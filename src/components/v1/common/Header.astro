@@ -1,0 +1,112 @@
+---
+const mainMenus = ["T台", "街拍", "成衣", "品牌", "花纹", "AI", "色彩"];
+---
+
+<style></style>
+<header class="wtn">
+    <div class="top-wrapper bg-slate-950 text-white py-2">
+        <!-- 알림 코너 영역-->
+        <div class="inner flex justify-end items-center">
+            <div class="aside">
+                <div class="nav">
+                    <a href="/secured/mypage/myPage">마이페이지</a>
+                    <a href="javascript:searchKeywordLogin();">로그인</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="menu-wrapper border-b-4 border-indigo-500 w-full">
+        <div class="top">
+            <div class="inner flex justify-between items-center">
+                <h1 class="ssf-logo">
+                    <a href="/main">
+                        <img
+                            src="/logo.svg"
+                            loading="lazy"
+                            alt=""
+                            class="mega-gum-logo w-full"
+                        />
+                    </a>
+                </h1>
+                <div class="aside flex items-center">
+                    <div class="util flex"></div>
+                    <div class="shop flex">
+                        <a
+                            href="/10-Corso-Como/main?brandShopNo=BDMA23&brndShopId=CCPB&&gnb=true"
+                        >
+                            <img
+                                src="/v3/images/svgs/logo-10cc.svg"
+                                alt="10 CORSO COMO"
+                            />
+                        </a>
+                        <a
+                            href="/beaker/main?brandShopNo=BDMA09&brndShopId=MCBR&gnb=true"
+                        >
+                            <img
+                                src="/v3/images/svgs/logo-beaker.svg"
+                                alt="BEAKER"
+                            />
+                        </a>
+                        <a
+                            href="/ANOTHER-SHOP/main?brandShopNo=BDMA19&brndShopId=ORBR&gnb=true"
+                        >
+                            <img
+                                src="/v3/images/svgs/logo-another.svg"
+                                alt="ANOTHER#"
+                            />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ctg-wrap">
+            <div class="inner flex justify-start">
+                <div class="category flex justify-start">
+                    <div class="main-nav">
+                        <ul class="flex">
+                            {
+                                mainMenus.map((d) => (
+                                    <li>
+                                        <a href="/main/THMA38A07?dspCtgryNo=SFMA41" class="">
+                                            { d }
+                                        </a>
+                                    </li>
+                                ))
+                            }
+                        </ul>
+                    </div>
+                    <div class="sub-nav">
+                        <ul>
+                            <li>
+                                <a
+                                    href="/ranking?rankSect=CLICK_RANK&ctgryFlterCd=CTGRY_FEMALE&preferAgeCd=ALL&brndShopId=&dspCtgryNo="
+                                    >랭킹</a
+                                >
+                            </li>
+                            <li><a href="/selectAllBrandList">브랜드</a></li>
+                            <li><a href="/ssfMgz/list">매거진</a></li>
+                            <li>
+                                <a href="/special/list?promtFlterBrndId="
+                                    >기획전</a
+                                >
+                            </li>
+                            <li><a href="/event/list">이벤트</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="special-nav">
+                    <ul>
+                        <li>
+                            <a
+                                href="/SAMSUNG/main?brandShopNo=BDMA26A01&brndShopId=RTSAS&dspCtgryNo="
+                                >삼성전자</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
