@@ -355,14 +355,16 @@ const hotBrand = [
 			<div class="l-list-sites pt-14">
 				<ul>
 					{
-					hotBrand.map((data) => <li>
-						<a href="/8seconds/main?dspCtgryNo=&amp;brandShopNo=BDMA07A01&amp;brndShopId=8SBSS&amp;utag=ref_tpl:111702$ref_cnr:22457$set:1$dpos:1" onclick="cnrClickLoging('22457','1','1','/8seconds/main?dspCtgryNo=&amp;brandShopNo=BDMA07A01&amp;brndShopId=8SBSS');">
-							<div class="brand-box">
-										<img class="swiper-lazy swiper-lazy-loaded" src={data.logo}>
-									</div>
-									<span class="tit">{data.name}</span>
-								</a>
-						</li>)
+						hotBrand.map((data) => (
+							<li>
+							<a href="/8seconds/main?dspCtgryNo=&amp;brandShopNo=BDMA07A01&amp;brndShopId=8SBSS&amp;utag=ref_tpl:111702$ref_cnr:22457$set:1$dpos:1">
+								<div class="brand-box">
+											<img class="swiper-lazy swiper-lazy-loaded" src={data.logo}>
+										</div>
+										<span class="tit">{data.name}</span>
+									</a>
+							</li>
+						))
 					}
 				</ul>
 				<div class="swiper mySwiper">
