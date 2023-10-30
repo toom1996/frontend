@@ -7,21 +7,10 @@ const mainMenus = ["T台", "街拍", "成衣", "品牌", "花纹", "AI", "色彩
         margin: auto;
         max-width: 1536px;
     }
-    .sub-nav:before {
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  display: inline-block;
-  content: '';
-  width: 1px;
-  height: 14px;
-  background: #e5e5e5;
-}
+
 </style>
 <header class="wtn">
     <div class="top-wrapper bg-slate-950 text-white py-2">
-        <!-- 알림 코너 영역-->
         <div class="inner flex justify-end items-center">
             <div class="aside">
                 <div class="nav">
@@ -46,7 +35,7 @@ const mainMenus = ["T台", "街拍", "成衣", "品牌", "花纹", "AI", "色彩
                 </h1>
                 <div class="aside flex items-center">
                     <div class="util flex"></div>
-                    <div class="shop flex">
+                    <div class="flex font-bold">
                         <a
                             href="/login"
                         >
@@ -55,18 +44,17 @@ const mainMenus = ["T台", "街拍", "成衣", "品牌", "花纹", "AI", "色彩
                         <a
                             href="/beaker/main?brandShopNo=BDMA09&brndShopId=MCBR&gnb=true"
                         >
-                            <img
-                                src="/v3/images/svgs/logo-beaker.svg"
-                                alt="BEAKER"
-                            />
+                            常见问题
                         </a>
                         <a
                             href="/ANOTHER-SHOP/main?brandShopNo=BDMA19&brndShopId=ORBR&gnb=true"
                         >
-                            <img
-                                src="/v3/images/svgs/logo-another.svg"
-                                alt="ANOTHER#"
-                            />
+                            消息中心
+                        </a>
+                        <a
+                            href="/ANOTHER-SHOP/main?brandShopNo=BDMA19&brndShopId=ORBR&gnb=true"
+                        >
+                            语言
                         </a>
                     </div>
                 </div>
