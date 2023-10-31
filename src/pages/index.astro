@@ -84,6 +84,46 @@ const hotBrand = [
 		],
 	},
 ];
+
+const hues = [
+	{
+		hex: '15-4304 TPG PANTONE',
+		title: 'Pastel  Turquoise',
+		name: '浅松石绿',
+		color: '#95c5c6'
+	},
+	{
+		hex: '15-4304 TPG PANTONE',
+		title: 'Pastel  Turquoise',
+		name: '浅松石绿',
+		color: '#95c5c6'
+	},
+	{
+		hex: '15-4304 TPG PANTONE',
+		title: 'Pastel  Turquoise',
+		name: '浅松石绿',
+		color: '#95c5c6'
+	},
+	{
+		hex: '15-4304 TPG PANTONE',
+		title: 'Pastel  Turquoise',
+		name: '浅松石绿',
+		color: '#95c5c6'
+	},
+	{
+		hex: '15-4304 TPG PANTONE',
+		title: 'Pastel  Turquoise',
+		name: '浅松石绿',
+		color: '#95c5c6'
+	},
+	{
+		hex: '15-4304 TPG PANTONE',
+		title: 'Pastel  Turquoise',
+		name: '浅松石绿',
+		color: '#95c5c6'
+	}
+
+];
 ---
 
 <style>
@@ -217,6 +257,47 @@ const hotBrand = [
 		height: 2px;
 		background-color: #000;
 	}
+
+	.hues-wrap {
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+		width: 100%;
+		-webkit-box-pack: start;
+		-webkit-justify-content: flex-start;
+		-ms-flex-pack: start;
+		justify-content: flex-start;
+		-webkit-flex-wrap: wrap;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+	}
+
+.section-hues-row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 32.5%;
+  margin-right: 0.8%;
+  margin-bottom: 0.5rem;
+  padding: 0.75rem 0.5rem;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  border: 3px solid #000;
+  border-radius: 5px;
+  color: #181818;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.section-hues-row:hover {
+  background-color: #f6efef;
+}
 </style>
 <MainLayout
 	showSpinner = {state.showSpinner}
@@ -355,14 +436,14 @@ const hotBrand = [
 			<div class="l-list-sites pt-14">
 				<ul class="flex items-center justify-center">
 					{
-						hotBrand.map((data) => (
+						hotBrand.map(data => (
 							<li>
-							<a href="/8seconds/main?dspCtgryNo=&amp;brandShopNo=BDMA07A01&amp;brndShopId=8SBSS&amp;utag=ref_tpl:111702$ref_cnr:22457$set:1$dpos:1">
-								<div class="brand-box">
-											<img class="swiper-lazy swiper-lazy-loaded" src={data.logo}>
-										</div>
-										<span class="tit">{data.name}</span>
-									</a>
+								<a>
+									<div class="brand-box">
+										<img class="swiper-lazy swiper-lazy-loaded" src={data.logo} />
+									</div>
+									<span class="tit">{data.name}</span>
+								</a>
 							</li>
 						))
 					}
@@ -403,6 +484,25 @@ const hotBrand = [
 				热门推荐 : 上衣 外套 裙 裤 套装 家居装 内衣 婚纱 礼服 泳装
 				婴儿服 帽子 围巾
 			</div>
+		</div>
+	</div>
+	<div class="hues-wrap">
+		<div class="hues-select-wrapper">
+			{
+				hues.map(data => (
+					<a class="section-hues-row tooltipstered">
+						<div class="flex-vertical">
+							<div class="hue"></div>
+							<div class="hue-title">{ data.title }</div>
+						</div>
+						<div class="hue-hex">{ data.hex }</div>
+						<div class="hue-name">{ data.name }</div>
+					</a>
+				))
+			}
+		</div>
+		<div class="hues-image-wrapper">
+			asdfsadf
 		</div>
 	</div>
 	<script>
