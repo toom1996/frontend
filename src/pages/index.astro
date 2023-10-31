@@ -262,7 +262,6 @@ const hues = [
 		display: -webkit-box;
 		display: -webkit-flex;
 		display: -ms-flexbox;
-		display: flex;
 		width: 100%;
 		-webkit-box-pack: start;
 		-webkit-justify-content: flex-start;
@@ -278,7 +277,6 @@ const hues = [
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  width: 32.5%;
   margin-right: 0.8%;
   margin-bottom: 0.5rem;
   padding: 0.75rem 0.5rem;
@@ -297,6 +295,10 @@ const hues = [
 
 .section-hues-row:hover {
   background-color: #f6efef;
+}
+
+.hues-wrap{
+	grid-template-columns: 1fr 3fr;
 }
 </style>
 <MainLayout
@@ -486,8 +488,8 @@ const hues = [
 			</div>
 		</div>
 	</div>
-	<div class="hues-wrap">
-		<div class="hues-select-wrapper">
+	<div class="hues-wrap grid">
+		<div class="hues-select-wrapper flex flex-col justify-center">
 			{
 				hues.map(data => (
 					<a class="section-hues-row tooltipstered">
@@ -501,8 +503,14 @@ const hues = [
 				))
 			}
 		</div>
-		<div class="hues-image-wrapper">
-			asdfsadf
+		<div class="hues-image-wrapper flex">
+			{
+				hotBrand.map(e => (
+					<div class="mx-2">
+						<img src="https://imgf3.pop-fashion.com/styles/2023/1018/F_424_20231018105138/women/2324AW/8/outerwear/coat/4/middle/fee862d8-fbc4-4f87-acd3-b22e76870f38.jpg" loading="lazy" />
+					</div>
+				))
+			}
 		</div>
 	</div>
 	<script>
