@@ -87,16 +87,16 @@ const hotBrand = [
 
 const hues = [
 	{
-		hex: '15-4304 TPG PANTONE',
-		title: 'Pastel  Turquoise',
-		name: '浅松石绿',
-		color: '#95c5c6'
+		hex: '19-3943 TPG PANTONE',
+		title: 'Bellwether Blue',
+		name: '风向蓝',
+		color: '#383f65'
 	},
 	{
 		hex: '15-4304 TPG PANTONE',
 		title: 'Pastel  Turquoise',
 		name: '浅松石绿',
-		color: '#95c5c6'
+		color: '#C8102E'
 	},
 	{
 		hex: '15-4304 TPG PANTONE',
@@ -279,14 +279,12 @@ const hues = [
   display: flex;
   margin-right: 0.8%;
   margin-bottom: 0.5rem;
-  padding: 0.75rem 0.5rem;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
   border: 3px solid #000;
   border-radius: 5px;
-  color: #181818;
   font-size: 0.9rem;
   font-weight: 700;
   text-decoration: none;
@@ -456,14 +454,16 @@ const hues = [
 							hotBrand.map((data) => (
 								<div class="swiper-slide">
 									<div class="flex">
-										{data.images.map((image) => (
-											<div class="mx-2">
-												<img
-													src={image}
-													loading="lazy"
-												/>
-											</div>
-										))}
+										{
+											data.images.map((image) => (
+												<div class="mx-2">
+													<img
+														src={image}
+														loading="lazy"
+													/>
+												</div>
+											))
+										}
 									</div>
 								</div>
 							))
@@ -488,29 +488,35 @@ const hues = [
 			</div>
 		</div>
 	</div>
-	<div class="hues-wrap grid">
-		<div class="hues-select-wrapper flex flex-col justify-center">
-			{
-				hues.map(data => (
-					<a class="section-hues-row tooltipstered">
-						<div class="flex-vertical">
-							<div class="hue"></div>
-							<div class="hue-title">{ data.title }</div>
-						</div>
-						<div class="hue-hex">{ data.hex }</div>
-						<div class="hue-name">{ data.name }</div>
-					</a>
-				))
-			}
+	<div class="hues">
+		<div class="hues-des">
+			充满信心的色彩设计
+			您在现实世界或图片中看到的景象独特而美丽。您可以留存这些景象，运用我们的真实色彩捕捉技，受到各设计行业专家的喜爱。
 		</div>
-		<div class="hues-image-wrapper flex">
-			{
-				hotBrand.map(e => (
-					<div class="mx-2">
-						<img src="https://imgf3.pop-fashion.com/styles/2023/1018/F_424_20231018105138/women/2324AW/8/outerwear/coat/4/middle/fee862d8-fbc4-4f87-acd3-b22e76870f38.jpg" loading="lazy" />
-					</div>
-				))
-			}
+		<div class="hues-wrap grid">
+			<div class="hues-select-wrapper flex flex-col justify-center text-white">
+				{
+					hues.map(data => (
+						<a class="section-hues-row tooltipstered p-3 shadow" style={'background-color:' + data.color}>
+							<div class="flex-vertical">
+								<div class="hue"></div>
+								<div class="hue-title">{ data.title }</div>
+							</div>
+							<div class="hue-hex">{ data.hex }</div>
+							<div class="hue-name">{ data.name }</div>
+						</a>
+					))
+				}
+			</div>
+			<div class="hues-image-wrapper flex">
+				{
+					hotBrand.map(e => (
+						<div class="mx-2">
+							<img src="https://imgf3.pop-fashion.com/styles/2023/1018/F_424_20231018105138/women/2324AW/8/outerwear/coat/4/middle/fee862d8-fbc4-4f87-acd3-b22e76870f38.jpg" loading="lazy" />
+						</div>
+					))
+				}
+			</div>
 		</div>
 	</div>
 	<script>
