@@ -5,43 +5,6 @@
  */
 /* The integration's default injected base.css file */
 
-.button-primary-bg-black {
-	background-color: rgb(var(--black));
-    color: var(--white);
-    --active-bg: var(--body-bg);
-}
-
-.button-primary-bg-white {
-	background-color: rgb(var(--white));
-    color: var(--black);
-    --active-bg: var(--body-bg);
-}
-
-
-
-button{
-	background: transparent;
-	font-size: 1rem;
-	line-height: 1.5;
-	--line-height: 1.5rem;
-	padding: 0.75rem 1rem;
-	border: solid 0.0625rem rgb(var(--color) / var(--border-alpha));
-	color: currentColor;
-	border-radius: 0.25rem;
-	font-family: inherit;
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	gap: 0.5rem;
-	cursor: pointer;
-	-webkit-text-decoration: none;
-	text-decoration: none;
-	transition: var(--transition-duration) ease-out;
-	transition-property: all;
-}
-
-
-
 :root {
 	--spacer-1: 0.25rem;
     --spacer-2: 0.5rem;
@@ -114,15 +77,6 @@ button{
 		0 16px 32px rgba(var(--gray), 33%);
 }
 
-button:hover {
-	transform: translate(-0.25rem,-0.25rem);
-    box-shadow: .25rem .25rem 0rem rgb(var(--color));
-}
-
-.shadow:hover {
-	transform: translate(-0.25rem,-0.25rem);
-    box-shadow: .25rem .25rem 0rem rgb(var(--color));
-}
 
 @font-face {
 	font-family: 'Atkinson';

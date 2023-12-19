@@ -1,83 +1,36 @@
 ---
 import { Icon } from "astro-icon";
 const mainMenus = ["T台", "街拍", "成衣", "品牌", "花纹", "AI", "色彩"];
+const nav = ["为您呈现", "发现", "聘请", "资源", "职位"];
 ---
 
 <style>
-    .inner {
-        margin: auto;
-        max-width: 1536px;
+    .main-nav {
+        height: 55px;
     }
-
 </style>
-<header class="wtn">
-    <div class="top-wrapper bg-slate-950 text-white py-2">
-        <div class="inner flex justify-end items-center">
-            <div class="aside">
-                <div class="nav">
-                    <a href="/secured/mypage/myPage">마이페이지</a>
-                    <a href="javascript:searchKeywordLogin();">로그인</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="menu-wrapper border-b border-slate-800 w-full">
-        <div class="top py-4">
-            <div class="inner flex justify-between items-center">
-                <h1 class="ssf-logo">
-                    <a href="/main">
-                        <img
-                            src="/logo.svg"
-                            loading="lazy"
-                            alt=""
-                            class="mega-gum-logo w-full"
-                        />
-                    </a>
-                </h1>
-                <div class="aside flex items-center">
-                    <div class="util flex"></div>
-                    <div class="flex font-bold text-2xl">
-                        <a
-                            href="/login"
-                        >
-                            登录
+<nav>
+    <div class="main-nav flex">
+        <ul class="flex h-full items-center mr-auto">
+            {
+                nav.map((item) => (
+                    <li class="m-4">
+                        <a href="/for_you/onboarding?tracking_source=nav20">
+                            <span class="font-semibold">{item}</span>
                         </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="border-t border-slate-800">
-            <div class="inner flex justify-start">
-                <div class="category flex justify-start">
-                    <div class="main-nav">
-                        <ul class="flex">
-                            {
-                                mainMenus.map((d) => (
-                                    <li class="py-4 px-2">
-                                        <a href="/main/THMA38A07?dspCtgryNo=SFMA41" class="">
-                                            { d }
-                                        </a>
-                                    </li>
-                                ))
-                            }
-                        </ul>
-                    </div>
-                    <div class="sub-nav border-l border-slate-800">
-                        <ul class="flex items-center">
-                            <li class="py-4 px-2">
-                                <a href="/ranking?rankSect=CLICK_RANK&ctgryFlterCd=CTGRY_FEMALE&preferAgeCd=ALL&brndShopId=&dspCtgryNo=">랭킹</a>
-                            </li>
-                            <li class="py-4 px-2"><a href="/selectAllBrandList">브랜드</a></li>
-                            <li class="py-4 px-2"><a href="/ssfMgz/list">매거진</a></li>
-                            <li class="py-4 px-2">
-                                <a href="/special/list?promtFlterBrndId=">기획전</a>
-                            </li>
-                            <li class="py-4 px-2"><a href="/event/list">이벤트</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+                    </li>
+                ))
+            }
+        </ul>
+        <div class="sign-wrapper flex">
+            <ul class="PrimaryNav-loggedOutOptions-ZwH flex items-center">
+                <li class="PrimaryNav-loggedOutOption-OP6 PrimaryNav-logIn-td1">
+                    <button class="btn-dark px-3 py-2  lg:px-4 text-sm rounded-full transition hover:bg-slate-800 border border-slate-900 font-medium mr-2">登录</button>
+                </li>
+                <li class="PrimaryNav-loggedOutOption-OP6">
+                    <button class="btn-light px-3 py-2  lg:px-4 bg-slate-900  text-white text-sm  rounded-full transition hover:bg-slate-800 border border-slate-900 font-mediummr-2">注册</button>
+                </li>
+            </ul>
         </div>
     </div>
-</header>
+</nav>
